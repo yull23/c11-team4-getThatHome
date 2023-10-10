@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
-import { members } from "../data/members";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
