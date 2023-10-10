@@ -1,4 +1,4 @@
-import { Card } from "../components/Card/Card";
+// import { Card } from "../components/Card/Card";
 import CarrouselSection from "../components/CarrouselSection";
 import HeroSection from "../components/HeroSection";
 import InfoSection from "../components/InfoSection";
