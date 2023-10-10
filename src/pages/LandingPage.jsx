@@ -14,6 +14,42 @@ function LandingPage() {
       <InfoSection />
       <TeamSection />
       <Footer />
+      <Button size="small" type="primary">
+        BUTTON
+      </Button>
+      <Button size="default" type="primary">
+        BUTTON
+      </Button>
+      <Button size="large" type="primary">
+        BUTTON
+      </Button>
+      <Button size="small" type="secondary">
+        BUTTON
+      </Button>
+      <Button size="default" type="secondary">
+        BUTTON
+      </Button>
+      <Button size="large" type="secondary">
+        BUTTON
+      </Button>
+      <Button size="small" type="disable">
+        BUTTON
+      </Button>
+      <Button size="default" type="disable">
+        BUTTON
+      </Button>
+      <Button size="large" type="disable">
+        BUTTON
+      </Button>
+      <Button size="small" type="ghost">
+        BUTTON
+      </Button>
+      <Button size="default" type="ghost">
+        BUTTON
+      </Button>
+      <Button size="large" type="ghost">
+        BUTTON
+      </Button>
     </>
   );
 }
