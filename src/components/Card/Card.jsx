@@ -1,5 +1,9 @@
 import { IconContext } from "react-icons";
-import { RiBuildingLine, RiMoneyDollarCircleLine } from "react-icons/ri";
+import {
+  RiBuildingLine,
+  RiCoinsLine,
+  RiMoneyDollarCircleLine,
+} from "react-icons/ri";
 import { BiArea, BiBath, BiBed } from "react-icons/bi";
 import { FaPaw } from "react-icons/fa";
 import "./card.css";
@@ -11,7 +15,8 @@ export function Card() {
     price: 3000,
     rent: 2000,
     maintanance: 100,
-    type: "Apartament",
+    typeSale: "rental",
+    typeProperty: "Apartament",
     bedrooms: 2,
     bathromms: 2,
     area: 100.0,
@@ -23,6 +28,12 @@ export function Card() {
   return (
     <div className="card">
       <img src={data.photo} alt="property" className="card__photo" />
+      <div className="card__type">
+        <IconContext.Provider value={{ size: "1.25rem" }}>
+          <RiCoinsLine />
+        </IconContext.Provider>
+        <p className="card__type-sale">For {data.typeSale}</p>
+      </div>
       <div>
         <div className="card__content">
           <div className="card__header">
@@ -38,7 +49,7 @@ export function Card() {
               >
                 <RiBuildingLine />
               </IconContext.Provider>
-              <span className="card__apartament">{data.type}</span>
+              <span className="card__apartament">{data.typeProperty}</span>
             </div>
           </div>
           <div className="card__descriptions">
@@ -56,7 +67,7 @@ export function Card() {
                 </div>
                 <div className="card__description">
                   <BiArea />
-                  <span>{data.area}</span>
+                  <span>{data.area} m2</span>
                 </div>
                 {data.petsAllowd ? <FaPaw /> : ""}
               </div>
