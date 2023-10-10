@@ -4,7 +4,6 @@ import InfoSection from "../components/InfoSection";
 import TeamSection from "../components/TeamSection";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
-
 function LandingPage() {
   return (
     <>
