@@ -1,3 +1,4 @@
+import { Card } from "../components/Card/Card";
 import CarrouselSection from "../components/CarrouselSection";
 import HeroSection from "../components/HeroSection";
 import InfoSection from "../components/InfoSection";
@@ -13,6 +14,15 @@ function LandingPage() {
       <InfoSection />
       <TeamSection />
       <Footer />
+      {/* <div className="card__container">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div> */}
     </>
   );
 }

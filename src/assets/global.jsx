@@ -16,7 +16,7 @@ export const reset = css`
     box-sizing: border-box;
     font-size: 1rem;
     line-height: 1.5rem;
-    font-family: "Oswald", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;
