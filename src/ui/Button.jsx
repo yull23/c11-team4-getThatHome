@@ -1,5 +1,4 @@
 import { BiUser } from "react-icons/bi";
-import { FiChevronDown } from "react-icons/fi";
 import styled from "@emotion/styled";
 function sizeStyle(size = "default") {
   if (size === "default") {
@@ -70,13 +69,13 @@ const StyledButton = styled.button`
   align-items: center;
 `;
 
-function Button({ children, ...props }) {
+function Button({ children, icon, ...props }) {
   console.log(props);
   return (
     <StyledButton {...props}>
-      <BiUser size={24} />
+      {/* <BiUser size={24} /> */}
+      {icon}
       {children}
-      <FiChevronDown size={20} />
     </StyledButton>
   );
 }
