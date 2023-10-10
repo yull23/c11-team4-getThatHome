@@ -14,7 +14,7 @@ function LandingPage() {
       <InfoSection />
       <TeamSection />
       <Footer />
-      <div className="card__container">
+      {/* <div className="card__container">
         <Card />
         <Card />
         <Card />
@@ -22,7 +22,7 @@ function LandingPage() {
         <Card />
         <Card />
         <Card />
-      </div>
+      </div> */}
     </>
   );
 }

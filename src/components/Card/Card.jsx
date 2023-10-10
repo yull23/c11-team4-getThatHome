@@ -3,8 +3,11 @@ import {
   RiBuildingLine,
   RiCoinsLine,
   RiMoneyDollarCircleLine,
+  RiUploadLine,
+  RiDeleteBin6Line,
 } from "react-icons/ri";
-import { BiArea, BiBath, BiBed } from "react-icons/bi";
+import { BiArea, BiBath, BiBed, BiEdit } from "react-icons/bi";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaPaw } from "react-icons/fa";
 import "./card.css";
 
@@ -24,7 +27,48 @@ export function Card() {
     about:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni vel atque quo? Nobis quibusdam libero culpa nisi sed non, eius ad soluta at amet doloremque atque est in fuga qui.",
     photo: "https://picsum.photos/id/1026/640",
+    // role: "tenant",
+    role: "seller",
+    active: false,
   };
+
+  const Actions = () => {
+    return (
+      <div className="card__actions">
+        <IconContext.Provider value={{ size: "1.5rem" }}>
+          {data.active ? (
+            <>
+              <div className="card__action-container">
+                <BiEdit />
+                <p className="card__action">Edit</p>
+              </div>
+              <div className="card__action-container">
+                <AiOutlineCloseCircle />
+                <p className="card__action">Close</p>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          {!data.active ? (
+            <>
+              <div className="card__action-container">
+                <RiUploadLine />
+                <p className="card__action">Restore</p>
+              </div>
+              <div className="card__action-container">
+                <RiDeleteBin6Line />
+                <p className="card__action">Delete</p>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+        </IconContext.Provider>
+      </div>
+    );
+  };
+
   return (
     <div className="card">
       <img src={data.photo} alt="property" className="card__photo" />
@@ -74,6 +118,7 @@ export function Card() {
             </IconContext.Provider>
           </div>
         </div>
+        {data.role == "tenant" ? "" : <Actions></Actions>}
         <div className="card__border"></div>
       </div>
     </div>
