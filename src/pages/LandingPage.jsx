@@ -1,7 +1,11 @@
-import ContainerPage from "../components/Containers/ContainerPage";
+import NavBar from "../components/Menu/NavBar";
 
 function LandingPage() {
-  return <ContainerPage></ContainerPage>;
+  return (
+    <>
+      <NavBar haveToken={true} role="tenant" />
+    </>
+  );
 }
 
 export default LandingPage;

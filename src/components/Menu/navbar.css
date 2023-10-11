@@ -1,0 +1,22 @@
+.button-find__container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  border: none;
+}
+
+.button-find__text {
+  font-family: "Inter";
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  color: var(--Gray, #616161);
+  width: max-content;
+}
+.button-find__container-button {
+  display: flex;
+  align-items: center;
+}
