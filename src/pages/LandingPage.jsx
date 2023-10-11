@@ -21,7 +21,12 @@ function LandingPage() {
       {/* <TeamSection /> */}
       {/* <Footer /> */}
       <div>
-        <InputSearch haveArrow={true} placeholder={"Address"} color="#8E8E8E" />
+        <InputSearch
+          haveArrow={true}
+          placeholder={"Address"}
+          color="#8E8E8E"
+          size="1.5rem"
+        />
         <InputForm placeholder={"Address"} />
         <InputForm placeholder={"Password"} type="password" />
         <InputRegular
