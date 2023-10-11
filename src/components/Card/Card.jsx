@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { IconContext } from "react-icons";
 import {
   RiBuildingLine,
@@ -11,27 +13,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaPaw } from "react-icons/fa";
 import "./card.css";
 
-export function Card() {
-  const data = {
-    // urlImage: "https://picsum.photos/id/1026/640",
-    address: "86872 Jacob Gateway, Durganport, WV 48044",
-    price: 3000,
-    rent: 2000,
-    maintanance: 100,
-    typeSale: "rental",
-    typeProperty: "Apartament",
-    bedrooms: 2,
-    bathromms: 2,
-    area: 100.0,
-    petsAllowd: true,
-    about:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni vel atque quo? Nobis quibusdam libero culpa nisi sed non, eius ad soluta at amet doloremque atque est in fuga qui.",
-    photo: "https://picsum.photos/id/1026/640",
-    // role: "tenant",
-    role: "seller",
-    active: false,
-  };
-
+export function Card({ data }) {
   const Actions = () => {
     return (
       <div className="card__actions">
@@ -126,5 +108,6 @@ export function Card() {
   );
 }
 
-// ri RiMoneyDollarCircleLine
-// RiMoneyDollarCircleLine;
+Card.propTypes = {
+  data: PropTypes.object,
+};

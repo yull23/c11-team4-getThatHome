@@ -13,7 +13,7 @@ export function InputSearch({
   ...props
 }) {
   return (
-    <ContainerInputText maxWidth="22.25rem" {...props}>
+    <ContainerInputText {...props}>
       <IconContext.Provider value={{ ...props }}>
         <ButtonIcon onClick={handleClickSearch}>
           <BsSearch />
