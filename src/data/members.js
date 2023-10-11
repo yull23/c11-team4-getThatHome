@@ -14,4 +14,19 @@ export const members = [
     name: "Katya Anco",
     url: "https://avatars.githubusercontent.com/u/132964539?v=4",
   },
+  {
+    id: 4,
+    name: "Katya Anco",
+    url: "https://avatars.githubusercontent.com/u/132964539?v=4",
+  },
+  {
+    id: 5,
+    name: "Katya Anco",
+    url: "https://avatars.githubusercontent.com/u/132964539?v=4",
+  },
+  {
+    id: 6,
+    name: "Katya Anco",
+    url: "https://avatars.githubusercontent.com/u/132964539?v=4",
+  },
 ];

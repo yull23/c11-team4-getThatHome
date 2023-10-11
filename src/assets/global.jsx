@@ -21,7 +21,7 @@ export const reset = css`
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    // border: 1px solid black;
+    border: 1px solid black;
   }
 
   /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
