@@ -1,3 +1,10 @@
+// Esto para abrir los que encabezados del componente menu en el localhost.
+// import { Menu } from "../components/Menu/Menu";
+
+// function LandingPage() {
+//   return <><Menu></Menu></>;
+// }
+// .............................................................................
 // import { Card } from "../components/Card/Card";
 // import CarrouselSection from "../components/CarrouselSection";
 // import HeroSection from "../components/HeroSection";
@@ -49,3 +56,4 @@ function LandingPage() {
 }
 
 export default LandingPage;
+
