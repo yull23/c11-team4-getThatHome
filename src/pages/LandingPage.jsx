@@ -1,5 +1,7 @@
+import ContainerPage from "../components/Containers/ContainerPage";
+
 function LandingPage() {
-  return <></>;
+  return <ContainerPage></ContainerPage>;
 }
 
 export default LandingPage;
