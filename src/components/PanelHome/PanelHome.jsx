@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import urlImg from "../../assets/images/Panel-Home.svg";
+import SearchHome from "../SearchHome/SearchHome";
 
 const ContainerPrimary = styled.div`
   aspect-ratio: 2.4 / 1;
@@ -55,7 +56,7 @@ export default function PanelHome() {
         <h1>Meet your new Home</h1>
         <p>The easiest way to find where you belong</p>
       </ContainerContent>
-      <p>Search</p>
+      <SearchHome />
     </ContainerPrimary>
   );
 }
