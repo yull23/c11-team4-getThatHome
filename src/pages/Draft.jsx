@@ -4,6 +4,10 @@ import { InputForm } from "../ui/Inputs/InputForm";
 import { InputRegular } from "../ui/Inputs/InputRegular";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { Card } from "../components/Card/Card";
+import Footer from "../ui/Footer";
+import TeamSection from "../components/TeamSection";
+import InfoSection from "../components/InfoSection";
+import CarrouselSection from "../components/CarrouselSection";
 
 const ContainerDraft = styled.div`
   display: flex;
@@ -85,45 +89,52 @@ const data3 = {
 
 export default function Draft() {
   return (
-    <ContainerDraft>
-      {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ START COMPONENTS INPUT */}
-      <ContainerComponent className="inputs__container">
-        <h2>Input Search</h2>
-        <p>Buscador con icono de flecha (List view)</p>
-        <InputSearch color="#8E8E8E" maxWidth="22.5rem" haveArrow={true} />
+    <>
+      <CarrouselSection />
+      <InfoSection />
+      <TeamSection />
+      <Footer />
+      <ContainerDraft>
+        {" "}
+        {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ START COMPONENTS INPUT */}
+        <ContainerComponent className="inputs__container">
+          <h2>Input Search</h2>
+          <p>Buscador con icono de flecha (List view)</p>
+          <InputSearch color="#8E8E8E" maxWidth="22.5rem" haveArrow={true} />
 
-        <p>Buscador sin Icono de Flecha (Property Form)</p>
-        <InputSearch color="#8E8E8E" maxWidth="37.5rem" />
-        <p>Input con icono de dolar (Property Form)</p>
+          <p>Buscador sin Icono de Flecha (Property Form)</p>
+          <InputSearch color="#8E8E8E" maxWidth="37.5rem" />
+          <p>Input con icono de dolar (Property Form)</p>
 
-        <InputRegular
-          icon={<RiMoneyDollarCircleLine />}
-          size="2rem"
-          color="#8E8E8E"
-        />
+          <InputRegular
+            icon={<RiMoneyDollarCircleLine />}
+            size="2rem"
+            color="#8E8E8E"
+          />
 
-        <p>Input para formularios</p>
-        <InputForm placeholder={"Address"} type="text" />
-        <InputForm placeholder={"Password"} type="password" />
-        <InputForm placeholder={"Email"} type="email" />
-      </ContainerComponent>
-      {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ END COMPONENTS INPUT */}
-      {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ START COMPONENTS INPUT */}
-      <ContainerComponent className="cards__container">
-        <h2>Cards</h2>
-        <div className="card__container">
-          <Card data={data1} />
-          <Card data={data1} />
-          <Card data={data1} />
-          <Card data={data2} />
-          <Card data={data2} />
-          <Card data={data2} />
-          <Card data={data3} />
-          <Card data={data3} />
-          <Card data={data3} />
-        </div>
-      </ContainerComponent>
-      {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ END COMPONENTS INPUT */}
-    </ContainerDraft>
+          <p>Input para formularios</p>
+          <InputForm placeholder={"Address"} type="text" />
+          <InputForm placeholder={"Password"} type="password" />
+          <InputForm placeholder={"Email"} type="email" />
+        </ContainerComponent>
+        {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ END COMPONENTS INPUT */}
+        {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ START COMPONENTS INPUT */}
+        <ContainerComponent className="cards__container">
+          <h2>Cards</h2>
+          <div className="card__container">
+            <Card data={data1} />
+            <Card data={data1} />
+            <Card data={data1} />
+            <Card data={data2} />
+            <Card data={data2} />
+            <Card data={data2} />
+            <Card data={data3} />
+            <Card data={data3} />
+            <Card data={data3} />
+          </div>
+        </ContainerComponent>
+        {/* ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ END COMPONENTS INPUT */}
+      </ContainerDraft>
+    </>
   );
 }
