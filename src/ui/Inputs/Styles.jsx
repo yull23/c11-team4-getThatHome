@@ -20,6 +20,7 @@ export const InputText = styled.input`
 `;
 export const ContainerInputText = styled.div`
   display: flex;
+  width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
   padding: 8px;
   align-items: center;
