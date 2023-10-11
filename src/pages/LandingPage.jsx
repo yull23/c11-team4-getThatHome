@@ -1,20 +1,7 @@
-import CarrouselSection from "../components/CarrouselSection";
-import HeroSection from "../components/HeroSection";
-import InfoSection from "../components/InfoSection";
-import TeamSection from "../components/TeamSection";
-import Footer from "../ui/Footer";
-import Header from "../ui/Header";
+import { Menu } from "../components/Menu/Menu";
+
 function LandingPage() {
-  return (
-    <>
-      <Header />
-      <HeroSection />
-      <CarrouselSection />
-      <InfoSection />
-      <TeamSection />
-      <Footer />
-    </>
-  );
+  return <><Menu></Menu></>;
 }
 
 export default LandingPage;
