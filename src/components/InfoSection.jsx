@@ -2,23 +2,25 @@ import styled from "@emotion/styled";
 import Button from "../ui/Button";
 
 const Container = styled.div`
-  background-color: #f48fb115;
-  padding: 64px 32px;
-  div {
-    max-width: 824px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
+  width: 100%;
+  background: var(--ShallowPink, rgba(244, 143, 177, 0.15));
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
   h2 {
+    max-width: 832px;
+    color: var(--DarkGray, #373737);
+    text-align: center;
+    /* Headline4 */
     font-family: Montserrat;
     font-size: 36px;
+    font-style: normal;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 48px; /* 133.333% */
     letter-spacing: 0.25px;
-    color: #373737;
-    text-align: center;
   }
 `;
 const ButtonStyled = styled(Button)`
@@ -27,12 +29,10 @@ const ButtonStyled = styled(Button)`
 function InfoSection() {
   return (
     <Container>
-      <div>
-        <h2>Geeting someone to rent your apartment has never been this easy</h2>
-        <ButtonStyled type="primary" size="large">
-          CREATE AN ACCOUNT NOW
-        </ButtonStyled>
-      </div>
+      <h2>Geeting someone to rent your apartment has never been this easy</h2>
+      <ButtonStyled type="primary" size="large">
+        CREATE AN ACCOUNT NOW
+      </ButtonStyled>
     </Container>
   );
 }

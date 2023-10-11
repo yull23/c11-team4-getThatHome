@@ -5,6 +5,10 @@ const Container = styled.form`
   display: flex;
   padding: 0.5rem 1rem;
   align-items: center;
+  border-radius: 8px;
+  background: var(--White, #fff);
+  /* Elevation1 */
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
 `;
 const SpaceLine = styled.div`
   margin: 0 0.5rem;
