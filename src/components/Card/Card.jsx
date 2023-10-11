@@ -98,6 +98,7 @@ export function Card() {
           </div>
           <div className="card__descriptions">
             <p className="card__address">{data.address}</p>
+            <img src="" alt="" />
 
             <IconContext.Provider value={{ size: "1.5rem", color: "#606061" }}>
               <div className="card__footer">
