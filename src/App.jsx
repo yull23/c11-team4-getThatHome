@@ -1,8 +1,13 @@
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/routes";
+import ContainerPage from "./components/Containers/ContainerPage";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <ContainerPage>
+      <RouterProvider router={router} />
+    </ContainerPage>
+  );
 }
 
 export default App;

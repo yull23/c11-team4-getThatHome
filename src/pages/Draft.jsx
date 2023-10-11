@@ -10,6 +10,7 @@ import InfoSection from "../components/InfoSection";
 import CarrouselSection from "../components/CarrouselSection";
 import HeroSection from "../components/HeroSection";
 import { Menu } from "../components/Menu/Menu";
+import ContainerPage from "../components/Containers/ContainerPage";
 
 const ContainerDraft = styled.div`
   display: flex;
