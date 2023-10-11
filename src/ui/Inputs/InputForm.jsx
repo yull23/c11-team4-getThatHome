@@ -3,15 +3,13 @@ import { ContainerInputText, InputText } from "./Styles";
 
 export function InputForm({ type, placeholder, handleChange, ...props }) {
   return (
-    <>
-      <ContainerInputText maxWidth="22.25rem" {...props}>
-        <InputText
-          placeholder={placeholder}
-          type={type}
-          onChange={handleChange}
-        />
-      </ContainerInputText>
-    </>
+    <ContainerInputText maxWidth="22.25rem" {...props}>
+      <InputText
+        placeholder={placeholder}
+        type={type}
+        onChange={handleChange}
+      />
+    </ContainerInputText>
   );
 }
 

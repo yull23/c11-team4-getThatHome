@@ -6,7 +6,11 @@
 // import Footer from "../ui/Footer";
 // import Header from "../ui/Header";
 import { InputForm } from "../ui/Inputs/InputForm";
+import { InputRegular } from "../ui/Inputs/InputRegular";
 import { InputSearch } from "../ui/Inputs/InputSearch";
+
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+
 function LandingPage() {
   return (
     <>
@@ -16,9 +20,16 @@ function LandingPage() {
       {/* <InfoSection /> */}
       {/* <TeamSection /> */}
       {/* <Footer /> */}
-      <InputSearch haveArrow={true} placeholder={"Address"} />
-      <InputForm placeholder={"Address"} />
-      <InputForm placeholder={"Password"} type="password" />
+      <div>
+        <InputSearch haveArrow={true} placeholder={"Address"} color="#8E8E8E" />
+        <InputForm placeholder={"Address"} />
+        <InputForm placeholder={"Password"} type="password" />
+        <InputRegular
+          icon={<RiMoneyDollarCircleLine />}
+          size="2rem"
+          color="#8E8E8E"
+        />
+      </div>
       {/* <div className="card__container">
         <Card />
         <Card />

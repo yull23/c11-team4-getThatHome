@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { BsSearch } from "react-icons/bs";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { ButtonIcon, ContainerInputText, InputText } from "./Styles";
+import { IconContext } from "react-icons";
 
 export function InputSearch({
   placeholder,
@@ -12,25 +13,24 @@ export function InputSearch({
   ...props
 }) {
   return (
-    <>
-      <ContainerInputText maxWidth="22.25rem" {...props}>
+    <ContainerInputText maxWidth="22.25rem" {...props}>
+      <IconContext.Provider value={{ ...props }}>
         <ButtonIcon onClick={handleClickSearch}>
           <BsSearch />
         </ButtonIcon>
-        <InputText
-          placeholder={placeholder}
-          onChange={handleChange}
-          {...props}
-        />
-        {haveArrow ? (
+      </IconContext.Provider>
+
+      <InputText placeholder={placeholder} onChange={handleChange} {...props} />
+      {haveArrow ? (
+        <IconContext.Provider value={{ ...props }}>
           <ButtonIcon onClick={handleClickArrow}>
             <RiArrowDownSLine />
           </ButtonIcon>
-        ) : (
-          ""
-        )}
-      </ContainerInputText>
-    </>
+        </IconContext.Provider>
+      ) : (
+        ""
+      )}
+    </ContainerInputText>
   );
 }
 
