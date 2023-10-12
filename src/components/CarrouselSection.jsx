@@ -6,7 +6,7 @@ const Container = styled.div`
   align-items: center;
   text-align: center;
   gap: 32px;
-  padding: 64px 32px;
+  padding: 64px 132px;
 `;
 const CardContainer = styled.div`
   display: flex;
