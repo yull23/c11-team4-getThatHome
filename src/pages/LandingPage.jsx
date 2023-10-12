@@ -9,9 +9,11 @@
 import CarrouselSection from "../components/CarrouselSection";
 import HeroSection from "../components/HeroSection";
 import InfoSection from "../components/InfoSection";
+import Select from "../components/Select/SelectActive";
 import TeamSection from "../components/TeamSection";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
+
 function LandingPage() {
   return (
     <>
@@ -19,6 +21,7 @@ function LandingPage() {
       <HeroSection />
       <CarrouselSection />
       <InfoSection />
+      <Select />
       <TeamSection />
       <Footer />
       {/* <div className="card__container">
@@ -30,6 +33,7 @@ function LandingPage() {
         <Card />
         <Card />
       </div> */}
+      
     </>
   );
 }
