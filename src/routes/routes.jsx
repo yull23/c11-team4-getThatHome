@@ -4,9 +4,10 @@ import PropertiesPage from "../pages/PropertiesPage";
 import ShowPropertyPage from "../pages/SearchPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
-import NewPropertyPage from "../pages/NewPropertyPage";
+
 import ProfileViewPage from "../pages/ProfileViewPage";
 import Draft from "../pages/Draft";
+import NewPropertyPage from "../pages/NewPropertyPage/NewPropertyPage";
 
 const router = createBrowserRouter([
   {
