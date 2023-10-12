@@ -5,6 +5,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  min-width: 15rem;
   h3 {
     font-family: "Montserrat";
     font-weight: 400;
