@@ -7,6 +7,7 @@
   justify-content: center;
   /* justify-content: end; */
   margin: auto;
+  /* box-sizing: content-box; */
 }
 
 .card {
