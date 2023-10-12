@@ -2,18 +2,26 @@ import styled from "@emotion/styled";
 import { DiRuby, DiReact } from "react-icons/di";
 const Container = styled.div`
   background-color: #f5f5f6;
+  width: 100%;
+  padding: 0 7.5rem;
 `;
 const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-family: "Montserrat";
-  padding: 16px 31px;
-  max-width: 1200px;
+  padding: 1rem 2rem;
   margin: 0 auto;
-  @media (max-width: 800px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+  span {
+    color: var(--DarkGray, #373737);
+    text-align: center;
+
+    /* Regular/Subtitle2 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 128.571% */
+    letter-spacing: 0.1px;
   }
 `;
 const Source = styled.div`
@@ -25,14 +33,21 @@ const Source = styled.div`
     display: flex;
     gap: 16px;
   }
-  @media (max-width: 1000px) {
-    div {
-      flex-direction: column;
-      gap: 0px;
-    }
+  span,
+  p {
+    color: var(--DarkGray, #373737);
+    text-align: center;
+
+    /* Regular/Subtitle2 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 128.571% */
+    letter-spacing: 0.1px;
   }
 `;
-function Footer() {
+function FooterHome() {
   return (
     <Container>
       <FooterContainer>
@@ -49,10 +64,10 @@ function Footer() {
             </p>
           </div>
         </Source>
-        <div>Codeable - Cohort 11 Final Project</div>
+        <span>Codeable - Cohort 11 Final Project</span>
       </FooterContainer>
     </Container>
   );
 }
 
-export default Footer;
+export default FooterHome;
