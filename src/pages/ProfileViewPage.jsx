@@ -1,19 +1,11 @@
-import CarrouselSection from "../components/CarrouselSection";
-import HeroSection from "../components/HeroSection";
-import InfoSection from "../components/InfoSection";
-import TeamSection from "../components/TeamSection";
-import Footer from "../ui/Footer";
-import Header from "../ui/Header";
+import CardPanel from "../components/CardPanel/CardPanel";
+import NavBar from "../components/Menu/NavBar";
 
 function ProfileViewPage() {
   return (
     <>
-      <Header />
-      <HeroSection />
-      <CarrouselSection />
-      <InfoSection />
-      <TeamSection />
-      <Footer />
+      <NavBar haveToken={true} role="tenant" />
+      <CardPanel />
     </>
   );
 }
