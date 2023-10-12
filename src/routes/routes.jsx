@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import NewPropertyPage from "../pages/NewPropertyPage";
 import ProfileViewPage from "../pages/ProfileViewPage";
+import Draft from "../pages/Draft";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/profile-view",
         element: <ProfileViewPage />,
+      },
+      {
+        path: "/draft",
+        element: <Draft />,
       },
     ],
   },

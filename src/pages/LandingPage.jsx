@@ -1,42 +1,20 @@
-// Esto para abrir los que encabezados del componente menu en el localhost.
-// import { Menu } from "../components/Menu/Menu";
-
-// function LandingPage() {
-//   return <><Menu></Menu></>;
-// }
-// .............................................................................
-// import { Card } from "../components/Card/Card";
 import CarrouselSection from "../components/CarrouselSection";
-import HeroSection from "../components/HeroSection";
+import FooterHome from "../components/FooterHome";
 import InfoSection from "../components/InfoSection";
-import Select from "../components/Select/SelectActive";
+import NavBar from "../components/Menu/NavBar";
+import PanelHome from "../components/PanelHome/PanelHome";
 import TeamSection from "../components/TeamSection";
-import Footer from "../ui/Footer";
-import Header from "../ui/Header";
-
 function LandingPage() {
   return (
     <>
-      <Header />
-      <HeroSection />
+      <NavBar haveToken={false} role="tenant" />
+      <PanelHome />
       <CarrouselSection />
       <InfoSection />
-      <Select />
       <TeamSection />
-      <Footer />
-      {/* <div className="card__container">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div> */}
-      
+      <FooterHome />
     </>
   );
 }
 
 export default LandingPage;
-

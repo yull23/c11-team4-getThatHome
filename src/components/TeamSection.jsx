@@ -5,6 +5,7 @@ const MembersContainer = styled.div`
   display: flex;
   margin: 0 auto;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 32px;
 `;
 const Container = styled.div`
@@ -12,14 +13,16 @@ const Container = styled.div`
   flex-direction: column;
   gap: 26px;
   background-color: white;
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding: 4rem 12rem;
   h2 {
-    font-size: 48px;
-    font-weight: 400;
-    font-family: "Montserrat";
-    color: #bf5f82;
+    color: var(--DarkPink, #bf5f82);
     text-align: center;
+    /* Regular/Headline3 */
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 `;
 
