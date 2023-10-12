@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import "./new-property-page.css";
+import NavBar from "../../components/Menu/NavBar";
+import Footer from "../../ui/Footer";
+
 
 function NewPropertyPage() {
   const {
@@ -42,9 +45,11 @@ function NewPropertyPage() {
   });
 
   return (
-    <form onSubmit={onSubmit}>
+    <>
+      <NavBar haveToken={false} role="tenant" />
+      <form onSubmit={onSubmit}>
       <div>
-        <label>Nombre:</label>
+        <label>ADDRESS:</label>
         <input
           type="text"
           name="nombre"
@@ -67,7 +72,7 @@ function NewPropertyPage() {
       </div>
 
       <div>
-        <label>Correo Electrónico:</label>
+        <label>MONTLY RENT</label>
         <input
           type="email"
           name="correo"
@@ -86,7 +91,7 @@ function NewPropertyPage() {
       </div>
 
       <div>
-        <label>Fecha de Nacimiento:</label>
+        <label>MAINTENCE</label>
         <input
           type="date"
           name="fechaNacimiento"
@@ -203,7 +208,10 @@ function NewPropertyPage() {
 
       <pre style={{ width: "400px" }}>{JSON.stringify(watch(), null, 2)}</pre>
       <h3>Hello {watch("nombre")}</h3>
+      
     </form>
+    <Footer/>
+    </>
   );
 }
 
