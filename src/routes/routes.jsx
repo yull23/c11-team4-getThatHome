@@ -39,17 +39,6 @@ const router = createBrowserRouter([
       {
         path: "/profile-view",
         element: <ProfileViewPage />,
-
-        children: [
-          {
-            path: "/favorite",
-            element: <NewPropertyPage />,
-          },
-          {
-            path: "/contact",
-            element: <NewPropertyPage />,
-          },
-        ],
       },
       {
         path: "/draft",
