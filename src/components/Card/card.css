@@ -7,6 +7,7 @@
   justify-content: center;
   /* justify-content: end; */
   margin: auto;
+  /* box-sizing: content-box; */
 }
 
 .card {
@@ -78,6 +79,7 @@
   line-height: 1.5;
   letter-spacing: 0.15px;
   min-height: 4rem;
+  text-align: start;
 }
 .card__footer {
   display: flex;
