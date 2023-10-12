@@ -7,6 +7,9 @@ import PaginatorCards from "./PaginatorCards";
 const ContainerPrimary = styled.div`
   width: 100%;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `;
 
 const ContainerCardList = styled.div`
@@ -18,7 +21,7 @@ const ContainerCardList = styled.div`
 `;
 
 export default function CardList({ cards }) {
-  const [pageCurrent, setPageCurrent] = useState(1);
+  const [pageCurrent, setPageCurrent] = useState("12");
 
   const pages = {};
   const numPages = Math.ceil(cards.length / 6);

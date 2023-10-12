@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
+import { IconContext } from "react-icons";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 export default function PaginatorCards({ pages, pageCurrent, setPageCurrent }) {
   const indexPages = Object.keys(pages);
@@ -35,15 +38,37 @@ export default function PaginatorCards({ pages, pageCurrent, setPageCurrent }) {
     background: var(--ShallowPink, rgba(244, 143, 177, 0.15));
   `;
 
+  function handleClick(e) {
+    setPageCurrent(e.target.textContent);
+  }
+
   return (
     <ContainerButtons>
-      {indexPages.map((index, id) => {
-        if (pageCurrent == index) {
-          return <ButtonActive key={id}>{index}</ButtonActive>;
-        } else {
-          return <ButtonRegular key={id}>{index}</ButtonRegular>;
-        }
-      })}
+      <IconContext.Provider value={{ size: "1.5rem" }}>
+        <RiArrowLeftSLine />
+        {indexPages.map((index, id) => {
+          if (pageCurrent == index) {
+            return (
+              <ButtonActive key={id} onClick={handleClick}>
+                {index}
+              </ButtonActive>
+            );
+          } else {
+            return (
+              <ButtonRegular key={id} onClick={handleClick}>
+                {index}
+              </ButtonRegular>
+            );
+          }
+        })}
+        <RiArrowRightSLine />
+      </IconContext.Provider>
     </ContainerButtons>
   );
 }
+
+PaginatorCards.propTypes = {
+  pages: PropTypes.object.isRequired,
+  pageCurrent: PropTypes.string.isRequired,
+  setPageCurrent: PropTypes.func.isRequired,
+};

@@ -5,13 +5,20 @@ const ContainerPrimary = styled.div`
   width: 100%;
   padding: 0 7.5rem;
 `;
-const ContainerCards = styled.div`
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 
-  p {
+const TextActions = styled.p`
+  /* Regular/Button */
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+`;
+
+const TextRegular = styled.p`
+   {
     color: var(--Gray, #616161);
     /* Headline6 */
     font-family: Montserrat;
@@ -22,20 +29,16 @@ const ContainerCards = styled.div`
     letter-spacing: 0.15px;
   }
 `;
+const ContainerCards = styled.div`
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
 
 const ContainerActions = styled.div`
   display: flex;
   gap: 1rem;
-  p {
-    /* Regular/Button */
-    font-family: Inter;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.75;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-  }
 `;
 
 const data1 = {
@@ -77,10 +80,10 @@ export default function CardPanel() {
     <ContainerPrimary>
       <ContainerCards>
         <ContainerActions>
-          <p>favorite</p>
-          <p>closed</p>
+          <TextActions>favorite</TextActions>
+          <TextActions>closed</TextActions>
         </ContainerActions>
-        <p>4 Properties found</p>
+        <TextRegular>4 Properties found</TextRegular>
         <CardList cards={data2} />
       </ContainerCards>
     </ContainerPrimary>

@@ -79,6 +79,7 @@
   line-height: 1.5;
   letter-spacing: 0.15px;
   min-height: 4rem;
+  text-align: start;
 }
 .card__footer {
   display: flex;
