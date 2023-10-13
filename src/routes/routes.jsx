@@ -7,7 +7,7 @@ import SignupPage from "../pages/SignupPage";
 
 import ProfileViewPage from "../pages/ProfileViewPage";
 import Draft from "../pages/Draft";
-import NewPropertyPage from "../pages/NewPropertyPage/NewPropertyPage";
+import { NewPropertyPage} from "../pages/NewPropertyPage/NewPropertyPage";
 
 const router = createBrowserRouter([
   {

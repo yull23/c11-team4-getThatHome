@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 
 
-function NewPropertyPage () {
+function NewPropertyPage() {
   const {
     register,
     handleSubmit,
@@ -156,4 +156,4 @@ function NewPropertyPage () {
   );
 }
 
-export {NewPropertyPage };
+export {NewPropertyPage};
