@@ -38,7 +38,7 @@ const ImgContainer = styled.div`
     background-color: white;
     text-align: center;
     border-radius: 8px;
-    margin: 8px;
+    margin: 9px;
     &:hover {
       background-color: #ccc2;
     }
