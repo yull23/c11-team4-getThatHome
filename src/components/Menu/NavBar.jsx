@@ -11,10 +11,12 @@ import { AiFillHeart } from "react-icons/ai";
 import { TbHome2 } from "react-icons/tb";
 
 const ContainerPrimary = styled.div`
+  position: relative;
   width: 100%;
   padding: 0 7.5rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
 `;
 const ContainerSecundary = styled.div`
   padding: 1rem 2rem;

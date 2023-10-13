@@ -10,8 +10,9 @@ import InfoSection from "../components/InfoSection";
 import CarrouselSection from "../components/CarrouselSection";
 import HeroSection from "../components/HeroSection";
 import { Menu } from "../components/Menu/Menu";
-import ContainerPage from "../components/Containers/ContainerPage";
-import Select from "../components/Select/Select";
+
+import SelectCheckBox from "../components/Select/Select";
+
 
 
 
@@ -97,7 +98,7 @@ export default function Draft() {
   return (
     <>
       <Menu />
-      <Select />
+      <SelectCheckBox />
       <HeroSection />
       <CarrouselSection />
       <InfoSection />
