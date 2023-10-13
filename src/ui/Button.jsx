@@ -71,7 +71,6 @@ const StyledButton = styled.button`
 `;
 
 function Button({ children, icon, ...props }) {
-  console.log(props);
   return (
     <StyledButton {...props}>
       {/* <BiUser size={24} /> */}
