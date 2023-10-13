@@ -1,0 +1,21 @@
+body {
+  background:#FFFFFF;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+}
+
+label {
+  display: block;
+  font-family: Overline;
+  width: 100%;
+  
+}
+
+
+input {
+  margin-bottom: .3rem;
+}

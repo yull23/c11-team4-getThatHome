@@ -1,11 +1,8 @@
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
-import "./new-property-page.css";
-import NavBar from "../../components/Menu/NavBar";
-import Footer from "../../ui/Footer";
 
 
-function NewPropertyPage() {
+function NewPropertyPage () {
   const {
     register,
     handleSubmit,
@@ -13,46 +10,22 @@ function NewPropertyPage() {
     watch,
     setValue,
     reset,
-  } = useForm({
-    defaultValues: {
-      nombre: "",
-      correo: "",
-      fechaNacimiento: "",
-      password: "",
-      confirmarPassword: "",
-      pais: "co",
-      archivo: "",
-      aceptaTerminos: false,
-    },
-  });
+  } = useForm();
 
   const password = useRef(null);
   password.current = watch("password", "");
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
-    // reset({
-    //   nombre: '',
-    //   correo: '',
-    //   fechaNacimiento: '',
-    //   password: '',
-    //   confirmarPassword: '',
-    //   pais: 'ar',
-    //   archivo: '',
-    //   aceptaTerminos: false
-    // })
-    reset();
   });
 
   return (
     <>
-      <NavBar haveToken={false} role="tenant" />
       <form onSubmit={onSubmit}>
-      <div>
+
         <label>ADDRESS:</label>
         <input
           type="text"
-          name="nombre"
           {...register("nombre", {
             required: {
               value: true,
@@ -69,9 +42,8 @@ function NewPropertyPage() {
         {errors.nombre?.type === "minLength" && (
           <span>Nombre debe ser mayor a 2 caracteres</span>
         )}
-      </div>
-
-      <div>
+        
+        <div>
         <label>MONTLY RENT</label>
         <input
           type="email"
@@ -88,30 +60,6 @@ function NewPropertyPage() {
           })}
         />
         {errors.correo && <span>{errors.correo.message}</span>}
-      </div>
-
-      <div>
-        <label>MAINTENCE</label>
-        <input
-          type="date"
-          name="fechaNacimiento"
-          {...register("fechaNacimiento", {
-            required: {
-              value: true,
-              message: "Fecha de nacimiento es requerida",
-            },
-            validate: (value) => {
-              const fechaNacimiento = new Date(value);
-              const fechaActual = new Date();
-              const edad =
-                fechaActual.getFullYear() - fechaNacimiento.getFullYear();
-              return edad >= 18 || "Debes ser mayor de edad";
-            },
-          })}
-        />
-        {errors.fechaNacimiento && (
-          <span>{errors.fechaNacimiento.message}</span>
-        )}
       </div>
 
       <div>
@@ -132,7 +80,7 @@ function NewPropertyPage() {
         />
         {errors.password && <span>{errors.password.message}</span>}
       </div>
-
+      
       <div>
         <label>Confirma Contraseña:</label>
         <input
@@ -149,19 +97,20 @@ function NewPropertyPage() {
             },
             validate: (value) =>
               value === password.current || "Las contraseñas no coinciden",
-          })}
+          
+        })}
         />
         {errors.confirmarPassword && (
           <span>{errors.confirmarPassword.message}</span>
         )}
       </div>
-
+      
       <div>
         <label htmlFor="pais">Pais:</label>
-        <select name="pais" id="pais" {...register("pais")}>
-          <option value="mx">México</option>
+        <select id="pais" {...register("pais")}>
+          <option value="pe">Perú</option>
           <option value="co">Colombia</option>
-          <option value="ar">Argentina</option>
+          <option value="mx">México</option>
         </select>
 
         {watch("pais") === "ar" && (
@@ -169,30 +118,29 @@ function NewPropertyPage() {
             type="text"
             placeholder="Provincia"
             {...register("provincia", {
-              required: {
-                value: true,
-                message: "Provincia es requerida",
-              },
+              // required: {
+              //   value: true,
+              //   message: "Provincia es requerida",
+              // },
             })}
           />
         )}
       </div>
-
       <div>
-        <label htmlFor="archivo">subir nombre de archivo:</label>
+        <label htmlFor="archivo">Photos</label>
         <input
           type="file"
           onChange={(e) => {
             setValue("archivo", e.target.files[0].name);
           }}
+          placeholder="Choose a file"
         />
         {errors.archivo && <span>{errors.archivo.message}</span>}
       </div>
-
+      <button type="submit">Enviar</button>
       <div>
         <input
           type="checkbox"
-          name="aceptaTerminos"
           {...register("aceptaTerminos", {
             required: {
               value: true,
@@ -203,16 +151,9 @@ function NewPropertyPage() {
         <label>Acepto los términos y condiciones</label>
         {errors.aceptaTerminos && <span>{errors.aceptaTerminos.message}</span>}
       </div>
-
-      <button type="submit">Enviar</button>
-
-      <pre style={{ width: "400px" }}>{JSON.stringify(watch(), null, 2)}</pre>
-      <h3>Hello {watch("nombre")}</h3>
-      
     </form>
-    <Footer/>
     </>
   );
 }
 
-export default NewPropertyPage;
+export {NewPropertyPage };
