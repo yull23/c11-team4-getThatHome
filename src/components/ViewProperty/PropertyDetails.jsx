@@ -3,12 +3,15 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { ShowPropertyContext } from "../../pages/ShowPropertyPage";
 import HeaderProperty from "./Components-Details/HeaderProperty";
+import EnviorementsProperty from "./Components-Details/EnviorementsProperty";
+import AboutProperty from "./Components-Details/AboutProperty";
+import LocationProperty from "./Components-Details/LocationProperty";
 
 const ContainerPrimary = styled.div`
   width: 100%;
   padding: 0 2rem;
+  display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
 `;
 
@@ -18,21 +21,9 @@ export default function PropertyDetails() {
   return (
     <ContainerPrimary>
       <HeaderProperty />
-      <div>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quia
-        voluptatibus eius perferendis expedita aperiam. Rem quo amet quos ipsum
-        eum eos veniam, in quisquam esse, adipisci eaque alias animi!
-      </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quia
-        voluptatibus eius perferendis expedita aperiam. Rem quo amet quos ipsum
-        eum eos veniam, in quisquam esse, adipisci eaque alias animi!
-      </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quia
-        voluptatibus eius perferendis expedita aperiam. Rem quo amet quos ipsum
-        eum eos veniam, in quisquam esse, adipisci eaque alias animi!
-      </div>
+      <EnviorementsProperty />
+      <AboutProperty />
+      <LocationProperty />
     </ContainerPrimary>
   );
 }

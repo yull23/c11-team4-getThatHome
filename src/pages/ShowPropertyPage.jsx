@@ -27,6 +27,7 @@ function ShowPropertyPage() {
     // role: "tenant",
     role: "tenant",
     active: false,
+    coordinates: ["-12.025107", "-76.895063"],
   };
 
   return (
