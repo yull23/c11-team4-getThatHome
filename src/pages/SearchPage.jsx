@@ -5,7 +5,7 @@ import TeamSection from "../components/TeamSection";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
 
-function ShowPropertyPage() {
+function SearchPage() {
   return (
     <>
       <Header />
@@ -18,4 +18,4 @@ function ShowPropertyPage() {
   );
 }
 
-export default ShowPropertyPage;
+export default SearchPage;
