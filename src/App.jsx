@@ -1,10 +1,12 @@
-import LandingPage from "./pages/LandingPage";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/routes";
+import ContainerPage from "./components/Containers/ContainerPage";
 
 function App() {
   return (
-    <>
-      <LandingPage />
-    </>
+    <ContainerPage>
+      <RouterProvider router={router} />
+    </ContainerPage>
   );
 }
 

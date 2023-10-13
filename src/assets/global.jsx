@@ -7,6 +7,7 @@ import { colors } from "./colors";
 export const reset = css`
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Open+Sans:wght@300&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
   /* Box sizing rules */
 
@@ -16,7 +17,7 @@ export const reset = css`
     box-sizing: border-box;
     font-size: 1rem;
     line-height: 1.5rem;
-    font-family: "Oswald", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;

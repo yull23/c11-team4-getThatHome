@@ -67,10 +67,10 @@ const StyledButton = styled.button`
   letter-spacing: 1.25px;
   font-weight: 400;
   align-items: center;
+  width: max-content;
 `;
 
 function Button({ children, icon, ...props }) {
-  console.log(props);
   return (
     <StyledButton {...props}>
       {/* <BiUser size={24} /> */}

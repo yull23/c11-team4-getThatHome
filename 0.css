@@ -1,0 +1,30 @@
+div {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+  justify-content: space-between;
+}
+
+div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 4.25rem;
+  row-gap: 2rem;
+  justify-content: center;
+  margin: auto;
+}
+div {
+  display: flex;
+  gap: 1rem;
+}
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
