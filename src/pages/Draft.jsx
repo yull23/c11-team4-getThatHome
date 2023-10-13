@@ -11,6 +11,9 @@ import CarrouselSection from "../components/CarrouselSection";
 import HeroSection from "../components/HeroSection";
 import { Menu } from "../components/Menu/Menu";
 import ContainerPage from "../components/Containers/ContainerPage";
+import Select from "../components/Select/Select";
+
+
 
 const ContainerDraft = styled.div`
   display: flex;
@@ -94,6 +97,7 @@ export default function Draft() {
   return (
     <>
       <Menu />
+      <Select />
       <HeroSection />
       <CarrouselSection />
       <InfoSection />
