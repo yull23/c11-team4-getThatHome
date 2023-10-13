@@ -4,7 +4,6 @@ import InfoSection from "../components/InfoSection";
 import NavBar from "../components/Menu/NavBar";
 import PanelHome from "../components/PanelHome/PanelHome";
 import TeamSection from "../components/TeamSection";
-
 function LandingPage() {
   return (
     <>
