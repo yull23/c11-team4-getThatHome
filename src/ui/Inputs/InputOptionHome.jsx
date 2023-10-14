@@ -62,4 +62,5 @@ InputOptionHome.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   options: PropTypes.array,
+  isSelect: PropTypes.bool,
 };

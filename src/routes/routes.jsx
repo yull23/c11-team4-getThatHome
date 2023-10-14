@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingPage from "../pages/LandingPage";
 import PropertiesPage from "../pages/PropertiesPage";
-import ShowPropertyPage from "../pages/SearchPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 
 import ProfileViewPage from "../pages/ProfileViewPage";
 import Draft from "../pages/Draft";
+<<<<<<< HEAD
 import { NewPropertyPage} from "../pages/NewPropertyPage/NewPropertyPage";
+=======
+import ShowPropertyPage from "../pages/ShowPropertyPage";
+>>>>>>> develop
 
 const router = createBrowserRouter([
   {
