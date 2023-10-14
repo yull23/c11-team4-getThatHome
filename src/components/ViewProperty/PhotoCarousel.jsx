@@ -16,8 +16,12 @@ const ContainerPrimary = styled.div`
     align-items: center;
     border: none;
   }
+  .buttons-container {
+    padding: 0.5rem;
+  }
   img {
-    width: 100;
+    max-width: 32rem;
+    width: 100%;
     aspect-ratio: 1.33/1;
   }
 
@@ -55,15 +59,15 @@ export default function CarouselPhoto() {
 
   return (
     <ContainerPrimary>
-      <div>
+      <div className="buttons-container">
         <button onClick={handleClickPrev} className="buttons">
-          <RiArrowLeftSLine style={{ fontSize: "2rem" }} />
+          <RiArrowLeftSLine style={{ fontSize: "1.5rem" }} />
         </button>
       </div>
       <img src={photos[imgCurrent]} alt={`img-${imgCurrent}`} />
-      <div>
+      <div className="buttons-container">
         <button onClick={handleClickPost} className="buttons">
-          <RiArrowRightSLine style={{ fontSize: "2rem" }} />
+          <RiArrowRightSLine style={{ fontSize: "1.5rem" }} />
         </button>
       </div>
     </ContainerPrimary>

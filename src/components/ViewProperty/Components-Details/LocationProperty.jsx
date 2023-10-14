@@ -37,7 +37,7 @@ export default function LocationProperty() {
     <Container>
       <p className="title">Location</p>
       <p className="address">{data.address}</p>
-      {/* <Location /> */}
+      <Location />
     </Container>
   );
 }

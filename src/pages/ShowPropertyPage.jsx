@@ -7,6 +7,9 @@ export const ShowPropertyContext = React.createContext(null);
 
 function ShowPropertyPage() {
   const data = {
+    name: "Yull Timoteo",
+    email: "yull@mail.com",
+    phone: "955258139",
     address: "86872 Jacob Gateway, Durganport, WV 48044",
     price: 3000,
     rent: 2000,
