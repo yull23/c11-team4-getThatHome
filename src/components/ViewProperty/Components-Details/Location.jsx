@@ -1,16 +1,22 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { useContext } from "react";
+import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 
-const containerStyle = {
-  width: "400px",
-  height: "400px",
-};
+export default function Location() {
+  const { data } = useContext(ShowPropertyContext);
+  // START: Styles
+  const containerStyle = {
+    width: "100%",
+    aspectRatio: "1 / 1",
+  };
 
-const center = {
-  lat: -12.010605,
-  lng: -76.858894,
-};
+  const center = {
+    lat: data.latitude,
+    lng: data.longitude,
+  };
 
-export default function Locator() {
+  // END: Styles
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY,
@@ -18,13 +24,11 @@ export default function Locator() {
 
   return (
     <>
-      <div>Location</div>
-      <p>{import.meta.env.VITE_GOOGLE_MAP_API_KEY}</p>
       {isLoaded ? (
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={15}
+          zoom={17.6}
           options={{
             mapTypeControl: false,
             scaleControl: false,

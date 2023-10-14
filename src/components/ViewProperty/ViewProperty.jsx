@@ -20,6 +20,7 @@ const ContainerProperty = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0;
+  gap: 1rem;
 `;
 
 export default function ViewProperty() {

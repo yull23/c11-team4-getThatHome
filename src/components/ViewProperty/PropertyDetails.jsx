@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { ShowPropertyContext } from "../../pages/ShowPropertyPage";
 import HeaderProperty from "./Components-Details/HeaderProperty";
 import EnviorementsProperty from "./Components-Details/EnviorementsProperty";
 import AboutProperty from "./Components-Details/AboutProperty";
@@ -16,8 +14,6 @@ const ContainerPrimary = styled.div`
 `;
 
 export default function PropertyDetails() {
-  const { data } = useContext(ShowPropertyContext);
-
   return (
     <ContainerPrimary>
       <HeaderProperty />

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 import { useContext } from "react";
+import Location from "./Location";
 
 export default function LocationProperty() {
   const { data } = useContext(ShowPropertyContext);
@@ -36,7 +37,7 @@ export default function LocationProperty() {
     <Container>
       <p className="title">Location</p>
       <p className="address">{data.address}</p>
-      <svg></svg>
+      {/* <Location /> */}
     </Container>
   );
 }

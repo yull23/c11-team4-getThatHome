@@ -21,14 +21,14 @@ function ShowPropertyPage() {
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni vel atque quo? Nobis quibusdam libero culpa nisi sed non, eius ad soluta at amet doloremque atque est in fuga qui.",
     photos: [
       "https://picsum.photos/id/1026/640",
-      "https://fastly.picsum.photos/id/100/640",
+      "https://picsum.photos/id/1/640",
       "https://picsum.photos/id/1019/640",
     ],
     // role: "tenant",
     role: "tenant",
     active: false,
-    latitud: "-12.010605",
-    longitude: "-76.858894",
+    latitude: -12.125020769904085,
+    longitude: -77.01900139753451,
   };
 
   return (
