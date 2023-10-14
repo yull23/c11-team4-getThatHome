@@ -50,33 +50,33 @@ export default function NavBar({ haveToken, role }) {
 
         {!haveToken ? (
           <>
-            <Button type="secondary" size="small">
+            <Button type="secondary" size="default">
               <RiUserAddLine />
               JOIN
             </Button>
-            <Button type="primary" size="small">
+            <Button type="primary" size="default">
               <RiUserAddLine />
               LOGIN
             </Button>
           </>
         ) : (
           <>
-            <Button type="secondary" size="small">
+            <Button type="secondary" size="default">
               <BiLogOutCircle />
               LOGOUT
             </Button>
             {role == "tenant" ? (
-              <Button type="primary" size="small">
+              <Button type="primary" size="default">
                 <AiFillHeart />
                 SAVED PROPERTIES
               </Button>
             ) : (
-              <Button type="primary" size="small">
+              <Button type="primary" size="default">
                 <TbHome2 />
                 MY PROPERTIES
               </Button>
             )}
-            <Button type="primary" size="small">
+            <Button type="primary" size="default">
               <BiUser />
               PROFILE
             </Button>
