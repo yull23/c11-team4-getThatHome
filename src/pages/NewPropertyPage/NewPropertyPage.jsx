@@ -1,8 +1,11 @@
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
+// import { Menu } from "../components/Menu/Menu";
+// import Footer from "../ui/Footer";
 
 
 function NewPropertyPage() {
+  
   const {
     register,
     handleSubmit,
@@ -22,8 +25,24 @@ function NewPropertyPage() {
   return (
     <>
       <form onSubmit={onSubmit}>
+      <h1>OPERATION TYPE</h1>
+      <div>
+        <input
+          type="checkbox"
+          {...register("opcion1")}
+        />
+        <label>Rent</label>
+      </div>
 
-        <label>ADDRESS:</label>
+      <div>
+        <input
+          type="checkbox"
+          {...register("opcion2")}
+        />
+        <label>Sale</label>
+      </div>
+    
+        <h2>ADDRESS</h2>
         <input
           type="text"
           {...register("nombre", {
@@ -42,68 +61,46 @@ function NewPropertyPage() {
         {errors.nombre?.type === "minLength" && (
           <span>Nombre debe ser mayor a 2 caracteres</span>
         )}
-        
-        <div>
-        <label>MONTLY RENT</label>
-        <input
-          type="email"
-          name="correo"
-          {...register("correo", {
-            required: {
-              value: true,
-              message: "Correo es requerido",
-            },
-            pattern: {
-              value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-              message: "Correo no válido",
-            },
-          })}
-        />
-        {errors.correo && <span>{errors.correo.message}</span>}
-      </div>
 
-      <div>
-        <label>Contraseña:</label>
+       <h3>MONTLY RENT</h3>
         <input
-          type="password"
-          name="password"
-          {...register("password", {
+          type="text"
+          {...register("nombre", {
             required: {
               value: true,
-              message: "Contraseña es requerida",
+              message: "Nombre es requerido",
             },
-            minLength: {
-              value: 6,
-              message: "Contraseña debe ser mayor a 6 caracteres",
-            },
+            maxLength: 20,
+            minLength: 2,
           })}
         />
-        {errors.password && <span>{errors.password.message}</span>}
-      </div>
+        {errors.nombre?.type === "required" && <span>Nombre requerido</span>}
+        {errors.nombre?.type === "maxLength" && (
+          <span>Nombre no debe ser mayor a 20 caracteres</span>
+        )}
+        {errors.nombre?.type === "minLength" && (
+          <span>Nombre debe ser mayor a 2 caracteres</span>
+        )}
       
-      <div>
-        <label>Confirma Contraseña:</label>
+      <h4>MAINTANCE</h4>
         <input
-          type="password"
-          name="confirmarPassword"
-          {...register("confirmarPassword", {
+          type="text"
+          {...register("nombre", {
             required: {
               value: true,
-              message: "Confirmar contraseña es requerida",
+              message: "Nombre es requerido",
             },
-            minLength: {
-              value: 6,
-              message: "Confirmar contraseña debe ser mayor a 6 caracteres",
-            },
-            validate: (value) =>
-              value === password.current || "Las contraseñas no coinciden",
-          
-        })}
+            maxLength: 20,
+            minLength: 2,
+          })}
         />
-        {errors.confirmarPassword && (
-          <span>{errors.confirmarPassword.message}</span>
+        {errors.nombre?.type === "required" && <span>Nombre requerido</span>}
+        {errors.nombre?.type === "maxLength" && (
+          <span>Nombre no debe ser mayor a 20 caracteres</span>
         )}
-      </div>
+        {errors.nombre?.type === "minLength" && (
+          <span>Nombre debe ser mayor a 2 caracteres</span>
+        )}
       
       <div>
         <label htmlFor="pais">Pais:</label>
@@ -152,6 +149,7 @@ function NewPropertyPage() {
         {errors.aceptaTerminos && <span>{errors.aceptaTerminos.message}</span>}
       </div>
     </form>
+  
     </>
   );
 }
