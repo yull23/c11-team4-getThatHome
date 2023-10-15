@@ -3,12 +3,13 @@ import logoHome from "./logo.svg";
 import { BiLogOutCircle, BiUser } from "react-icons/bi";
 import Button from "../../ui/Button";
 import { PiMagnifyingGlass } from "react-icons/pi";
-import PropTypes from "prop-types";
 import { IconContext } from "react-icons";
 import "./navbar.css";
 import { RiUserAddLine } from "react-icons/ri";
 import { AiFillHeart } from "react-icons/ai";
 import { TbHome2 } from "react-icons/tb";
+import { useContext } from "react";
+import { UserContext } from "../../pages/Home";
 
 const ContainerPrimary = styled.div`
   position: relative;
@@ -32,7 +33,10 @@ const ContainerActions = styled.div`
   padding: 0;
 `;
 
-export default function NavBar({ haveToken, role }) {
+export default function NavBar() {
+  const { haveToken, user } = useContext(UserContext);
+  const role = user ? user.role : null;
+
   return (
     <ContainerPrimary>
       <ContainerSecundary>
@@ -86,8 +90,3 @@ export default function NavBar({ haveToken, role }) {
     </ContainerPrimary>
   );
 }
-
-NavBar.propTypes = {
-  haveToken: PropTypes.bool,
-  role: PropTypes.string,
-};

@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import { Card } from "./Card/Card";
+import { useContext } from "react";
+import { UserContext } from "../pages/Home";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,26 +38,10 @@ const Header = styled.div`
     color: #bf5f82;
   }
 `;
-const data1 = {
-  // urlImage: "https://picsum.photos/id/1026/640",
-  address: "86872 Jacob Gateway, Durganport, WV 48044",
-  price: 3000,
-  rent: 2000,
-  maintanance: 100,
-  typeSale: "rental",
-  typeProperty: "Apartament",
-  bedrooms: 2,
-  bathromms: 2,
-  area: 100.0,
-  petsAllowd: true,
-  about:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni vel atque quo? Nobis quibusdam libero culpa nisi sed non, eius ad soluta at amet doloremque atque est in fuga qui.",
-  photo: "https://picsum.photos/id/1026/640",
-  // role: "tenant",
-  role: "tenant",
-  active: false,
-};
+
 function CarrouselSection() {
+  const { bestProperties } = useContext(UserContext);
+  console.log(bestProperties);
   return (
     <Container>
       <Header>
@@ -64,9 +50,9 @@ function CarrouselSection() {
       </Header>
 
       <CardContainer>
-        <Card data={data1} />
-        <Card data={data1} />
-        <Card data={data1} />
+        <Card data={bestProperties[0]} />
+        <Card data={bestProperties[1]} />
+        <Card data={bestProperties[2]} />
       </CardContainer>
     </Container>
   );

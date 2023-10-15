@@ -53,7 +53,7 @@ export function Card({ data }) {
 
   return (
     <div className="card">
-      <img src={data.photo} alt="property" className="card__photo" />
+      <img src={data.photos[0]} alt="property" className="card__photo" />
       <div className="card__type">
         <IconContext.Provider value={{ size: "1.25rem" }}>
           <RiCoinsLine />
