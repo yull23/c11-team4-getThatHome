@@ -98,7 +98,7 @@ export default function Draft() {
   return (
     <>
       <Menu />
-      <SelectCheckBox />
+      <InputRegular/>
       <HeroSection />
       <CarrouselSection />
       <InfoSection />
