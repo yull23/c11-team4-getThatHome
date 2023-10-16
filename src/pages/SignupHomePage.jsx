@@ -7,6 +7,7 @@ const ContainerSignup = styled.div`
   background: linear-gradient(to bottom, #f48fb122 50%, white 50%);
   width: 100%;
   aspect-ratio: 2.05/1;
+  margin-bottom: 70px;
 `;
 const TitleContainer = styled.div`
   width: 100%;
@@ -51,7 +52,7 @@ const ImgContainer = styled.div`
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
-    letter-spacing: 0.10000000149011612px;
+    letter-spacing: 0.1px;
     text-align: center;
     color: 373737;
   }
