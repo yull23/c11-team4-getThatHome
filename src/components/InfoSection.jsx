@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Button from "../ui/Button";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -30,9 +31,11 @@ function InfoSection() {
   return (
     <Container>
       <h2>Geeting someone to rent your apartment has never been this easy</h2>
-      <ButtonStyled type="primary" size="large">
-        CREATE AN ACCOUNT NOW
-      </ButtonStyled>
+      <Link to="/signup">
+        <ButtonStyled type="primary" size="large">
+          CREATE AN ACCOUNT NOW
+        </ButtonStyled>
+      </Link>
     </Container>
   );
 }

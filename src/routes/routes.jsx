@@ -8,6 +8,7 @@ import ProfileViewPage from "../pages/ProfileViewPage";
 import Draft from "../pages/Draft";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
+import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     element: <Home />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <LandingPage />,
       },
       {
@@ -42,6 +43,28 @@ const router = createBrowserRouter([
       {
         path: "/profile-view",
         element: <ProfileViewPage />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePropertiesPage />,
+        children: [
+          {
+            path: "/profile/active",
+            element: <div>hi</div>,
+          },
+          {
+            path: "/profile/closed",
+            element: <div>hi</div>,
+          },
+          {
+            path: "/profile/favorites",
+            element: <div>hi</div>,
+          },
+          {
+            path: "/profile/contacted",
+            element: <div>hi</div>,
+          },
+        ],
       },
       {
         path: "/draft",

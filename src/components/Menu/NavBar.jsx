@@ -61,14 +61,18 @@ export default function NavBar() {
 
         {!haveToken ? (
           <>
-            <Button type="secondary" size="default">
-              <RiUserAddLine />
-              JOIN
-            </Button>
-            <Button type="primary" size="default">
-              <RiUserAddLine />
-              LOGIN
-            </Button>
+            <Link to="/signup">
+              <Button type="secondary" size="default">
+                <RiUserAddLine />
+                JOIN
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button type="primary" size="default">
+                <RiUserAddLine />
+                LOGIN
+              </Button>
+            </Link>
           </>
         ) : (
           <>
@@ -77,15 +81,19 @@ export default function NavBar() {
               LOGOUT
             </Button>
             {role == "tenant" ? (
-              <Button type="primary" size="default">
-                <AiFillHeart />
-                SAVED PROPERTIES
-              </Button>
+              <Link to="/profile/active">
+                <Button type="primary" size="default">
+                  <TbHome2 />
+                  MY PROPERTIES
+                </Button>
+              </Link>
             ) : (
-              <Button type="primary" size="default">
-                <TbHome2 />
-                MY PROPERTIES
-              </Button>
+              <Link to="/profile/favorites">
+                <Button type="primary" size="default">
+                  <AiFillHeart />
+                  SAVED PROPERTIES
+                </Button>
+              </Link>
             )}
             <Button type="primary" size="default">
               <BiUser />

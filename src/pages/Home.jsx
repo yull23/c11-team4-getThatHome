@@ -10,7 +10,7 @@ import { properties } from "../data/properties";
 export const UserContext = createContext(null);
 
 export default function Home() {
-  const user = users[0];
+  const user = users[2];
   const haveToken = user != null;
   const inHome = useMatch("/");
   const bestProperties = properties.slice(0, 3);

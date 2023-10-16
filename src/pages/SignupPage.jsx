@@ -1,9 +1,5 @@
 import landlordUrl from "../assets/images/rafiki.png";
 import homeseekerUrl from "../assets/images/pana.png";
-import CarrouselSection from "../components/CarrouselSection";
-import HeroSection from "../components/HeroSection";
-import InfoSection from "../components/InfoSection";
-import TeamSection from "../components/TeamSection";
 import Footer2 from "../ui/Footer/Footer2";
 import { Menu } from "../components/Menu/Menu";
 import styled from "@emotion/styled";
@@ -63,7 +59,6 @@ const ImgContainer = styled.div`
 function SignupPage() {
   return (
     <>
-      <Menu />
       <ContainerSignup>
         <TitleContainer>
           <h3>Selecciona el perfil con el que te identificas</h3>
@@ -96,7 +91,6 @@ function SignupPage() {
           </div>
         </ImgContainer>
       </ContainerSignup>
-      <Footer2 />
     </>
   );
 }

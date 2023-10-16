@@ -6,16 +6,7 @@ import Footer from "../ui/Footer";
 import Header from "../ui/Header";
 
 function PropertiesPage() {
-  return (
-    <>
-      <Header />
-      <HeroSection />
-      <CarrouselSection />
-      <InfoSection />
-      <TeamSection />
-      <Footer />
-    </>
-  );
+  return <></>;
 }
 
 export default PropertiesPage;
