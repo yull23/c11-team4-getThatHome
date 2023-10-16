@@ -34,7 +34,7 @@ export default function ProfilePropertiesPage() {
   return (
     <Container>
       <ButtonProperty />
-      <NavBarProperty />
+      <NavBarProperty role={role} />
       <Outlet />
     </Container>
   );

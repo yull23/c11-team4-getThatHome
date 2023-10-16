@@ -20,3 +20,13 @@ div {
   gap: 1rem;
   background-color: red;
 }
+
+div {
+  display: flex;
+  gap: 1rem;
+}
+div {
+  padding: 0 0.25rem;
+  display: flex;
+  justify-content: center;
+}
