@@ -21,7 +21,7 @@ const ContainerCardList = styled.div`
 `;
 
 export default function CardList({ cards }) {
-  const [pageCurrent, setPageCurrent] = useState("12");
+  const [pageCurrent, setPageCurrent] = useState("1");
 
   const pages = {};
   const numPages = Math.ceil(cards.length / 6);
@@ -34,7 +34,7 @@ export default function CardList({ cards }) {
     <ContainerPrimary>
       <ContainerCardList>
         {pages[pageCurrent].map((card, id) => (
-          <Card key={id} data={card} />
+          <Card key={id} data={card} role="customer" />
         ))}
       </ContainerCardList>
       <PaginatorCards

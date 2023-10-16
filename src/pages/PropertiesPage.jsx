@@ -1,21 +1,19 @@
-import CarrouselSection from "../components/CarrouselSection";
-import HeroSection from "../components/HeroSection";
-import InfoSection from "../components/InfoSection";
-import TeamSection from "../components/TeamSection";
-import Footer from "../ui/Footer";
-import Header from "../ui/Header";
+import styled from "@emotion/styled";
+import SearchProperty from "../components/SearchProperty/SearchProperty";
+import CardPanel from "../components/CardPanel/CardPanel";
 
-function PropertiesPage() {
+export default function PropertiesPage() {
+  const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 2rem 9.5rem;
+  `;
   return (
-    <>
-      <Header />
-      <HeroSection />
-      <CarrouselSection />
-      <InfoSection />
-      <TeamSection />
-      <Footer />
-    </>
+    <Container>
+      <SearchProperty />
+      <CardPanel fromUser={false} />
+    </Container>
   );
 }
-
-export default PropertiesPage;
