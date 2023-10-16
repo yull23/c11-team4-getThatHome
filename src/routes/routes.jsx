@@ -3,12 +3,11 @@ import LandingPage from "../pages/LandingPage";
 import PropertiesPage from "../pages/PropertiesPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
-
 import ProfileViewPage from "../pages/ProfileViewPage";
 import Draft from "../pages/Draft";
-
-import { NewPropertyPage} from "../pages/NewPropertyPage/NewPropertyPage";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
+import NewPropertyRentalPage from "../pages/NewPropertyRentalPage";
+import NewPropertySalePage from "../pages/NewPropertySalePage";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/new-property",
-        element: <NewPropertyPage />,
+        element: <NewPropertyRentalPage/>,
+      },
+      {
+        path: "/new-property1",
+        element: <NewPropertySalePage/>,
       },
       {
         path: "/profile-view",
