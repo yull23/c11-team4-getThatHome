@@ -61,7 +61,7 @@ export default function NavBar() {
 
         {!haveToken ? (
           <>
-            <Link to="/signup">
+            <Link to="/signup-home">
               <Button type="secondary" size="default">
                 <RiUserAddLine />
                 JOIN

@@ -9,6 +9,7 @@ import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
 import CardPanel from "../components/CardPanel/CardPanel";
+import SignupHomePage from "../pages/SignupHomePage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/signup-home",
+        element: <SignupHomePage />,
       },
       {
         path: "/signup",

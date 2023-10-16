@@ -29,4 +29,5 @@ div {
   padding: 0 0.25rem;
   display: flex;
   justify-content: center;
+  aspect-ratio: 2.05/1;
 }

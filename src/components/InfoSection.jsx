@@ -31,7 +31,7 @@ function InfoSection() {
   return (
     <Container>
       <h2>Geeting someone to rent your apartment has never been this easy</h2>
-      <Link to="/signup">
+      <Link to="/signup-home">
         <ButtonStyled type="primary" size="large">
           CREATE AN ACCOUNT NOW
         </ButtonStyled>

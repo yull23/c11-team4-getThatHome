@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import SearchProperty from "../components/SearchProperty/SearchProperty";
-import { useContext } from "react";
-import { UserContext } from "./Home";
 import CardPanel from "../components/CardPanel/CardPanel";
 
 export default function PropertiesPage() {
