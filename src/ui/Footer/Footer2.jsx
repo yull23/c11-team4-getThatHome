@@ -35,10 +35,6 @@ const Source = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
-    @media (max-width: 1400px) {
-      grid-template-columns: 1fr 1fr;
-      column-gap: 20px;
-    }
   }
   span,
   p {

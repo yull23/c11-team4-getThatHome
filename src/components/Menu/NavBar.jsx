@@ -46,7 +46,7 @@ export default function NavBar() {
         </Link>
       </ContainerSecundary>
       <ContainerActions>
-        <Link to="/profile-view">
+        <Link to="/properties">
           <button className="button-find__container">
             <div className="button-find__container-button">
               <IconContext.Provider

@@ -13,9 +13,6 @@ const Container = styled.div`
 const CardContainer = styled.div`
   display: flex;
   gap: 48px;
-  @media (max-width: 1000px) {
-    flex-direction: column;
-  }
 `;
 const Header = styled.div`
   display: flex;

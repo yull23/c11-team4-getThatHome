@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import CardList from "../CardList/CardList";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../pages/Home";
 
@@ -23,19 +23,20 @@ const TextRegular = styled.p`
   letter-spacing: 0.15px;
 `;
 
-export default function CardPanel() {
+export default function CardPanel({ fromUser }) {
   const { cardsUser, cards } = useContext(UserContext);
-  const location = useLocation();
-  const currentPath = location.pathname.split("/").slice(-1)[0];
+  // const location = useLocation();
+  // const currentPath = location.pathname.split("/").slice(-1)[0];
+  const cardsRender = fromUser ? cardsUser : cards;
 
   return (
     <Container>
-      <TextRegular>{cardsUser.length} Properties found</TextRegular>
-      <CardList cards={cardsUser} />
+      <TextRegular>{cardsRender.length} Properties found</TextRegular>
+      <CardList cards={cardsRender} />
     </Container>
   );
 }
 
 CardPanel.propTypes = {
-  cards: PropTypes.array,
+  fromUser: PropTypes.bool,
 };

@@ -4,7 +4,6 @@ import PropertiesPage from "../pages/PropertiesPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import NewPropertyPage from "../pages/NewPropertyPage";
-import ProfileViewPage from "../pages/ProfileViewPage";
 import Draft from "../pages/Draft";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
@@ -42,28 +41,24 @@ const router = createBrowserRouter([
         element: <NewPropertyPage />,
       },
       {
-        path: "/profile-view",
-        element: <ProfileViewPage />,
-      },
-      {
         path: "/profile",
         element: <ProfilePropertiesPage />,
         children: [
           {
             path: "/profile/active",
-            element: <CardPanel />,
+            element: <CardPanel fromUser={true} />,
           },
           {
             path: "/profile/closed",
-            element: <CardPanel />,
+            element: <CardPanel fromUser={true} />,
           },
           {
             path: "/profile/favorites",
-            element: <CardPanel />,
+            element: <CardPanel fromUser={true} />,
           },
           {
             path: "/profile/contacted",
-            element: <CardPanel />,
+            element: <CardPanel fromUser={true} />,
           },
         ],
       },

@@ -30,7 +30,7 @@ export default function NavBarProperty() {
   const { user } = useContext(UserContext);
 
   const allActions = {
-    customer: ["favorites", "contated"],
+    customer: ["favorites", "contacted"],
     tenant: ["active", "closed"],
   };
   const actions = allActions[user.role];
@@ -39,7 +39,7 @@ export default function NavBarProperty() {
     <Container>
       {actions.map((action, index) => (
         <NavLink to={`/profile/${action}`} key={index}>
-          {({ isActive, isPending }) => {
+          {({ isActive }) => {
             return <p className={isActive ? "" : "desactive"}>{action}</p>;
           }}
         </NavLink>
