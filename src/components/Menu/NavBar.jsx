@@ -3,12 +3,14 @@ import logoHome from "./logo.svg";
 import { BiLogOutCircle, BiUser } from "react-icons/bi";
 import Button from "../../ui/Button";
 import { PiMagnifyingGlass } from "react-icons/pi";
-import PropTypes from "prop-types";
 import { IconContext } from "react-icons";
 import "./navbar.css";
 import { RiUserAddLine } from "react-icons/ri";
 import { AiFillHeart } from "react-icons/ai";
 import { TbHome2 } from "react-icons/tb";
+import { useContext } from "react";
+import { UserContext } from "../../pages/Home";
+import { Link } from "react-router-dom";
 
 const ContainerPrimary = styled.div`
   position: relative;
@@ -32,32 +34,45 @@ const ContainerActions = styled.div`
   padding: 0;
 `;
 
-export default function NavBar({ haveToken, role }) {
+export default function NavBar() {
+  const { haveToken, user } = useContext(UserContext);
+  const role = user ? user.role : null;
+
   return (
     <ContainerPrimary>
       <ContainerSecundary>
-        <img src={logoHome} alt="logo-home" className="navbar"></img>
+        <Link to="/">
+          <img src={logoHome} alt="logo-home" className="navbar" />
+        </Link>
       </ContainerSecundary>
       <ContainerActions>
-        <button className="button-find__container">
-          <div className="button-find__container-button">
-            <IconContext.Provider value={{ size: "1.5rem", color: "#616161" }}>
-              <PiMagnifyingGlass />
-            </IconContext.Provider>
-          </div>
-          <span className="button-find__text">find a home</span>
-        </button>
+        <Link to="/properties">
+          <button className="button-find__container">
+            <div className="button-find__container-button">
+              <IconContext.Provider
+                value={{ size: "1.5rem", color: "#616161" }}
+              >
+                <PiMagnifyingGlass />
+              </IconContext.Provider>
+            </div>
+            <span className="button-find__text">find a home</span>
+          </button>
+        </Link>
 
         {!haveToken ? (
           <>
-            <Button type="secondary" size="default">
-              <RiUserAddLine />
-              JOIN
-            </Button>
-            <Button type="primary" size="default">
-              <RiUserAddLine />
-              LOGIN
-            </Button>
+            <Link to="/signup-home">
+              <Button type="secondary" size="default">
+                <RiUserAddLine />
+                JOIN
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button type="primary" size="default">
+                <RiUserAddLine />
+                LOGIN
+              </Button>
+            </Link>
           </>
         ) : (
           <>
@@ -66,15 +81,19 @@ export default function NavBar({ haveToken, role }) {
               LOGOUT
             </Button>
             {role == "tenant" ? (
-              <Button type="primary" size="default">
-                <AiFillHeart />
-                SAVED PROPERTIES
-              </Button>
+              <Link to="/profile/active">
+                <Button type="primary" size="default">
+                  <TbHome2 />
+                  MY PROPERTIES
+                </Button>
+              </Link>
             ) : (
-              <Button type="primary" size="default">
-                <TbHome2 />
-                MY PROPERTIES
-              </Button>
+              <Link to="/profile/favorites">
+                <Button type="primary" size="default">
+                  <AiFillHeart />
+                  SAVED PROPERTIES
+                </Button>
+              </Link>
             )}
             <Button type="primary" size="default">
               <BiUser />
@@ -86,8 +105,3 @@ export default function NavBar({ haveToken, role }) {
     </ContainerPrimary>
   );
 }
-
-NavBar.propTypes = {
-  haveToken: PropTypes.bool,
-  role: PropTypes.string,
-};

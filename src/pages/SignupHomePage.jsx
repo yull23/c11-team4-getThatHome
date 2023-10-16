@@ -1,7 +1,7 @@
 import landlordUrl from "../assets/images/rafiki.png";
 import homeseekerUrl from "../assets/images/pana.png";
 import styled from "@emotion/styled";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ContainerSignup = styled.div`
   background: linear-gradient(to bottom, #f48fb122 50%, white 50%);
@@ -59,9 +59,7 @@ const ImgContainer = styled.div`
     padding: 1rem;
   }
 `;
-function SignupPage() {
-  let { state } = useLocation();
-  console.log(state.role);
+function SignupHomePage() {
   return (
     <>
       <ContainerSignup>
@@ -104,4 +102,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage;
+export default SignupHomePage;

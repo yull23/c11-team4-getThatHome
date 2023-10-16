@@ -3,7 +3,6 @@ import Member from "./Member";
 import { members } from "../data/members";
 const MembersContainer = styled.div`
   display: flex;
-  margin: 0 auto;
   justify-content: center;
   flex-wrap: wrap;
   gap: 32px;

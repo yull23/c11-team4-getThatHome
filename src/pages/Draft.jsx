@@ -12,9 +12,7 @@ import HeroSection from "../components/HeroSection";
 import { Menu } from "../components/Menu/Menu";
 
 import SelectCheckBox from "../components/Select/Select";
-
-
-
+import { useLocation } from "react-router-dom";
 
 const ContainerDraft = styled.div`
   display: flex;

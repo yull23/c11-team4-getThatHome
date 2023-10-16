@@ -1,19 +1,13 @@
-import CarrouselSection from "../components/CarrouselSection";
-import HeroSection from "../components/HeroSection";
-import InfoSection from "../components/InfoSection";
-import TeamSection from "../components/TeamSection";
-import Footer from "../ui/Footer";
-import Header from "../ui/Header";
-
 function LoginPage() {
   return (
     <>
-      <Header />
-      <HeroSection />
-      <CarrouselSection />
-      <InfoSection />
-      <TeamSection />
-      <Footer />
+      <h3>Login</h3>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro autem
+        cupiditate velit incidunt amet delectus rerum facilis odio? Nesciunt
+        nemo reprehenderit quibusdam ad laboriosam nobis corrupti magnam quae
+        voluptas temporibus.
+      </p>
     </>
   );
 }

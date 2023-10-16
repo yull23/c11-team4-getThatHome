@@ -36,7 +36,6 @@ const Source = styled.div`
   span,
   p {
     color: var(--DarkGray, #373737);
-    text-align: center;
 
     /* Regular/Subtitle2 */
     font-family: Montserrat;
@@ -45,6 +44,13 @@ const Source = styled.div`
     font-weight: 500;
     line-height: 18px; /* 128.571% */
     letter-spacing: 0.1px;
+  }
+
+  .container__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
 `;
 function FooterHome() {
@@ -56,12 +62,12 @@ function FooterHome() {
         <Source>
           <span>Source Code</span>
           <div>
-            <p>
-              <DiRuby /> Ruby on Rails REST API
-            </p>
-            <p>
-              <DiReact /> React responsive SPA
-            </p>
+            <div className="container__text">
+              <DiRuby /> <p>Ruby on Rails REST API</p>
+            </div>
+            <div className="container__text">
+              <DiReact /> <p>React responsive SPA</p>
+            </div>
           </div>
         </Source>
         <span>Codeable - Cohort 11 Final Project</span>

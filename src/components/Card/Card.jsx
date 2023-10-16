@@ -13,7 +13,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaPaw } from "react-icons/fa";
 import "./card.css";
 
-export function Card({ data }) {
+export function Card({ data, role }) {
   const Actions = () => {
     return (
       <div className="card__actions">
@@ -53,7 +53,7 @@ export function Card({ data }) {
 
   return (
     <div className="card">
-      <img src={data.photo} alt="property" className="card__photo" />
+      <img src={data.photos[0]} alt="property" className="card__photo" />
       <div className="card__type">
         <IconContext.Provider value={{ size: "1.25rem" }}>
           <RiCoinsLine />
@@ -101,7 +101,7 @@ export function Card({ data }) {
             </IconContext.Provider>
           </div>
         </div>
-        {data.role == "tenant" ? "" : <Actions></Actions>}
+        {role == "customer" ? "" : <Actions></Actions>}
         <div className="card__border"></div>
       </div>
     </div>
@@ -110,4 +110,5 @@ export function Card({ data }) {
 
 Card.propTypes = {
   data: PropTypes.object,
+  role: PropTypes.string,
 };
