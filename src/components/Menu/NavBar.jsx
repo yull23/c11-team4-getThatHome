@@ -10,6 +10,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { TbHome2 } from "react-icons/tb";
 import { useContext } from "react";
 import { UserContext } from "../../pages/Home";
+import { Link } from "react-router-dom";
 
 const ContainerPrimary = styled.div`
   position: relative;
@@ -40,17 +41,23 @@ export default function NavBar() {
   return (
     <ContainerPrimary>
       <ContainerSecundary>
-        <img src={logoHome} alt="logo-home" className="navbar"></img>
+        <Link to="/">
+          <img src={logoHome} alt="logo-home" className="navbar" />
+        </Link>
       </ContainerSecundary>
       <ContainerActions>
-        <button className="button-find__container">
-          <div className="button-find__container-button">
-            <IconContext.Provider value={{ size: "1.5rem", color: "#616161" }}>
-              <PiMagnifyingGlass />
-            </IconContext.Provider>
-          </div>
-          <span className="button-find__text">find a home</span>
-        </button>
+        <Link to="/profile-view">
+          <button className="button-find__container">
+            <div className="button-find__container-button">
+              <IconContext.Provider
+                value={{ size: "1.5rem", color: "#616161" }}
+              >
+                <PiMagnifyingGlass />
+              </IconContext.Provider>
+            </div>
+            <span className="button-find__text">find a home</span>
+          </button>
+        </Link>
 
         {!haveToken ? (
           <>
