@@ -9,6 +9,7 @@ import Draft from "../pages/Draft";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
+import CardPanel from "../components/CardPanel/CardPanel";
 
 const router = createBrowserRouter([
   {
@@ -50,19 +51,19 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/profile/active",
-            element: <div>hi</div>,
+            element: <CardPanel />,
           },
           {
             path: "/profile/closed",
-            element: <div>hi</div>,
+            element: <CardPanel />,
           },
           {
             path: "/profile/favorites",
-            element: <div>hi</div>,
+            element: <CardPanel />,
           },
           {
             path: "/profile/contacted",
-            element: <div>hi</div>,
+            element: <CardPanel />,
           },
         ],
       },
