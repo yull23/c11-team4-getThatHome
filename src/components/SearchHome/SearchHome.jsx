@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import InputOptionHome from "../../ui/Inputs/InputOptionHome";
+import { InputOptionHome, SelectOptionHome } from "../../ui/Inputs/InputOptionHome";
 
 const Container = styled.form`
   display: flex;
@@ -42,14 +42,14 @@ const ButtonSubmit = styled.div`
 export default function SearchHome() {
   return (
     <Container>
-      <InputOptionHome
+      <SelectOptionHome
         label="i'm looking for"
         option={["An Apartament", "An Property"]}
       />
       <SpaceLine />
-      <InputOptionHome
+      <SelectOptionHome
         label="i want to"
-        option={["rent", "sale"]}
+        option={["Rent", "Sale"]}
       />
       <SpaceLine />
         <InputOptionHome label="where" option={["data home.api"]} />
