@@ -41,7 +41,6 @@ const Header = styled.div`
 
 function CarrouselSection() {
   const { bestProperties } = useContext(UserContext);
-  console.log(bestProperties);
   return (
     <Container>
       <Header>
@@ -50,9 +49,9 @@ function CarrouselSection() {
       </Header>
 
       <CardContainer>
-        <Card data={bestProperties[0]} />
-        <Card data={bestProperties[1]} />
-        <Card data={bestProperties[2]} />
+        <Card data={bestProperties[0]} role="customer" />
+        <Card data={bestProperties[1]} role="customer" />
+        <Card data={bestProperties[2]} role="customer" />
       </CardContainer>
     </Container>
   );
