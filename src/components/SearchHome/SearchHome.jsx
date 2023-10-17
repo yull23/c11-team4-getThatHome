@@ -52,7 +52,7 @@ export default function SearchHome() {
         option={["Rent", "Sale"]}
       />
       <SpaceLine />
-        <InputOptionHome label="where" option={["data home.api"]} />
+        <InputOptionHome label="where" option={["option"]} placeholder="Favorite district" />
       <SpaceLine />
       <ButtonSubmit>Search</ButtonSubmit>
     </Container>

@@ -3,7 +3,6 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import "./styles.css";
 import { useState } from "react";
 import { ContainerInputText, InputText } from "./Styles";
-import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: flex;
@@ -15,6 +14,7 @@ const ContainerButton = styled.button`
   background: var(--White, #FFF);
   align-items: flex-start;
   font-family: "Inter", sans-serif;
+  font-style: normal; 
   font-size: 1rem;
   padding: 0.5rem;
   border-color: #FFF; 
@@ -41,14 +41,15 @@ const ContainerProperty = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid var(--Background, #F5F5F6);
-  margin: 0.75rem 0rem;
+  margin: 0.375rem 0rem;
+  > * {
+    width: 100%;
+  }
 ;`
-
 const LabelCenter = styled.label`
   display: flex;
   align-items: center;
-  width: 10.25rem;
-  height: 100%;
+  height: 2.35rem;
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -59,26 +60,62 @@ const LabelCenter = styled.label`
 ;`
 
 export function InputOptionHome({ label, type, placeholder, handleChange, ...props }) {
+  const option = ['Argentina', 'Brasil', 'Chile', 'Colombia', 'Costa Rica', 'Ecuador', 'España', 'Estados Unidos', 'Francia', 'Italia', 'México', 'Perú', 'Uruguay', 'Venezuela', 'Alemania', 'Canadá', 'Australia', 'Reino Unido', 'India', 'China',];
+  const [searchText, setSearchText] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
+  const [showOptions, setShowOptions] = useState(false);
+  const filteredOptions = option.filter(search =>
+    search.toLowerCase().includes(searchText.toLowerCase())
+  );
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setShowOptions(value.length > 1);
+    setSearchText(value);
+    handleChange(value);
+  };
+  const handleRadioChange = (event) => {
+    event.preventDefault();
+    setSelectedOption(event.target.value);
+    setSearchText(!searchText);
+  };
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setSearchText(option);
+    setShowOptions(!showOptions);
+  };
   return (
     <Container>
       <p className="input-search-home__label">{label}</p>
-    <ContainerInputText maxWidth="22.25rem" {...props}>
-      <InputText
-        placeholder={placeholder}
-        type={type}
-        onChange={handleChange}
-      />
-    </ContainerInputText>
+      <ContainerInputText maxWidth="22.25rem" {...props}>
+        <InputText
+          placeholder={placeholder}
+          type={type}
+          onChange={handleInputChange}
+          value={searchText}
+        />
+        {showOptions ? <MdKeyboardArrowUp style={{ fontSize: '22px', color: '#616161'}}/> : <MdKeyboardArrowDown style={{ fontSize: '22px' }}/>}
+      </ContainerInputText>
+      
+        {showOptions && 
+          <ContainerProperty>
+            {filteredOptions.map((option, index) => (
+              <LabelCenter key={index} onClick={() => handleOptionClick(option)}>
+                <input
+                  type="checkbox"
+                  value={option}
+                  checked={selectedOption === option}
+                  onChange={handleRadioChange}
+                  style={{ display: 'none' }}
+                />
+                {option}
+              </LabelCenter>
+            ))}
+          </ContainerProperty>
+        }
+      
     </Container>
   );
 }
-
-InputOptionHome.propTypes = {
-  handleChange: PropTypes.func,
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
-  props: PropTypes.object,
-};
 
 export function SelectOptionHome({ label, option }) {
   const [selectedOption, setSelectedOption] = useState('');

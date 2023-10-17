@@ -5,7 +5,7 @@
   font-size: 0.625rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1; /* 160% */
+  line-height: 1rem; /* 160% */
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
