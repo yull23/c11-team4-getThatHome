@@ -6,16 +6,12 @@ export const StyledH1 = styled.h1`
   line-height: 2rem;
   margin-bottom: 1rem;
 
-  @media only screen and (max-width: 430px) {
-    font-size: 1.75rem;
-    line-height: 2.5rem;
-  }
 `;
 
 export const StyledLinksContainer = styled.div`
   font-family: ${fonts.secondary};
-  font-size: 0.876rem;
-  line-height: 1.26rem; 
+  font-size: 32px;
+  line-height: 64px; 
   letter-spacing: 0.01564rem;
   margin-bottom: 1rem;
 

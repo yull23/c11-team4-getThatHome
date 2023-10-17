@@ -6,8 +6,8 @@ import SignupPage from "../pages/SignupPage";
 import ProfileViewPage from "../pages/ProfileViewPage";
 import Draft from "../pages/Draft";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
-import NewPropertyRentalPage from "../pages/NewPropertyRentalPage";
-import NewPropertySalePage from "../pages/NewPropertySalePage";
+import NewPropertyPage from "../pages/NewPropertyPage";
+
 
 const router = createBrowserRouter([
   {
@@ -35,11 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/new-property",
-        element: <NewPropertyRentalPage/>,
-      },
-      {
-        path: "/new-property1",
-        element: <NewPropertySalePage/>,
+        element: <NewPropertyPage/>,
       },
       {
         path: "/profile-view",

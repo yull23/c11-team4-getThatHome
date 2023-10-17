@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 import { fonts } from "../../styles";
 
 export const StyledH1 = styled.h1`
@@ -7,16 +6,12 @@ export const StyledH1 = styled.h1`
   line-height: 3rem;
   margin-bottom: 1rem;
 
-  @media only screen and (max-width: 430px) {
-    font-size: 1.75rem;
-    line-height: 2.5rem;
-  }
 `;
 
 export const StyledLinksContainer = styled.div`
   font-family: ${fonts.secondary};
-  font-size: 0.853rem;
-  line-height: 1.23rem;
+  font-size: 32px;
+  line-height: 64px;
   letter-spacing: 0.01564rem;
   margin-bottom: 1rem;
 
@@ -28,7 +23,7 @@ export const StyledLinksContainer = styled.div`
 
   .links-container {
     display: flex;
-    align-items: center; /* Corrección aquí */
+    align-items: center; 
   }
 
   .link-left {
