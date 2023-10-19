@@ -14,6 +14,8 @@ const ContainerButton = styled.button`
   border-color: #F48FB1; 
   width: 280px;
   margin: 4px 0px;
+  position: relative;
+  z-index: 1;
   &:hover {
     border: 1px solid var(--DarkPink, #BF5F82);
   }
