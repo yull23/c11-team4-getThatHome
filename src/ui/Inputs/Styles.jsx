@@ -24,15 +24,9 @@ export const ContainerInputText = styled.div`
   max-width: ${({ maxWidth }) => maxWidth};
   padding: 8px;
   align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-  border: 1px solid var(--Pink, #f48fb1);
   background: var(--White, #fff);
-
+  border: 1px solid var(--Background, #fff);
   &:hover {
-    border: 1px solid var(--DarkPink, #bf5f82);
-  }
-  &:active {
-    border: 1px solid var(--DarkPink, #bf5f82);
+    border: 1px solid var(--Background, #f5f5f6);
   }
 `;
