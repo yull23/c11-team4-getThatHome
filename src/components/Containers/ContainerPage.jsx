@@ -2,13 +2,9 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: center;
-  margin: auto;
-  max-width: 1440px;
-  border: 1px solid black;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 `;
 
 export default function ContainerPage({ children }) {

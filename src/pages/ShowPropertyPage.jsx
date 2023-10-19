@@ -1,5 +1,3 @@
-import NavBar from "../components/Menu/NavBar";
-import Footer from "../ui/Footer";
 import ViewProperty from "../components/ViewProperty/ViewProperty";
 import React from "react";
 
@@ -35,13 +33,9 @@ function ShowPropertyPage() {
   };
 
   return (
-    <>
-      <NavBar haveToken={false} role="tenant" />
-      <ShowPropertyContext.Provider value={{ data }}>
-        <ViewProperty />
-      </ShowPropertyContext.Provider>
-      <Footer />
-    </>
+    <ShowPropertyContext.Provider value={{ data }}>
+      <ViewProperty />
+    </ShowPropertyContext.Provider>
   );
 }
 

@@ -1,15 +1,14 @@
 import styled from "@emotion/styled";
-import { InputOptionHome, SelectOptionHome } from "../../ui/Inputs/InputOptionHome";
+import InputOptionHome from "../../ui/Inputs/InputOptionHome";
 
 const Container = styled.form`
   display: flex;
   padding: 0.5rem 1rem;
-  height: 4.5rem;
-  border-radius: 0.5rem;
+  align-items: center;
+  border-radius: 8px;
   background: var(--White, #fff);
   /* Elevation1 */
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
-  
 `;
 const SpaceLine = styled.div`
   margin: 0 0.5rem;
@@ -19,22 +18,21 @@ const SpaceLine = styled.div`
 
 const ButtonSubmit = styled.div`
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   align-items: center;
-  gap: 0.5rem;
-  margin: auto;
+  gap: 8px;
   height: max-content;
   color: var(--White, #fff);
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 16px;
   background: var(--Pink, #f48fb1);
 
   /* Button */
   font-family: Inter;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem; /* 171.429% */
+  line-height: 24px; /* 171.429% */
   letter-spacing: 1.25px;
   text-transform: uppercase;
 `;
@@ -42,17 +40,19 @@ const ButtonSubmit = styled.div`
 export default function SearchHome() {
   return (
     <Container>
-      <SelectOptionHome
+      <InputOptionHome
+        isSelect={true}
         label="i'm looking for"
-        option={["An Apartament", "An Property"]}
+        options={["an apartament", "an property"]}
       />
       <SpaceLine />
-      <SelectOptionHome
+      <InputOptionHome
+        isSelect={true}
         label="i want to"
-        option={["Rent", "Sale"]}
+        options={["rent", "sale"]}
       />
       <SpaceLine />
-        <InputOptionHome label="where" option={["option"]} placeholder="Favorite district" />
+      <InputOptionHome label="where" isSelect={false} />
       <SpaceLine />
       <ButtonSubmit>Search</ButtonSubmit>
     </Container>

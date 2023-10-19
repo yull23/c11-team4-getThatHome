@@ -1,8 +1,8 @@
 import { Outlet, useMatch } from "react-router-dom";
 import ContainerPage from "../components/Containers/ContainerPage";
 import NavBar from "../components/Menu/NavBar";
-import FooterHome from "../components/FooterHome";
-import Footer from "../ui/Footer";
+import FooterHome from "../components/Footer/FooterHome";
+import FooterContent from "../components/Footer/FooterContent";
 import { createContext } from "react";
 import { users } from "../data/users";
 import { properties, rentals } from "../data/properties";
@@ -10,7 +10,7 @@ import { properties, rentals } from "../data/properties";
 export const UserContext = createContext(null);
 
 export default function Home() {
-  const user = users[0];
+  const user = users[2];
   const haveToken = user != null;
   const inHome = useMatch("/");
   const bestProperties = properties.slice(0, 3);
@@ -24,7 +24,7 @@ export default function Home() {
       <ContainerPage>
         <NavBar />
         <Outlet />
-        {inHome ? <FooterHome /> : <Footer />}
+        {inHome ? <FooterHome /> : <FooterContent />}
       </ContainerPage>
     </UserContext.Provider>
   );

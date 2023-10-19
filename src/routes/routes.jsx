@@ -4,7 +4,6 @@ import PropertiesPage from "../pages/PropertiesPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import NewPropertyPage from "../pages/NewPropertyPage";
-import Draft from "../pages/Draft";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
@@ -66,10 +65,6 @@ const router = createBrowserRouter([
             element: <CardPanel fromUser={true} />,
           },
         ],
-      },
-      {
-        path: "/draft",
-        element: <Draft />,
       },
     ],
   },

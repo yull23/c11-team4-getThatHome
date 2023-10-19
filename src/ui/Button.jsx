@@ -1,5 +1,6 @@
-import { BiUser } from "react-icons/bi";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
+
 function sizeStyle(size = "default") {
   if (size === "default") {
     return "padding: 8px 16px; border-radius: 16px;";
@@ -81,3 +82,8 @@ function Button({ children, icon, ...props }) {
 }
 
 export default Button;
+
+Button.propTypes = {
+  children: PropTypes.node,
+  icon: PropTypes.icon,
+};
