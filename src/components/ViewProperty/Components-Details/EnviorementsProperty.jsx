@@ -27,21 +27,21 @@ export default function EnviorementsProperty() {
   return (
     <ContainerPrimary>
       <IconContext.Provider value={{ size: "2rem", color: "#606061" }}>
-        <div className="card__footer">
-          <div className="card__description">
+        <div className="card_1__footer">
+          <div className="card_1__description">
             <BiBed />
             <span>{data.bedrooms} bedrooms</span>
           </div>
-          <div className="card__description">
+          <div className="card_1__description">
             <BiBath />
             <span>{data.bathromms} bathromms</span>
           </div>
-          <div className="card__description">
+          <div className="card_1__description">
             <BiArea />
             <span>{data.area} m2</span>
           </div>
           {data.petsAllowd ? (
-            <p className="card__pets-allowed">
+            <p className="card_1__pets-allowed">
               <FaPaw /> Pets allowed
             </p>
           ) : (

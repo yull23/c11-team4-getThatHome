@@ -5,16 +5,16 @@ import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import NewPropertyPage from "../pages/NewPropertyPage";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
-import Home, { loaderHome } from "../pages/Home";
+import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
 import CardPanel from "../components/CardPanel/CardPanel";
 import SignupHomePage from "../pages/SignupHomePage";
+import { loaderPropertiesPage } from "./functions/loaders-functions";
 
 const router = createBrowserRouter([
   {
     errorElement: <div>Error</div>,
     path: "/",
-    loader: loaderHome,
     element: <Home />,
     children: [
       {
@@ -23,6 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/properties",
+        loader: loaderPropertiesPage,
         element: <PropertiesPage />,
       },
       {
@@ -59,11 +60,11 @@ const router = createBrowserRouter([
           },
           {
             path: "/profile/favorites",
-            element: <CardPanel fromUser={true} />,
+            element: <CardPanel fromUser={false} />,
           },
           {
             path: "/profile/contacted",
-            element: <CardPanel fromUser={true} />,
+            element: <CardPanel fromUser={false} />,
           },
         ],
       },

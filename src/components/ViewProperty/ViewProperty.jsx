@@ -4,6 +4,7 @@ import CarouselPhoto from "./PhotoCarousel";
 import PropertyDetails from "./PropertyDetails";
 import PropertyContact from "./PropertyContact";
 import "./a-styles.css";
+import { ContainerContent } from "../Containers/ContainersDiv";
 
 const ContainerPrimary = styled.div`
   width: 100%;
@@ -25,15 +26,17 @@ const ContainerProperty = styled.div`
 
 export default function ViewProperty() {
   return (
-    <ContainerPrimary>
-      <ContainerSecundary>
-        <ContainerProperty>
-          <CarouselPhoto />
-          <PropertyDetails />
-        </ContainerProperty>
-        <PropertyContact />
-      </ContainerSecundary>
-    </ContainerPrimary>
+    <ContainerContent>
+      <ContainerPrimary>
+        <ContainerSecundary>
+          <ContainerProperty>
+            <CarouselPhoto />
+            <PropertyDetails />
+          </ContainerProperty>
+          <PropertyContact />
+        </ContainerSecundary>
+      </ContainerPrimary>
+    </ContainerContent>
   );
 }
 

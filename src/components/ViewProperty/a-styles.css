@@ -1,6 +1,6 @@
 /* PROPERTY HEADER ADDRESS */
 
-.card__price {
+.card_1__price {
   color: var(--DarkGray, #373737);
   font-family: "Montserrat";
   font-size: 2.25rem;
@@ -44,7 +44,7 @@
 
 /* PROPERTY DESCRIPTION OF ENVIRONMENTS */
 
-.card__pets-allowed {
+.card_1__pets-allowed {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -58,7 +58,13 @@
   line-height: 1.33; /* 133.333% */
 }
 
-.card__footer {
+.card_1__footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.card_1__description {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }

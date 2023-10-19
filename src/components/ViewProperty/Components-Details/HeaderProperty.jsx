@@ -20,7 +20,7 @@ export default function HeaderProperty() {
           <IconContext.Provider value={{ size: "3rem", color: "#616161" }}>
             <RiMoneyDollarCircleLine />
           </IconContext.Provider>
-          <span className="card__price">{data.price.toLocaleString()}</span>
+          <span className="card_1__price">{data.price.toLocaleString()}</span>
         </div>
         <p className="property__maintanance">+ {data.maintanance}</p>
       </ContainerColumn>

@@ -85,6 +85,8 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: start;
+  justify-content: start;
 }
 .card__description {
   display: flex;
@@ -153,10 +155,12 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
+  min-height: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .card {
     max-width: 300px;
+    /* max-height: 361px; */
   }
 }
