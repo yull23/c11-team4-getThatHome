@@ -85,5 +85,5 @@ export default Button;
 
 Button.propTypes = {
   children: PropTypes.node,
-  icon: PropTypes.icon,
+  icon: PropTypes.element,
 };

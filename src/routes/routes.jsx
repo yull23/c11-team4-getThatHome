@@ -5,7 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import NewPropertyPage from "../pages/NewPropertyPage";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
-import Home from "../pages/Home";
+import Home, { loaderHome } from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
 import CardPanel from "../components/CardPanel/CardPanel";
 import SignupHomePage from "../pages/SignupHomePage";
@@ -14,6 +14,7 @@ const router = createBrowserRouter([
   {
     errorElement: <div>Error</div>,
     path: "/",
+    loader: loaderHome,
     element: <Home />,
     children: [
       {

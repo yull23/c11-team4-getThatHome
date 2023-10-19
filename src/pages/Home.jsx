@@ -10,6 +10,7 @@ import { properties, rentals } from "../data/properties";
 export const UserContext = createContext(null);
 
 export default function Home() {
+  // sessionStorage.setItem(tokenKey, token);
   const user = users[2];
   const haveToken = user != null;
   const inHome = useMatch("/");
