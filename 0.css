@@ -31,7 +31,7 @@ div {
   padding: 0 0.25rem;
   display: flex;
   justify-content: center;
-  aspect-ratio: 2.05/1;
+  aspect-ratio: 280/274;
 }
 div {
   display: grid;
@@ -41,4 +41,16 @@ div {
   position: relative;
   bottom: 1rem;
   min-height: 100%;
+  border: 1px solid red;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding-top: 4rem;
+  padding: 4rem;
+  width: 280px;
+  height: 274px;
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.2);
 }
