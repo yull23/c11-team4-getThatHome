@@ -86,7 +86,7 @@ export function CardLogin() {
   );
 }
 export function CardView() {
-  const { data } = useContext(ShowPropertyContext);
+  const { property } = useContext(ShowPropertyContext);
   const ContainerPrimary = styled.div`
     display: flex;
     justify-content: center;
@@ -138,11 +138,11 @@ export function CardView() {
         <h3>Contact Information</h3>
         <ContainerText>
           <p className="atribute">Email</p>
-          <p>{data.email}</p>
+          <p>{property.email}</p>
         </ContainerText>
         <ContainerText>
           <p className="atribute">Phone</p>
-          <p>{data.phone}</p>
+          <p>{property.phone}</p>
         </ContainerText>
       </ContainerSecundary>
     </ContainerPrimary>

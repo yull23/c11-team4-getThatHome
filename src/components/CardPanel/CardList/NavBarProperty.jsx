@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../../pages/Home";
+import { UserContext } from "../../../pages/Home";
 
 const Container = styled.nav`
   display: flex;

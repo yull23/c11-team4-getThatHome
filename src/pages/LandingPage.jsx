@@ -1,7 +1,8 @@
-import CarrouselSection from "../components/CarrouselSection";
-import InfoSection from "../components/InfoSection";
+import CarrouselSection from "../components/LandingComponents/CarrouselSection";
+import InfoSection from "../components/LandingComponents/InfoSection";
+import TeamSection from "../components/LandingComponents/TeamSection";
 import PanelHome from "../components/PanelHome/PanelHome";
-import TeamSection from "../components/TeamSection";
+
 function LandingPage() {
   return (
     <>

@@ -11,13 +11,11 @@ import { TbHome2 } from "react-icons/tb";
 import { useContext } from "react";
 import { UserContext } from "../../pages/Home";
 import { Link } from "react-router-dom";
+import { ContainerContent } from "../Containers/ContainersDiv";
 
 const ContainerPrimary = styled.div`
   position: relative;
   width: 100%;
-  padding: 0 7.5rem;
-  display: flex;
-  justify-content: space-between;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
 `;
 const ContainerSecundary = styled.div`
@@ -25,6 +23,7 @@ const ContainerSecundary = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const ContainerActions = styled.div`
@@ -40,68 +39,70 @@ export default function NavBar() {
 
   return (
     <ContainerPrimary>
-      <ContainerSecundary>
-        <Link to="/">
-          <img src={logoHome} alt="logo-home" className="navbar" />
-        </Link>
-      </ContainerSecundary>
-      <ContainerActions>
-        <Link to="/properties">
-          <button className="button-find__container">
-            <div className="button-find__container-button">
-              <IconContext.Provider
-                value={{ size: "1.5rem", color: "#616161" }}
-              >
-                <PiMagnifyingGlass />
-              </IconContext.Provider>
-            </div>
-            <span className="button-find__text">find a home</span>
-          </button>
-        </Link>
+      <ContainerContent>
+        <ContainerSecundary>
+          <Link to="/">
+            <img src={logoHome} alt="logo-home" className="navbar" />
+          </Link>
+          <ContainerActions>
+            <Link to="/properties">
+              <button className="button-find__container">
+                <div className="button-find__container-button">
+                  <IconContext.Provider
+                    value={{ size: "1.5rem", color: "#616161" }}
+                  >
+                    <PiMagnifyingGlass />
+                  </IconContext.Provider>
+                </div>
+                <span className="button-find__text">find a home</span>
+              </button>
+            </Link>
 
-        {!haveToken ? (
-          <>
-            <Link to="/signup-home">
-              <Button type="secondary" size="default">
-                <RiUserAddLine />
-                JOIN
-              </Button>
-            </Link>
-            <Link to="/login">
-              <Button type="primary" size="default">
-                <RiUserAddLine />
-                LOGIN
-              </Button>
-            </Link>
-          </>
-        ) : (
-          <>
-            <Button type="secondary" size="default">
-              <BiLogOutCircle />
-              LOGOUT
-            </Button>
-            {role == "tenant" ? (
-              <Link to="/profile/active">
-                <Button type="primary" size="default">
-                  <TbHome2 />
-                  MY PROPERTIES
-                </Button>
-              </Link>
+            {!haveToken ? (
+              <>
+                <Link to="/signup-home">
+                  <Button type="secondary" size="default">
+                    <RiUserAddLine />
+                    JOIN
+                  </Button>
+                </Link>
+                <Link to="/login">
+                  <Button type="primary" size="default">
+                    <RiUserAddLine />
+                    LOGIN
+                  </Button>
+                </Link>
+              </>
             ) : (
-              <Link to="/profile/favorites">
-                <Button type="primary" size="default">
-                  <AiFillHeart />
-                  SAVED PROPERTIES
+              <>
+                <Button type="secondary" size="default">
+                  <BiLogOutCircle />
+                  LOGOUT
                 </Button>
-              </Link>
+                {role == "tenant" ? (
+                  <Link to="/profile/active">
+                    <Button type="primary" size="default">
+                      <TbHome2 />
+                      MY PROPERTIES
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link to="/profile/favorites">
+                    <Button type="primary" size="default">
+                      <AiFillHeart />
+                      SAVED PROPERTIES
+                    </Button>
+                  </Link>
+                )}
+                <Button type="primary" size="default">
+                  <BiUser />
+                  PROFILE
+                </Button>
+              </>
             )}
-            <Button type="primary" size="default">
-              <BiUser />
-              PROFILE
-            </Button>
-          </>
-        )}
-      </ContainerActions>
+          </ContainerActions>
+        </ContainerSecundary>
+      </ContainerContent>
     </ContainerPrimary>
   );
 }

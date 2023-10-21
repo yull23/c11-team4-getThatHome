@@ -32,12 +32,12 @@ const Container = styled.div`
 `;
 
 export default function AboutProperty() {
-  const { data } = useContext(ShowPropertyContext);
+  const { property } = useContext(ShowPropertyContext);
 
   return (
     <Container>
       <p className="title">About this property</p>
-      <p>{data.about}</p>
+      <p>{property.description}</p>
     </Container>
   );
 }

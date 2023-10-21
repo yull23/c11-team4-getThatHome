@@ -6,7 +6,7 @@ import { BiArea, BiBath, BiBed } from "react-icons/bi";
 import { FaPaw } from "react-icons/fa";
 
 export default function EnviorementsProperty() {
-  const { data } = useContext(ShowPropertyContext);
+  const { property } = useContext(ShowPropertyContext);
 
   const ContainerPrimary = styled.div`
     padding: 1rem 0;
@@ -27,21 +27,21 @@ export default function EnviorementsProperty() {
   return (
     <ContainerPrimary>
       <IconContext.Provider value={{ size: "2rem", color: "#606061" }}>
-        <div className="card__footer">
-          <div className="card__description">
+        <div className="card_1__footer">
+          <div className="card_1__description">
             <BiBed />
-            <span>{data.bedrooms} bedrooms</span>
+            <span>{property.bedrooms} bedrooms</span>
           </div>
-          <div className="card__description">
+          <div className="card_1__description">
             <BiBath />
-            <span>{data.bathromms} bathromms</span>
+            <span>{property.bathrooms} bathromms</span>
           </div>
-          <div className="card__description">
+          <div className="card_1__description">
             <BiArea />
-            <span>{data.area} m2</span>
+            <span>{property.area} m²</span>
           </div>
-          {data.petsAllowd ? (
-            <p className="card__pets-allowed">
+          {property.petsAllowd ? (
+            <p className="card_1__pets-allowed">
               <FaPaw /> Pets allowed
             </p>
           ) : (

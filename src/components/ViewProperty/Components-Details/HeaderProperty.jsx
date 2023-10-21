@@ -5,14 +5,15 @@ import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 export default function HeaderProperty() {
-  const { data } = useContext(ShowPropertyContext);
-
-  const address = data.address.split(", ");
+  const { property } = useContext(ShowPropertyContext);
+  // const address = property.address.split(", ");
   return (
     <div className="property__header">
       <ContainerColumn>
-        <p className="property__direction">{address[0]}</p>
-        <p className="property__place">{address.slice(1).join(", ")}</p>
+        <p className="property__direction">
+          {"Francisco de Paula Ugarriza 27"}
+        </p>
+        <p className="property__place">{"Miraflores, Lima"}</p>
       </ContainerColumn>
 
       <ContainerColumn className="property__price-container">
@@ -20,9 +21,13 @@ export default function HeaderProperty() {
           <IconContext.Provider value={{ size: "3rem", color: "#616161" }}>
             <RiMoneyDollarCircleLine />
           </IconContext.Provider>
-          <span className="card__price">{data.price.toLocaleString()}</span>
+          <span className="card_1__price">
+            {property.price.toLocaleString()}
+          </span>
         </div>
-        <p className="property__maintanance">+ {data.maintanance}</p>
+        <p className="property__maintanance">
+          {property.maintenance ? `+ ${property.maintenance}` : ""}
+        </p>
       </ContainerColumn>
     </div>
   );

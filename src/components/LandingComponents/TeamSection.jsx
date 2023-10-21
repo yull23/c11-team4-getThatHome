@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Member from "./Member";
-import { members } from "../data/members";
+import { members } from "../../data/members";
+import { ContainerContent } from "../Containers/ContainersDiv";
 const MembersContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -27,14 +28,22 @@ const Container = styled.div`
 
 function TeamSection() {
   return (
-    <Container>
-      <h2>Meet the team</h2>
-      <MembersContainer>
-        {members.map((member) => (
-          <Member key={member.id} name={member.name} url={member.url} />
-        ))}
-      </MembersContainer>
-    </Container>
+    <ContainerContent>
+      <Container>
+        <h2>Meet the team</h2>
+        <MembersContainer>
+          {members.map((member) => (
+            <Member
+              key={member.id}
+              name={member.name}
+              url={member.url}
+              urlGitHub={member.urlGitHub}
+              urlLinkedin={member.urlLinkedin}
+            />
+          ))}
+        </MembersContainer>
+      </Container>
+    </ContainerContent>
   );
 }
 

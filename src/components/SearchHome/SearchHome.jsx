@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
-import { InputOptionHome, SelectOptionHome } from "../../ui/Inputs/InputOptionHome";
+import {
+  InputOptionHome,
+  SelectOptionHome,
+} from "../../ui/Inputs/InputOptionHome";
 
 const Container = styled.form`
   display: flex;
@@ -9,7 +12,6 @@ const Container = styled.form`
   background: var(--White, #fff);
   /* Elevation1 */
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
-  
 `;
 const SpaceLine = styled.div`
   margin: 0 0.5rem;
@@ -47,12 +49,13 @@ export default function SearchHome() {
         option={["An Apartament", "An Property"]}
       />
       <SpaceLine />
-      <SelectOptionHome
-        label="i want to"
-        option={["Rent", "Sale"]}
-      />
+      <SelectOptionHome label="i want to" option={["Rent", "Sale"]} />
       <SpaceLine />
-        <InputOptionHome label="where" option={["option"]} placeholder="Favorite district" />
+      <InputOptionHome
+        label="where"
+        option={["option"]}
+        placeholder="Favorite district"
+      />
       <SpaceLine />
       <ButtonSubmit>Search</ButtonSubmit>
     </Container>

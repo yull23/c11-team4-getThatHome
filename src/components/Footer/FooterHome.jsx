@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import { DiRuby, DiReact } from "react-icons/di";
+import { ContainerContent } from "../Containers/ContainersDiv";
+
 const Container = styled.div`
   background-color: #f5f5f6;
   width: 100%;
@@ -7,6 +9,7 @@ const Container = styled.div`
 `;
 const FooterContainer = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   font-family: "Montserrat";
   padding: 1rem 2rem;
@@ -56,22 +59,24 @@ const Source = styled.div`
 function FooterHome() {
   return (
     <Container>
-      <FooterContainer>
-        <span>&copy; {new Date().getFullYear()} - Find That Home</span>
+      <ContainerContent>
+        <FooterContainer>
+          <span>&copy; {new Date().getFullYear()} - Find That Home</span>
 
-        <Source>
-          <span>Source Code</span>
-          <div>
-            <div className="container__text">
-              <DiRuby /> <p>Ruby on Rails REST API</p>
+          <Source>
+            <span>Source Code</span>
+            <div>
+              <div className="container__text">
+                <DiRuby /> <p>Ruby on Rails REST API</p>
+              </div>
+              <div className="container__text">
+                <DiReact /> <p>React responsive SPA</p>
+              </div>
             </div>
-            <div className="container__text">
-              <DiReact /> <p>React responsive SPA</p>
-            </div>
-          </div>
-        </Source>
-        <span>Codeable - Cohort 11 Final Project</span>
-      </FooterContainer>
+          </Source>
+          <span>Codeable - Cohort 11 Final Project</span>
+        </FooterContainer>
+      </ContainerContent>
     </Container>
   );
 }

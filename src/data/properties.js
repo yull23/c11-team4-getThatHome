@@ -82,7 +82,7 @@ const property4 = {
     "https://picsum.photos/id/1019/640",
   ],
   // role: "tenant",
-  active: false,
+  active: true,
   latitude: -12.125020769904085,
   longitude: -77.01900139753451,
 };
@@ -107,7 +107,7 @@ const rental1 = {
     "https://picsum.photos/id/1019/640",
   ],
   // role: "tenant",
-  active: false,
+  active: true,
   latitude: -12.125020769904085,
   longitude: -77.01900139753451,
 };
@@ -155,7 +155,7 @@ const rental3 = {
     "https://picsum.photos/id/1019/640",
   ],
   // role: "tenant",
-  active: true,
+  active: false,
   latitude: -12.125020769904085,
   longitude: -77.01900139753451,
 };

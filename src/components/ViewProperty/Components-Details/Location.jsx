@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 
 export default function Location() {
-  const { data } = useContext(ShowPropertyContext);
+  const { property } = useContext(ShowPropertyContext);
   // START: Styles
   const containerStyle = {
     width: "100%",
@@ -11,8 +11,8 @@ export default function Location() {
   };
 
   const center = {
-    lat: data.latitude,
-    lng: data.longitude,
+    lat: property.latitude,
+    lng: property.longitude,
   };
 
   // END: Styles

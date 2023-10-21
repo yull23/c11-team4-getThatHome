@@ -85,6 +85,8 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: start;
+  justify-content: start;
 }
 .card__description {
   display: flex;
@@ -113,15 +115,16 @@
   gap: 0.25rem;
   align-items: center;
   background: var(--Pink, #f48fb1);
-}
-
-.card__type {
   color: var(--White, #fff);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.25px;
+}
+
+.card__type-rent {
+  background: var(--DarkPink, #bf5f82);
 }
 
 /* Actions */
@@ -153,4 +156,12 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
+  min-height: 100%;
+}
+
+@media (min-width: 1400px) {
+  .card {
+    max-width: 300px;
+    /* max-height: 361px; */
+  }
 }
