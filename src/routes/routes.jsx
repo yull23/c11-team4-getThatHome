@@ -7,9 +7,24 @@ import NewPropertyPage from "../pages/NewPropertyPage";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
-import CardPanel from "../components/CardPanel/CardPanel";
 import SignupHomePage from "../pages/SignupHomePage";
-import { loaderPropertiesPage } from "./functions/loaders-functions";
+import {
+  loaderPropertiesActive,
+  loaderPropertiesClosed,
+  loaderPropertiesContacted,
+  loaderPropertiesFavorites,
+} from "./functions/loaders-functions";
+import {
+  PropertiesActive,
+  PropertiesClosed,
+  PropertiesContacted,
+  PropertiesFavorites,
+} from "../components/ProfileComponents/ProfileComponents";
+import {
+  indexProperties,
+  listBestPrice,
+  showProperty,
+} from "../services/properties-services";
 
 const router = createBrowserRouter([
   {
@@ -19,15 +34,17 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: listBestPrice,
         element: <LandingPage />,
       },
       {
         path: "/properties",
-        loader: loaderPropertiesPage,
+        loader: indexProperties,
         element: <PropertiesPage />,
       },
       {
         path: "/properties/:id",
+        loader: showProperty,
         element: <ShowPropertyPage />,
       },
       {
@@ -52,19 +69,23 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/profile/active",
-            element: <CardPanel fromUser={true} />,
+            loader: loaderPropertiesActive,
+            element: <PropertiesActive />,
           },
           {
             path: "/profile/closed",
-            element: <CardPanel fromUser={true} />,
+            loader: loaderPropertiesClosed,
+            element: <PropertiesClosed />,
           },
           {
             path: "/profile/favorites",
-            element: <CardPanel fromUser={false} />,
+            loader: loaderPropertiesFavorites,
+            element: <PropertiesFavorites />,
           },
           {
             path: "/profile/contacted",
-            element: <CardPanel fromUser={false} />,
+            loader: loaderPropertiesContacted,
+            element: <PropertiesContacted />,
           },
         ],
       },

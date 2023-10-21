@@ -1,5 +1,7 @@
+import { useLoaderData, useParams } from "react-router-dom";
 import ViewProperty from "../components/ViewProperty/ViewProperty";
 import React from "react";
+import { showProperty } from "../services/properties-services";
 
 export const ShowPropertyContext = React.createContext(null);
 
@@ -32,8 +34,10 @@ function ShowPropertyPage() {
     longitude: -77.01900139753451,
   };
 
+  const data2 = useLoaderData();
+  console.log(data2);
   return (
-    <ShowPropertyContext.Provider value={{ data }}>
+    <ShowPropertyContext.Provider value={{ data2 }}>
       <ViewProperty />
     </ShowPropertyContext.Provider>
   );

@@ -5,9 +5,9 @@ import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 export default function HeaderProperty() {
-  const { data } = useContext(ShowPropertyContext);
+  const { data2 } = useContext(ShowPropertyContext);
 
-  const address = data.address.split(", ");
+  const address = data2.address.split(", ");
   return (
     <div className="property__header">
       <ContainerColumn>

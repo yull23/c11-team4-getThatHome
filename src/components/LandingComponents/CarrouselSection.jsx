@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import { Card } from "../Card/Card";
-import { useContext } from "react";
-import { UserContext } from "../../pages/Home";
 import { ContainerContent } from "../Containers/ContainersDiv";
+import { useLoaderData } from "react-router-dom";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,7 +37,8 @@ const Header = styled.div`
 `;
 
 function CarrouselSection() {
-  const { bestProperties } = useContext(UserContext);
+  const bestProperties = useLoaderData();
+  console.log(bestProperties[0]);
   return (
     <ContainerContent>
       <Container>

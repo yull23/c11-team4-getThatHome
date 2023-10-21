@@ -48,12 +48,12 @@ export function Card({ data, fromUser }) {
 
   return (
     <div className="card">
-      <img src={data.photos[0]} alt="property" className="card__photo" />
+      <img src={data.photo_url[0]} alt="property" className="card__photo" />
       <div className="card__type">
         <IconContext.Provider value={{ size: "1.25rem" }}>
           <RiCoinsLine />
         </IconContext.Provider>
-        <p className="card__type-sale">For {data.typeSale}</p>
+        <p className="card__type-sale">For {data.operation}</p>
       </div>
       <div>
         <div className="card__content">
