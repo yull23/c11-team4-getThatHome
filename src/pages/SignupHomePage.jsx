@@ -40,11 +40,13 @@ const ImgContainer = styled.div`
   a {
     background-color: white;
     text-align: center;
-    border-radius: 8px;
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
     aspect-ratio: 280/274;
     &:hover {
       background-color: #ccc2;
     }
+    padding: 1rem;
   }
   h3 {
     font-size: 20px;
@@ -62,12 +64,8 @@ const ImgContainer = styled.div`
     text-align: center;
     color: 373737;
   }
-  .link {
-    padding: 1rem;
-    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.2);
-  }
 `;
-function SignupHomePage() {
+export default function SignupHomePage() {
   return (
     <ContainerSignup>
       <TitleContainer>
@@ -76,26 +74,20 @@ function SignupHomePage() {
       </TitleContainer>
       <ImgContainer>
         <Link to="/signup" state={{ role: "tenant" }}>
-          <div className="link">
-            <img src={landlordUrl} />
-            <div>
-              <h3>Landord</h3>
-              <p>You want to rent or sell a home</p>
-            </div>
+          <img src={landlordUrl} />
+          <div>
+            <h3>Landord</h3>
+            <p>You want to rent or sell a home</p>
           </div>
         </Link>
         <Link to="/signup" state={{ role: "customer" }}>
-          <div className="link">
-            <img src={homeseekerUrl} />
-            <div>
-              <h3>Home seeker</h3>
-              <p>You want to find a home</p>
-            </div>
+          <img src={homeseekerUrl} />
+          <div>
+            <h3>Home seeker</h3>
+            <p>You want to find a home</p>
           </div>
         </Link>
       </ImgContainer>
     </ContainerSignup>
   );
 }
-
-export default SignupHomePage;
