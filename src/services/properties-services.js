@@ -3,6 +3,7 @@ import { tokenKey } from "./api-fetch/config";
 
 function propertyView(property) {
   return {
+    propertyID: property.property.id,
     ...property.property,
     ...property.property_address,
     typeProperty: property.property_type.name,
@@ -11,7 +12,8 @@ function propertyView(property) {
 
 export async function indexProperties() {
   const properties = await apiFetch("properties");
-  return properties;
+  const allProperties = properties.map((property) => propertyView(property));
+  return allProperties;
 }
 export async function listBestPrice() {
   const properties = await apiFetch("listBestPrice");

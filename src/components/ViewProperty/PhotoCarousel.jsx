@@ -38,9 +38,9 @@ const ContainerPrimary = styled.div`
 `;
 
 export default function CarouselPhoto() {
-  const { data2 } = useContext(ShowPropertyContext);
+  const { property } = useContext(ShowPropertyContext);
   const [imgCurrent, setImgCurrent] = useState(0);
-  const photos = data2.photo_url;
+  const photos = property.photo_url;
 
   const handleClickPrev = () => {
     if (imgCurrent <= 0) {
