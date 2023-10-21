@@ -48,9 +48,9 @@ function CarrouselSection() {
         </Header>
 
         <CardContainer>
-          <Card data={bestProperties[0]} role="customer" />
-          <Card data={bestProperties[1]} role="customer" />
-          <Card data={bestProperties[2]} role="customer" />
+          <Card data={bestProperties[0]} fromUser={true} />
+          <Card data={bestProperties[1]} fromUser={true} />
+          <Card data={bestProperties[2]} fromUser={true} />
         </CardContainer>
       </Container>
     </ContainerContent>

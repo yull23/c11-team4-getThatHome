@@ -49,7 +49,7 @@ export function Card({ data, fromUser }) {
   return (
     <div className="card">
       <img src={data.photo_url[0]} alt="property" className="card__photo" />
-      <div className="card__type">
+      <div className={`card__type card__type-${data.operation.toLowerCase()}`}>
         <IconContext.Provider value={{ size: "1.25rem" }}>
           <RiCoinsLine />
         </IconContext.Provider>
@@ -74,7 +74,7 @@ export function Card({ data, fromUser }) {
             </div>
           </div>
           <div className="card__descriptions">
-            <p className="card__address">{data.address}</p>
+            <p className="card__address">{data.name}</p>
             <img src="" alt="" />
 
             <IconContext.Provider value={{ size: "1.5rem", color: "#606061" }}>
@@ -85,13 +85,13 @@ export function Card({ data, fromUser }) {
                 </div>
                 <div className="card__description">
                   <BiBath />
-                  <span>{data.bathromms}</span>
+                  <span>{data.bathrooms}</span>
                 </div>
                 <div className="card__description">
                   <BiArea />
                   <span>{data.area} m2</span>
                 </div>
-                {data.petsAllowd ? <FaPaw /> : ""}
+                {data.pets_allowed ? <FaPaw /> : ""}
               </div>
             </IconContext.Provider>
           </div>
