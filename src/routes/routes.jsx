@@ -11,8 +11,6 @@ import SignupHomePage from "../pages/SignupHomePage";
 import {
   loaderPropertiesActive,
   loaderPropertiesClosed,
-  loaderPropertiesContacted,
-  loaderPropertiesFavorites,
 } from "./functions/loaders-functions";
 import {
   PropertiesActive,

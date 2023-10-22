@@ -71,9 +71,9 @@ const StyledButton = styled.button`
   width: max-content;
 `;
 
-function Button({ children, icon, ...props }) {
+function Button({ children, handleClick, icon, ...props }) {
   return (
-    <StyledButton {...props}>
+    <StyledButton {...props} onClick={handleClick}>
       {/* <BiUser size={24} /> */}
       {icon}
       {children}

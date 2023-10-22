@@ -6,7 +6,6 @@ import { useLoaderData } from "react-router-dom";
 
 export default function PropertiesPage() {
   const cards = useLoaderData();
-  console.log(cards);
 
   const Container = styled.div`
     display: grid;

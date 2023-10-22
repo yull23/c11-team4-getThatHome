@@ -6,3 +6,8 @@ export async function loginUser(credentials = { email: "", password: "" }) {
   sessionStorage.setItem(tokenKey, token);
   return token;
 }
+export async function logout() {
+  await apiFetch("logout");
+  sessionStorage.removeItem(tokenKey);
+  return null;
+}
