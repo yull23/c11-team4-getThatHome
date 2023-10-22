@@ -34,8 +34,7 @@ const ContainerActions = styled.div`
 `;
 
 export default function NavBar() {
-  const { haveToken, user } = useContext(UserContext);
-  const role = user ? user.role : null;
+  const { user } = useContext(UserContext);
 
   return (
     <ContainerPrimary>
@@ -58,7 +57,7 @@ export default function NavBar() {
               </button>
             </Link>
 
-            {!haveToken ? (
+            {user == null ? (
               <>
                 <Link to="/signup-home">
                   <Button type="secondary" size="default">
@@ -79,7 +78,7 @@ export default function NavBar() {
                   <BiLogOutCircle />
                   LOGOUT
                 </Button>
-                {role == "tenant" ? (
+                {user.role_id == 1 ? (
                   <Link to="/profile/active">
                     <Button type="primary" size="default">
                       <TbHome2 />

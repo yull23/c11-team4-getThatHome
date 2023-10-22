@@ -21,19 +21,25 @@ import {
   PropertiesFavorites,
 } from "../components/ProfileComponents/ProfileComponents";
 import {
+  favoriteProperties,
   indexProperties,
   listBestPrice,
+  propertiesContacted,
   showProperty,
 } from "../services/properties-services";
+import { loaderHome } from "./functions/loader-session-services";
 
 const router = createBrowserRouter([
   {
     errorElement: <div>Error</div>,
     path: "/",
+    loader: loaderHome,
     element: <Home />,
     children: [
       {
         index: true,
+        // loader: loaderHome,
+
         loader: listBestPrice,
         element: <LandingPage />,
       },
@@ -79,12 +85,12 @@ const router = createBrowserRouter([
           },
           {
             path: "/profile/favorites",
-            loader: loaderPropertiesFavorites,
+            loader: favoriteProperties,
             element: <PropertiesFavorites />,
           },
           {
             path: "/profile/contacted",
-            loader: loaderPropertiesContacted,
+            loader: propertiesContacted,
             element: <PropertiesContacted />,
           },
         ],

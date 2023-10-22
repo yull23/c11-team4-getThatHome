@@ -38,7 +38,6 @@ const Header = styled.div`
 
 function CarrouselSection() {
   const bestProperties = useLoaderData();
-  console.log(bestProperties[0]);
   return (
     <ContainerContent>
       <Container>

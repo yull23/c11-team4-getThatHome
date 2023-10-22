@@ -30,10 +30,10 @@ export default function NavBarProperty() {
   const { user } = useContext(UserContext);
 
   const allActions = {
-    customer: ["favorites", "contacted"],
-    tenant: ["active", "closed"],
+    1: ["active", "closed"],
+    2: ["favorites", "contacted"],
   };
-  const actions = allActions[user.role];
+  const actions = allActions[user.role_id];
 
   return (
     <Container>
