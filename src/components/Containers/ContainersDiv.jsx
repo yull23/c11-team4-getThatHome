@@ -28,7 +28,6 @@ export function ContainerContent({ children, moreStyles }) {
   const Container = styled.div`
     max-width: 1400px;
     width: 100%;
-    heigth: 100%;
     margin: auto;
     // border: 1px solid red;
     display: flex;

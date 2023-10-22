@@ -27,7 +27,7 @@ export const CardsContext = createContext(null);
 
 export default function CardPanel({ fromUser, cards }) {
   const [pageCurrent, setPageCurrent] = useState("1");
-  const n = 8;
+  const n = 9;
 
   const pages = {};
   const numPages = Math.ceil(cards.length / n);
