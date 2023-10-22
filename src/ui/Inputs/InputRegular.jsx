@@ -29,10 +29,15 @@ const ContainerInput = styled.input`
   border: none;
 `;
 
-export default function InputRegular({ placeholder, inputType, ...props }) {
+export default function InputRegular({
+  placeholder,
+  inputType,
+  name,
+  ...props
+}) {
   return (
     <Container {...props}>
-      <ContainerInput type={inputType} placeholder={placeholder} />
+      <ContainerInput type={inputType} placeholder={placeholder} name={name} />
     </Container>
   );
 }

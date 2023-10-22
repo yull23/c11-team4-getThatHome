@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import InputRegular from "../ui/Inputs/InputRegular";
 import Button from "../ui/Button";
 import { RiUserReceivedLine } from "react-icons/ri";
+import { tokenKey } from "../services/api-fetch/config";
+import apiFetch from "../services/api-fetch/api-fetch";
 
 const Container = styled.div`
   padding-top: 6rem;
@@ -39,23 +41,46 @@ const ContainerLabel = styled.div`
   gap: 0.25rem;
 `;
 
+export async function actionLogin({ request }) {
+  const formData = await request.formData();
+  const credentials = Object.fromEntries(formData);
+  const response = await apiFetch("login", { body: credentials });
+
+  if (!response.ok) {
+    return redirect("/error");
+  } else {
+    const { token } = await response.json();
+    sessionStorage.setItem(tokenKey, token);
+    return redirect(`/`);
+  }
+}
+
 export default function LoginPage() {
   return (
     <Container>
-      <Form>
+      <Form method="post">
         <h3>Login</h3>
         <ContainerLabel>
-          <label htmlFor="">Email</label>
-          <InputRegular inputType="email" placeholder="user@mail.com" />
+          <label htmlFor="email">Email</label>
+          <InputRegular
+            inputType="email"
+            placeholder="user@mail.com"
+            name="email"
+          />
         </ContainerLabel>
         <ContainerLabel>
           <label htmlFor="">Password</label>
-          <InputRegular inputType="password" placeholder="******" />
+          <InputRegular
+            inputType="password"
+            placeholder="******"
+            name="password"
+          />
         </ContainerLabel>
         <Button type="primary">
           <RiUserReceivedLine size="1.5rem" />
           LOGIN
         </Button>
+        {/* <button type="submit">login</button> */}
       </Form>
     </Container>
   );
