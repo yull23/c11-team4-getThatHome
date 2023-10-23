@@ -9,10 +9,6 @@ import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
 import SignupHomePage from "../pages/SignupHomePage";
 import {
-  loaderPropertiesActive,
-  loaderPropertiesClosed,
-} from "./functions/loaders-functions";
-import {
   PropertiesActive,
   PropertiesClosed,
   PropertiesContacted,
@@ -22,6 +18,7 @@ import {
   favoriteProperties,
   indexProperties,
   listBestPrice,
+  myProperty,
   propertiesContacted,
   showProperty,
 } from "../services/properties-services";
@@ -71,12 +68,12 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/profile/active",
-            loader: loaderPropertiesActive,
+            loader: myProperty,
             element: <PropertiesActive />,
           },
           {
             path: "/profile/closed",
-            loader: loaderPropertiesClosed,
+            loader: myProperty,
             element: <PropertiesClosed />,
           },
           {

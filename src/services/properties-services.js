@@ -10,6 +10,11 @@ function propertyView(property) {
   };
 }
 
+export async function myProperty() {
+  const properties = await apiFetch("my_property");
+  const myProperties = properties.map((property) => propertyView(property));
+  return myProperties;
+}
 export async function indexProperties() {
   const properties = await apiFetch("properties");
   const allProperties = properties.map((property) => propertyView(property));

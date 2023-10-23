@@ -4,6 +4,7 @@ import InputRegular from "../ui/Inputs/InputRegular";
 import Button from "../ui/Button";
 import { RiUserReceivedLine } from "react-icons/ri";
 import { useAuth } from "../context/useAuth";
+import { getUser } from "../services/user-services";
 
 const Container = styled.div`
   padding-top: 6rem;

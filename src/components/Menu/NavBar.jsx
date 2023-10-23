@@ -54,8 +54,7 @@ const ContainerActions = styled.div`
 `;
 
 export default function NavBar() {
-  const { user } = useContext(UserContext);
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const navigate = useNavigate();
 
@@ -109,7 +108,7 @@ export default function NavBar() {
                   </button>
                 </Form>
                 {user.role_id == 1 ? (
-                  <Link to="/profile/active">
+                  <Link to="/profile/active" state={{ role: 1 }}>
                     <Button
                       type="primary"
                       size="default"
@@ -120,7 +119,7 @@ export default function NavBar() {
                     </Button>
                   </Link>
                 ) : (
-                  <Link to="/profile/favorites">
+                  <Link to="/profile/favorites" state={{ role: 2 }}>
                     <Button type="primary" size="default">
                       <AiFillHeart />
                       SAVED PROPERTIES

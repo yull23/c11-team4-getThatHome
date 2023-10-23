@@ -19,9 +19,11 @@ export function AuthProvider({ children }) {
   function login(credentials) {
     users
       .login(credentials)
-      .then((token) => {
-        sessionStorage.setItem(tokenKey, token);
-        setUser(true);
+      .then((user) => {
+        console.log(user);
+        setUser(user);
+        sessionStorage.setItem(tokenKey, user.token);
+        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -37,14 +39,14 @@ export function AuthProvider({ children }) {
   }
   function signup(credentials) {
     users.signup(credentials).then((user) => {
-      console.log(user);
+      console.log("Signup", user);
       sessionStorage.setItem(tokenKey, user.token);
       setUser(user);
     });
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, signup }}>
+    <AuthContext.Provider value={{ user, login, logout, signup, setUser }}>
       {children}
     </AuthContext.Provider>
   );
