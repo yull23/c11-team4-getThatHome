@@ -33,7 +33,6 @@ export async function showProperty({ params }) {
 export async function favoriteProperties() {
   const properties = await apiFetch("favorite");
   const showProperties = properties.map((property) => propertyView(property));
-  console.log(showProperties);
   return showProperties;
 }
 export async function propertiesContacted() {
@@ -53,4 +52,39 @@ export function updateActiveStatus(id) {
     method: "PUT",
     body: { property_id: id },
   }).then((response) => response);
+}
+
+export async function statusPropertyUser(id) {
+  const statusUser = {
+    contact: false,
+    favorite: false,
+    user_property: null,
+    id: null,
+  };
+
+  const contactProperties = await apiFetch("contact");
+  const favoriteProperties = await apiFetch("favorite");
+  const contactPropertyFound = contactProperties.find(
+    (property) => property.property.id === id
+  );
+  const favoritePropertyFound = favoriteProperties.find(
+    (property) => property.property.id === id
+  );
+
+  if (contactPropertyFound) {
+    statusUser.contact = true;
+    statusUser.user_property = contactPropertyFound.property.user_id;
+    statusUser.id = contactPropertyFound.property.id;
+  }
+  if (favoritePropertyFound) {
+    statusUser.favorite = true;
+    statusUser.user_property = favoritePropertyFound.property.user_id;
+    statusUser.id = favoritePropertyFound.property.id;
+  }
+
+  return statusUser;
+}
+
+export function showProfile(id) {
+  return apiFetch(`users/${id}`).then((response) => response);
 }

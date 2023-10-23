@@ -3,8 +3,13 @@ import {
   CardEdit,
   CardLogin,
   CardNoLogin,
+  CardUser,
   CardView,
 } from "./Components-Details/CardContact";
+import { useContext, useEffect, useState } from "react";
+import { ShowPropertyContext } from "../../pages/ShowPropertyPage";
+import { statusPropertyUser } from "../../services/properties-services";
+import { useAuth } from "../../context/useAuth";
 
 const ContainerPrimary = styled.div`
   min-width: 290px;
@@ -14,12 +19,14 @@ const ContainerPrimary = styled.div`
 `;
 
 export default function PropertyContact() {
+  const { property } = useContext(ShowPropertyContext);
+  const { user } = useAuth();
+
+  console.log(property);
+
   return (
     <ContainerPrimary>
-      <CardNoLogin />
-      <CardLogin />
-      <CardView />
-      <CardEdit />
+      {user.role_id == 1 ? <CardEdit /> : <CardUser />}
     </ContainerPrimary>
   );
 }

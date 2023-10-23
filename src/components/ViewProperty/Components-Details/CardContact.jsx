@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
 import { BiEdit, BiHeart } from "react-icons/bi";
 import Button from "../../../ui/Button";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 import { RiUserAddLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../../context/useAuth";
+import { statusPropertyUser } from "../../../services/properties-services";
 
 export function CardNoLogin() {
   const Container = styled.div`
@@ -107,8 +109,7 @@ export function CardLogin() {
     </Container>
   );
 }
-export function CardView() {
-  const { property } = useContext(ShowPropertyContext);
+export function CardView({ email, phone }) {
   const ContainerPrimary = styled.div`
     display: flex;
     justify-content: center;
@@ -160,11 +161,11 @@ export function CardView() {
         <h3>Contact Information</h3>
         <ContainerText>
           <p className="atribute">Email</p>
-          <p>{property.email}</p>
+          <p>{email}</p>
         </ContainerText>
         <ContainerText>
           <p className="atribute">Phone</p>
-          <p>{property.phone}</p>
+          <p>{phone}</p>
         </ContainerText>
       </ContainerSecundary>
     </ContainerPrimary>
@@ -184,5 +185,52 @@ export function CardEdit() {
         EDIT PROPERTY
       </Button>
     </Container>
+  );
+}
+
+export function CardUser() {
+  const { property } = useContext(ShowPropertyContext);
+  const { user } = useAuth();
+  const [userContact, setUserContact] = useState({});
+
+  const [interactionStatus, setInteractionStatus] = useState({
+    contact: false,
+    favorite: false,
+    user_property: null,
+    id: null,
+  });
+
+  useEffect(() => {
+    async function fetchData() {
+      const status = await statusPropertyUser(property.propertyID);
+      setInteractionStatus(status);
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      if (interactionStatus.user === null) {
+        const user = await showUser(property.propertyID);
+        setUserContact(user);
+      }
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      {user == null ? (
+        <CardNoLogin />
+      ) : (
+        <>
+          {interactionStatus.contact ? (
+            <CardView email={user.email} phone={user.phone} />
+          ) : (
+            <CardLogin />
+          )}
+        </>
+      )}
+    </>
   );
 }

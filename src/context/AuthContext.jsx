@@ -20,10 +20,8 @@ export function AuthProvider({ children }) {
     users
       .login(credentials)
       .then((user) => {
-        console.log(user);
         setUser(user);
         sessionStorage.setItem(tokenKey, user.token);
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -32,14 +30,12 @@ export function AuthProvider({ children }) {
   }
   function logout() {
     users.logout().then((response) => {
-      console.log(response);
       sessionStorage.removeItem(tokenKey);
       setUser(null);
     });
   }
   function signup(credentials) {
     users.signup(credentials).then((user) => {
-      console.log("Signup", user);
       sessionStorage.setItem(tokenKey, user.token);
       setUser(user);
     });
