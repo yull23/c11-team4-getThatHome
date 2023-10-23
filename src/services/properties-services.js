@@ -41,3 +41,9 @@ export async function propertiesContacted() {
   const showProperties = properties.map((property) => propertyView(property));
   return showProperties;
 }
+
+export function deleteProperty(id) {
+  return apiFetch(`properties/${id}`, { method: "DELETE" }).then(
+    (response) => response
+  );
+}
