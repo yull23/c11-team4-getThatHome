@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
-import { Form, redirect } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import InputRegular from "../ui/Inputs/InputRegular";
 import Button from "../ui/Button";
 import { RiUserReceivedLine } from "react-icons/ri";
-import { tokenKey } from "../services/api-fetch/config";
-import apiFetch from "../services/api-fetch/api-fetch";
+import { useAuth } from "../context/useAuth";
 
 const Container = styled.div`
   padding-top: 6rem;
@@ -41,24 +40,21 @@ const ContainerLabel = styled.div`
   gap: 0.25rem;
 `;
 
-export async function actionLogin({ request }) {
-  const formData = await request.formData();
-  const credentials = Object.fromEntries(formData);
-  const response = await apiFetch("login", { body: credentials });
-
-  if (!response.ok) {
-    return redirect("/error");
-  } else {
-    const { token } = await response.json();
-    sessionStorage.setItem(tokenKey, token);
-    return redirect(`/`);
-  }
-}
-
 export default function LoginPage() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const credentials = Object.fromEntries(formData);
+    login(credentials);
+    navigate("/");
+  }
+
   return (
     <Container>
-      <Form method="post">
+      <Form onSubmit={handleLogin}>
         <h3>Login</h3>
         <ContainerLabel>
           <label htmlFor="email">Email</label>
@@ -80,7 +76,6 @@ export default function LoginPage() {
           <RiUserReceivedLine size="1.5rem" />
           LOGIN
         </Button>
-        {/* <button type="submit">login</button> */}
       </Form>
     </Container>
   );

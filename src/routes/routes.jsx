@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingPage from "../pages/LandingPage";
 import PropertiesPage from "../pages/PropertiesPage";
-import LoginPage, { actionLogin } from "../pages/LoginPage";
+import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import NewPropertyPage from "../pages/NewPropertyPage";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        action: actionLogin,
+        // action: actionLogin,
         element: <LoginPage />,
       },
       {

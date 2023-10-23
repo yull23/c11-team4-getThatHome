@@ -35,8 +35,13 @@ export default async function apiFetch(
   // Realizando la solicitud a la API
   const response = await fetch(BASE_URI + "/" + endPoint, options);
   // Creo un flujo para la respuesta correcta e incorrecta de la solicitud
+  // console.log(response);
   let data;
   if (!response.ok) {
+    if (sessionStorage.getItem(tokenKey) && response.status === 401) {
+      sessionStorage.removeItem(tokenKey);
+      window.location.reload();
+    }
     try {
       // await para resolver la promesa
       data = await response.json();

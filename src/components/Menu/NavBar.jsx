@@ -12,7 +12,7 @@ import { useContext } from "react";
 import { UserContext } from "../../pages/Home";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { ContainerContent } from "../Containers/ContainersDiv";
-import { logout } from "../../services/session-services";
+import { useAuth } from "../../context/useAuth";
 
 const ContainerPrimary = styled.div`
   position: relative;
@@ -55,10 +55,12 @@ const ContainerActions = styled.div`
 
 export default function NavBar() {
   const { user } = useContext(UserContext);
+  const { logout } = useAuth();
+
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    await logout();
+  const handleLogout = () => {
+    logout();
     navigate("/");
   };
 
