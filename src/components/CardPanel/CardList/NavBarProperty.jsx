@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
-import { useContext, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { UserContext } from "../../../pages/Home";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/useAuth";
 
 const Container = styled.nav`

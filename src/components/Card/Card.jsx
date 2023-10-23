@@ -12,16 +12,13 @@ import { BiArea, BiBath, BiBed, BiEdit } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaPaw } from "react-icons/fa";
 import "./card.css";
-import { Link, useNavigate, useNavigation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   deleteProperty,
   updateActiveStatus,
 } from "../../services/properties-services";
-import { useContext, useState } from "react";
-import { CardsContext } from "../CardPanel/CardPanel";
 
 export function Card({ data, fromUser }) {
-  const navigate = useNavigate();
   const handleDelete = () => {
     deleteProperty(data.propertyID);
     window.location.reload();
@@ -138,7 +135,7 @@ export function Card({ data, fromUser }) {
   );
 }
 
-// Card.propTypes = {
-//   data: PropTypes.object,
-//   fromUser: PropTypes.bool,
-// };
+Card.propTypes = {
+  data: PropTypes.object,
+  fromUser: PropTypes.bool,
+};
