@@ -41,3 +41,16 @@ export async function propertiesContacted() {
   const showProperties = properties.map((property) => propertyView(property));
   return showProperties;
 }
+
+export function deleteProperty(id) {
+  return apiFetch(`properties/${id}`, { method: "DELETE" }).then(
+    (response) => response
+  );
+}
+
+export function updateActiveStatus(id) {
+  return apiFetch("my_property", {
+    method: "PUT",
+    body: { property_id: id },
+  }).then((response) => response);
+}

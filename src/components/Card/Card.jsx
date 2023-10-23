@@ -12,34 +12,56 @@ import { BiArea, BiBath, BiBed, BiEdit } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaPaw } from "react-icons/fa";
 import "./card.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
+import {
+  deleteProperty,
+  updateActiveStatus,
+} from "../../services/properties-services";
+import { useContext, useState } from "react";
+import { CardsContext } from "../CardPanel/CardPanel";
 
 export function Card({ data, fromUser }) {
+  const navigate = useNavigate();
+  const handleDelete = () => {
+    deleteProperty(data.propertyID);
+    window.location.reload();
+  };
+  const handleUpdateActive = () => {
+    updateActiveStatus(data.propertyID);
+    window.location.reload();
+  };
+
   const Actions = () => {
     return (
       <div className="card__actions">
         <IconContext.Provider value={{ size: "1.5rem" }}>
           {data.active ? (
             <>
-              <div className="card__action-container">
+              <button className="card__action-container">
                 <BiEdit />
                 <p className="card__action">Edit</p>
-              </div>
-              <div className="card__action-container">
+              </button>
+              <button
+                className="card__action-container"
+                onClick={handleUpdateActive}
+              >
                 <AiOutlineCloseCircle />
                 <p className="card__action">Close</p>
-              </div>
+              </button>
             </>
           ) : (
             <>
-              <div className="card__action-container">
+              <button
+                className="card__action-container"
+                onClick={handleUpdateActive}
+              >
                 <RiUploadLine />
                 <p className="card__action">Restore</p>
-              </div>
-              <div className="card__action-container">
+              </button>
+              <button className="card__action-container" onClick={handleDelete}>
                 <RiDeleteBin6Line />
                 <p className="card__action">Delete</p>
-              </div>
+              </button>
             </>
           )}
         </IconContext.Provider>
@@ -48,24 +70,18 @@ export function Card({ data, fromUser }) {
   };
 
   return (
-    <Link to={`/properties/${data.propertyID}`}>
-      <div className="card">
-        <img
-          src={
-            data.photo_url[0]
-              ? data.photo_url[0]
-              : "https://img.freepik.com/vector-premium/icono-marco-fotos-foto-vacia-blanco-vector-sobre-fondo-transparente-aislado-eps-10_399089-1290.jpg?w=826"
-          }
-          alt="property"
-          className="card__photo"
-        />
-        <div
-          className={`card__type card__type-${data.operation.toLowerCase()}`}
-        >
-          <IconContext.Provider value={{ size: "1.25rem" }}>
-            <RiCoinsLine />
-          </IconContext.Provider>
-          <p className="card__type-sale">For {data.operation}</p>
+    <div className="card">
+      <Link to={`/properties/${data.propertyID}`}>
+        <div className="card__photo-container">
+          <img src={data.photo_url[0]} alt="property" className="card__photo" />
+          <div
+            className={`card__type card__type-${data.operation.toLowerCase()}`}
+          >
+            <IconContext.Provider value={{ size: "1.25rem" }}>
+              <RiCoinsLine />
+            </IconContext.Provider>
+            <p className="card__type-sale">For {data.operation}</p>
+          </div>
         </div>
         <div>
           <div className="card__content">
@@ -112,15 +128,17 @@ export function Card({ data, fromUser }) {
               </IconContext.Provider>
             </div>
           </div>
-          {fromUser ? "" : <Actions />}
-          <div className="card__border"></div>
         </div>
+      </Link>
+      <div>
+        {fromUser ? "" : <Actions />}
+        <div className="card__border"></div>
       </div>
-    </Link>
+    </div>
   );
 }
 
-Card.propTypes = {
-  data: PropTypes.object,
-  fromUser: PropTypes.bool,
-};
+// Card.propTypes = {
+//   data: PropTypes.object,
+//   fromUser: PropTypes.bool,
+// };

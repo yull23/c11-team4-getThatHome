@@ -28,13 +28,13 @@ const Container = styled.nav`
 `;
 
 export default function NavBarProperty() {
-  let { state } = useLocation();
+  const { user } = useAuth();
 
   const allActions = {
     1: ["active", "closed"],
     2: ["favorites", "contacted"],
   };
-  const actions = allActions[state.role];
+  const actions = allActions[user.role_id];
 
   return (
     <Container>
@@ -42,7 +42,7 @@ export default function NavBarProperty() {
         <NavLink
           to={`/profile/${action}`}
           key={index}
-          state={{ role: state.role }}
+          state={{ role: user.role_id }}
         >
           {({ isActive }) => {
             return <p className={isActive ? "" : "desactive"}>{action}</p>;
