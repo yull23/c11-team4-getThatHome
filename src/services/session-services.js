@@ -9,12 +9,6 @@ export function login(credentials) {
   });
 }
 
-export async function logout() {
-  await apiFetch("logout");
-  sessionStorage.removeItem(tokenKey);
-  return null;
-}
-
-export function logoutOne() {
+export function logout() {
   return apiFetch("logout");
 }

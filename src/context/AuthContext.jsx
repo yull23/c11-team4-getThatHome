@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
       });
   }
   function logout() {
-    users.logoutOne().then((response) => {
+    users.logout().then((response) => {
       console.log(response);
       sessionStorage.removeItem(tokenKey);
       setUser(null);
