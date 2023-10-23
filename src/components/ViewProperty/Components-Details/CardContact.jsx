@@ -4,6 +4,7 @@ import Button from "../../../ui/Button";
 import { useContext } from "react";
 import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 import { RiUserAddLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 export function CardNoLogin() {
   const Container = styled.div`
@@ -19,14 +20,35 @@ export function CardNoLogin() {
     p {
       text-align: center;
     }
+    a {
+      padding: 0.25rem 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 8px;
+      background: var(--Pink, #f48fb1);
+
+      // text
+      color: var(--White, #fff);
+      text-align: center;
+
+      /* Button */
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px; /* 171.429% */
+      letter-spacing: 1.25px;
+      text-transform: uppercase;
+    }
   `;
   return (
     <Container>
       <p>Log in or Join to contact the advertiser</p>
-      <Button type="primary" size="default">
-        <RiUserAddLine />
+      <Link to="/login">
+        <RiUserAddLine size={"1.5rem"} />
         LOGIN
-      </Button>
+      </Link>
     </Container>
   );
 }

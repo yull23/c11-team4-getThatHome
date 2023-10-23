@@ -7,7 +7,7 @@ import {
 } from "./Components-Details/CardContact";
 
 const ContainerPrimary = styled.div`
-  max-width: 290px;
+  min-width: 290px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
