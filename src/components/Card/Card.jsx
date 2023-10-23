@@ -50,7 +50,15 @@ export function Card({ data, fromUser }) {
   return (
     <Link to={`/properties/${data.propertyID}`}>
       <div className="card">
-        <img src={data.photo_url[0]} alt="property" className="card__photo" />
+        <img
+          src={
+            data.photo_url[0]
+              ? data.photo_url[0]
+              : "https://img.freepik.com/vector-premium/icono-marco-fotos-foto-vacia-blanco-vector-sobre-fondo-transparente-aislado-eps-10_399089-1290.jpg?w=826"
+          }
+          alt="property"
+          className="card__photo"
+        />
         <div
           className={`card__type card__type-${data.operation.toLowerCase()}`}
         >

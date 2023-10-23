@@ -6,6 +6,7 @@ import { RiUserReceivedLine } from "react-icons/ri";
 import { useAuth } from "../context/useAuth";
 
 const Container = styled.div`
+  background: linear-gradient(to bottom, #f48fb122 50%, white 50%);
   padding-top: 6rem;
   display: flex;
   flex-direction: column;
@@ -31,6 +32,17 @@ const Container = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 1.33;
+  }
+  label {
+    color: var(--DarkGray, #373737);
+    /* Regular/Overline */
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
 `;
 const ContainerLabel = styled.div`
