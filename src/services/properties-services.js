@@ -47,3 +47,10 @@ export function deleteProperty(id) {
     (response) => response
   );
 }
+
+export function updateActiveStatus(id) {
+  return apiFetch("my_property", {
+    method: "PUT",
+    body: { property_id: id },
+  }).then((response) => response);
+}

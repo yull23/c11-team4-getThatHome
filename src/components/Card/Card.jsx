@@ -13,7 +13,10 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaPaw } from "react-icons/fa";
 import "./card.css";
 import { Link, useNavigate, useNavigation } from "react-router-dom";
-import { deleteProperty } from "../../services/properties-services";
+import {
+  deleteProperty,
+  updateActiveStatus,
+} from "../../services/properties-services";
 import { useContext, useState } from "react";
 import { CardsContext } from "../CardPanel/CardPanel";
 
@@ -21,6 +24,10 @@ export function Card({ data, fromUser }) {
   const navigate = useNavigate();
   const handleDelete = () => {
     deleteProperty(data.propertyID);
+    window.location.reload();
+  };
+  const handleUpdateActive = () => {
+    updateActiveStatus(data.propertyID);
     window.location.reload();
   };
 
@@ -34,14 +41,20 @@ export function Card({ data, fromUser }) {
                 <BiEdit />
                 <p className="card__action">Edit</p>
               </button>
-              <button className="card__action-container">
+              <button
+                className="card__action-container"
+                onClick={handleUpdateActive}
+              >
                 <AiOutlineCloseCircle />
                 <p className="card__action">Close</p>
               </button>
             </>
           ) : (
             <>
-              <button className="card__action-container">
+              <button
+                className="card__action-container"
+                onClick={handleUpdateActive}
+              >
                 <RiUploadLine />
                 <p className="card__action">Restore</p>
               </button>
