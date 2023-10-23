@@ -6,39 +6,47 @@ import { Link } from "react-router-dom";
 const ContainerSignup = styled.div`
   background: linear-gradient(to bottom, #f48fb122 50%, white 50%);
   width: 100%;
-  aspect-ratio: 2.05/1;
-  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  gap: 3.5rem;
 `;
 const TitleContainer = styled.div`
   width: 100%;
   text-align: center;
-  margin: 64px auto;
   font-family: Monserrat;
   h3 {
-    font-size: 24px;
+    color: var(--teal-teal-900, #1d4044);
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-style: normal;
     font-weight: 400;
-    line-height: 32px;
-    letter-spacing: 0px;
+    line-height: 1.33;
   }
   h2 {
-    font-size: 64px;
+    color: var(--teal-teal-900, #1d4044);
+    font-family: Montserrat;
+    font-size: 4rem;
+    font-style: normal;
     font-weight: 300;
-    line-height: 88px;
+    line-height: 1.375;
     letter-spacing: -0.5px;
   }
 `;
 const ImgContainer = styled.div`
   display: flex;
-
   gap: 54px;
   justify-content: center;
-  div {
+  a {
     background-color: white;
     text-align: center;
-    border-radius: 8px;
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    aspect-ratio: 280/274;
     &:hover {
       background-color: #ccc2;
     }
+    padding: 1rem;
   }
   h3 {
     font-size: 20px;
@@ -56,51 +64,30 @@ const ImgContainer = styled.div`
     text-align: center;
     color: 373737;
   }
-  .link {
-    padding: 1rem;
-  }
 `;
-function SignupHomePage() {
+export default function SignupHomePage() {
   return (
-    <>
-      <ContainerSignup>
-        <TitleContainer>
-          <h3>Selecciona el perfil con el que te identificas</h3>
-          <h2>Que estas buscando?</h2>
-        </TitleContainer>
-        <ImgContainer>
-          <Link to="/signup" state={{ role: "tenant" }}>
-            <div
-              className="link"
-              style={{
-                boxShadow: "0px 10px 5px rgba(0, 0, 0, 0.2)",
-              }}
-            >
-              <img src={landlordUrl} />
-              <div>
-                <h3>Landord</h3>
-                <p>You want to rent or sell a home</p>
-              </div>
-            </div>
-          </Link>
-          <Link to="/signup" state={{ role: "customer" }}>
-            <div
-              className="link"
-              style={{
-                boxShadow: "0px 10px 5px rgba(0, 0, 0, 0.2)",
-              }}
-            >
-              <img src={homeseekerUrl} />
-              <div>
-                <h3>Home seeker</h3>
-                <p>You want to find a home</p>
-              </div>
-            </div>
-          </Link>
-        </ImgContainer>
-      </ContainerSignup>
-    </>
+    <ContainerSignup>
+      <TitleContainer>
+        <h3>Selecciona el perfil con el que te identificas</h3>
+        <h2>Que estas buscando?</h2>
+      </TitleContainer>
+      <ImgContainer>
+        <Link to="/signup" state={{ role: "tenant" }}>
+          <img src={landlordUrl} />
+          <div>
+            <h3>Landord</h3>
+            <p>You want to rent or sell a home</p>
+          </div>
+        </Link>
+        <Link to="/signup" state={{ role: "customer" }}>
+          <img src={homeseekerUrl} />
+          <div>
+            <h3>Home seeker</h3>
+            <p>You want to find a home</p>
+          </div>
+        </Link>
+      </ImgContainer>
+    </ContainerSignup>
   );
 }
-
-export default SignupHomePage;

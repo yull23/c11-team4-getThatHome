@@ -18,6 +18,24 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    color: var(--Gray, #616161);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.25px;
+  }
+  span {
+    color: var(--Gray, #616161);
+
+    /* Caption */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.4px;
   }
 `;
 const FooterContainer = styled.div`
@@ -40,8 +58,12 @@ function FooterContent() {
                 <img src={abc} />
               </div>
               <ContainerColumn gap="0.25rem" pd="0 0.5rem">
-                <span>&copy; {new Date().getFullYear()} - Find That Home</span>
-                <span>Codeable - Cohort 11 Final Project</span>
+                <p className="user-github">
+                  &copy; {new Date().getFullYear()} - Find That Home
+                </p>
+                <p className="user-github">
+                  Codeable - Cohort 11 Final Project
+                </p>
               </ContainerColumn>
             </ContainerColumn>
             <ContainerColumn gap="0.5rem">

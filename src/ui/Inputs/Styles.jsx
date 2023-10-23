@@ -26,6 +26,7 @@ export const ContainerInputText = styled.div`
   align-items: center;
   background: var(--White, #fff);
   border: 1px solid var(--Background, #fff);
+
   &:hover {
     border: 1px solid var(--Background, #f5f5f6);
   }

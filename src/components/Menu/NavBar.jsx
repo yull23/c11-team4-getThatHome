@@ -10,13 +10,33 @@ import { AiFillHeart } from "react-icons/ai";
 import { TbHome2 } from "react-icons/tb";
 import { useContext } from "react";
 import { UserContext } from "../../pages/Home";
-import { Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import { ContainerContent } from "../Containers/ContainersDiv";
+import { useAuth } from "../../context/useAuth";
 
 const ContainerPrimary = styled.div`
   position: relative;
   width: 100%;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+  .button-logout {
+    display: flex;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--Pink, #f48fb1);
+
+    color: var(--Gray, #616161);
+    text-align: center;
+
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.71;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
 `;
 const ContainerSecundary = styled.div`
   padding: 1rem 2rem;
@@ -34,8 +54,15 @@ const ContainerActions = styled.div`
 `;
 
 export default function NavBar() {
-  const { haveToken, user } = useContext(UserContext);
-  const role = user ? user.role : null;
+  const { user } = useContext(UserContext);
+  const { logout } = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <ContainerPrimary>
@@ -58,7 +85,7 @@ export default function NavBar() {
               </button>
             </Link>
 
-            {!haveToken ? (
+            {user == null ? (
               <>
                 <Link to="/signup-home">
                   <Button type="secondary" size="default">
@@ -75,13 +102,19 @@ export default function NavBar() {
               </>
             ) : (
               <>
-                <Button type="secondary" size="default">
-                  <BiLogOutCircle />
-                  LOGOUT
-                </Button>
-                {role == "tenant" ? (
+                <Form onSubmit={handleLogout}>
+                  <button className="button-logout" type="submit">
+                    <BiLogOutCircle />
+                    LOGOUT
+                  </button>
+                </Form>
+                {user.role_id == 1 ? (
                   <Link to="/profile/active">
-                    <Button type="primary" size="default">
+                    <Button
+                      type="primary"
+                      size="default"
+                      typeApplication="submit"
+                    >
                       <TbHome2 />
                       MY PROPERTIES
                     </Button>

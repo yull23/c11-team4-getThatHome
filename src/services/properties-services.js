@@ -1,5 +1,5 @@
 import apiFetch from "./api-fetch/api-fetch";
-import { tokenKey } from "./api-fetch/config";
+// import { tokenKey } from "./api-fetch/config";
 
 function propertyView(property) {
   return {
@@ -23,4 +23,16 @@ export async function listBestPrice() {
 export async function showProperty({ params }) {
   const property = await apiFetch(`properties/${params.id}`);
   return propertyView(property);
+}
+
+export async function favoriteProperties() {
+  const properties = await apiFetch("favorite");
+  const showProperties = properties.map((property) => propertyView(property));
+  console.log(showProperties);
+  return showProperties;
+}
+export async function propertiesContacted() {
+  const properties = await apiFetch("contact");
+  const showProperties = properties.map((property) => propertyView(property));
+  return showProperties;
 }

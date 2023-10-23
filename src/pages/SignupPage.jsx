@@ -62,7 +62,6 @@ const TitleForm = styled.h1`
 `;
 function SignupPage() {
   let { state } = useLocation();
-  console.log(state);
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
   const form1 = <h1>soy form 1</h1>;
