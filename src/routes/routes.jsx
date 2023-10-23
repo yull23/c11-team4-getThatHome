@@ -25,19 +25,16 @@ import {
   propertiesContacted,
   showProperty,
 } from "../services/properties-services";
-import { loaderHome } from "./functions/loader-session-services";
 
 const router = createBrowserRouter([
   {
     errorElement: <div>Error</div>,
     path: "/",
-    loader: loaderHome,
     element: <Home />,
     children: [
       {
         index: true,
         // loader: loaderHome,
-
         loader: listBestPrice,
         element: <LandingPage />,
       },

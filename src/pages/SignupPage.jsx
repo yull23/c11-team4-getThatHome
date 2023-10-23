@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
-import { useLocation } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
+import { useAuth } from "../context/useAuth";
 
 const ContainerSignup = styled.div`
   background: linear-gradient(to bottom, #f48fb122 50%, white 50%);
@@ -60,41 +59,60 @@ const TitleForm = styled.h1`
   line-height: 32px;
   letter-spacing: 0px;
 `;
-function SignupPage() {
+export default function SignupPage() {
   let { state } = useLocation();
-  const { register, handleSubmit } = useForm();
-  const [data, setData] = useState("");
-  const form1 = <h1>soy form 1</h1>;
-  const form2 = <h1>soy form 2</h1>;
+  const { signup } = useAuth();
+  const navigate = useNavigate();
+
+  console.log("role", state);
+
+  function handleSignup(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const credentials = Object.fromEntries(formData);
+    credentials.role_id = state.role;
+    if (credentials.password_digest === credentials.password_confirmation) {
+      console.log(credentials);
+      signup(credentials);
+      navigate("/");
+    } else {
+      console.log("Error");
+    }
+  }
   return (
     <>
       <ContainerSignup>
         <FormContainer>
           <TitleForm>Create your Account</TitleForm>
-          <Form
-            onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}
-          >
+          <Form onSubmit={handleSignup}>
             <Input>
               <label htmlFor="">NAME</label>
-              <input {...register("name")} placeholder="John Doe" />
+              <input type="text" name="name" placeholder="John Doe" />
             </Input>
             <Input>
               <label htmlFor="">EMAIL</label>
-              <input {...register("EMAIL")} placeholder="user@mail.com" />
+              <input type="email" name="email" placeholder="user@mail.com" />
             </Input>
             <Input>
               <label htmlFor="">PHONE</label>
-              <input {...register("phone")} placeholder="999-999-999" />
+              <input type="text" name="phone" placeholder="999-999-999" />
             </Input>
             <Input>
               <label htmlFor="">PASSWORD</label>
-              <input {...register("phone")} placeholder="******" />
+              <input
+                placeholder="******"
+                type="password"
+                name="password_digest"
+              />
             </Input>
             <Input>
               <label htmlFor="">PASSWORD CONFIRMATION</label>
-              <input {...register("phone")} placeholder="******" />
+              <input
+                placeholder="******"
+                type="password"
+                name="password_confirmation"
+              />
             </Input>
-
             <Button type="primary">CREATE ACCOUNT</Button>
           </Form>
         </FormContainer>
@@ -102,5 +120,3 @@ function SignupPage() {
     </>
   );
 }
-
-export default SignupPage;

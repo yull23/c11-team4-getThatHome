@@ -35,9 +35,16 @@ export function AuthProvider({ children }) {
       setUser(null);
     });
   }
+  function signup(credentials) {
+    users.signup(credentials).then((user) => {
+      console.log(user);
+      sessionStorage.setItem(tokenKey, user.token);
+      setUser(user);
+    });
+  }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, signup }}>
       {children}
     </AuthContext.Provider>
   );

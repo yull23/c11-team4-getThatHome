@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData, useMatch } from "react-router-dom";
+import { Outlet, useMatch } from "react-router-dom";
 import ContainerPage from "../components/Containers/ContainerPage";
 import NavBar from "../components/Menu/NavBar";
 import FooterHome from "../components/Footer/FooterHome";
@@ -9,12 +9,11 @@ import { useAuth } from "../context/useAuth";
 export const UserContext = createContext(null);
 
 export default function Home() {
-  const { bestProperties } = useLoaderData();
   const { user } = useAuth();
   const inHome = useMatch("/");
 
   return (
-    <UserContext.Provider value={{ user, bestProperties }}>
+    <UserContext.Provider value={{ user }}>
       <ContainerPage>
         <NavBar />
         <Outlet />

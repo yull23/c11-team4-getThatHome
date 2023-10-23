@@ -12,3 +12,12 @@ export function login(credentials) {
 export function logout() {
   return apiFetch("logout");
 }
+
+export function signup(credentials) {
+  return apiFetch("users", { method: "POST", body: credentials }).then(
+    (response) => {
+      const { _token, ...user } = response;
+      return user;
+    }
+  );
+}

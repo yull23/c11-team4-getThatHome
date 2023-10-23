@@ -73,14 +73,14 @@ export default function SignupHomePage() {
         <h2>Que estas buscando?</h2>
       </TitleContainer>
       <ImgContainer>
-        <Link to="/signup" state={{ role: "tenant" }}>
+        <Link to="/signup" state={{ role: 1 }}>
           <img src={landlordUrl} />
           <div>
             <h3>Landord</h3>
             <p>You want to rent or sell a home</p>
           </div>
         </Link>
-        <Link to="/signup" state={{ role: "customer" }}>
+        <Link to="/signup" state={{ role: 2 }}>
           <img src={homeseekerUrl} />
           <div>
             <h3>Home seeker</h3>
