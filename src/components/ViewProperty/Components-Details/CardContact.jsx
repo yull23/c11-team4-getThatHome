@@ -1,12 +1,18 @@
 import styled from "@emotion/styled";
-import { BiEdit, BiHeart } from "react-icons/bi";
+import { BiEdit, BiHeart, BiSolidHeart } from "react-icons/bi";
 import Button from "../../../ui/Button";
 import { useContext, useEffect, useState } from "react";
 import { ShowPropertyContext } from "../../../pages/ShowPropertyPage";
 import { RiUserAddLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../context/useAuth";
-import { statusPropertyUser } from "../../../services/properties-services";
+import {
+  initFavorite,
+  statusPropertyUser,
+  updateContact,
+  updateFavorite,
+} from "../../../services/properties-services";
+import { showUser } from "../../../services/user-services";
 
 export function CardNoLogin() {
   const Container = styled.div`
@@ -54,7 +60,13 @@ export function CardNoLogin() {
     </Container>
   );
 }
-export function CardLogin() {
+export function CardLogin({
+  interactionStatus,
+  setInteractionStatus,
+  property,
+  updateCard,
+  setUpdateCard,
+}) {
   const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -93,18 +105,47 @@ export function CardLogin() {
       align-items: center;
     }
   `;
+
+  const [forceUpdate, setForceUpdate] = useState(false);
+
+  useEffect(() => {
+    console.log("Update");
+  }, [forceUpdate]);
+
+  const handleUpdateFavorite = async () => {
+    const status = await updateFavorite(interactionStatus);
+    setInteractionStatus(status);
+    setForceUpdate((prev) => !prev);
+  };
+
+  const handleUpdateContacted = async () => {
+    const status = await updateContact(interactionStatus);
+    setInteractionStatus(status);
+    setUpdateCard((prev) => !prev);
+  };
+
   return (
     <Container>
-      <Button type="primary" size="default">
+      <Button type="primary" size="default" handleClick={handleUpdateContacted}>
         CONTACT ADVERTISER
       </Button>
       <div>
-        <button className="favorite__button">
-          <BiHeart
-            style={{ fontSize: "1.5rem", margin: "0.5rem", color: "#616161" }}
-          />
+        <button className="favorite__button" onClick={handleUpdateFavorite}>
+          {interactionStatus.favorite ? (
+            <BiSolidHeart
+              style={{ fontSize: "1.5rem", margin: "0.5rem", color: "#F48FB1" }}
+            />
+          ) : (
+            <BiHeart
+              style={{ fontSize: "1.5rem", margin: "0.5rem", color: "#616161" }}
+            />
+          )}
         </button>
-        <p>Add to favorites</p>
+        {interactionStatus.favorite ? (
+          <p>Remove from favorites</p>
+        ) : (
+          <p>Add to favorites</p>
+        )}
       </div>
     </Container>
   );
@@ -155,6 +196,7 @@ export function CardView({ email, phone }) {
       color: var(--DarkPink, #bf5f82);
     }
   `;
+
   return (
     <ContainerPrimary>
       <ContainerSecundary>
@@ -192,28 +234,24 @@ export function CardUser() {
   const { property } = useContext(ShowPropertyContext);
   const { user } = useAuth();
   const [userContact, setUserContact] = useState({});
+  const [updateCard, setUpdateCard] = useState(false);
 
   const [interactionStatus, setInteractionStatus] = useState({
+    exists: false,
     contact: false,
     favorite: false,
-    user_property: null,
-    id: null,
+    userProperty: property.user_id,
+    idProperty: property.propertyID,
   });
 
   useEffect(() => {
     async function fetchData() {
-      const status = await statusPropertyUser(property.propertyID);
+      const status = await statusPropertyUser(interactionStatus);
       setInteractionStatus(status);
-    }
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    async function fetchData() {
-      if (interactionStatus.user === null) {
-        const user = await showUser(property.propertyID);
-        setUserContact(user);
-      }
+      const userFound = await showUser(interactionStatus.userProperty);
+      // console.log(userFound);
+      setUserContact(userFound);
+      console.log(userContact);
     }
     fetchData();
   }, []);
@@ -225,9 +263,15 @@ export function CardUser() {
       ) : (
         <>
           {interactionStatus.contact ? (
-            <CardView email={user.email} phone={user.phone} />
+            <CardView email={userContact.email} phone={userContact.phone} />
           ) : (
-            <CardLogin />
+            <CardLogin
+              property={property}
+              interactionStatus={interactionStatus}
+              setInteractionStatus={setInteractionStatus}
+              updateCard={updateCard}
+              setUpdateCard={setUpdateCard}
+            />
           )}
         </>
       )}

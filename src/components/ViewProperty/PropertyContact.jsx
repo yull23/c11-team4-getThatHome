@@ -20,13 +20,11 @@ const ContainerPrimary = styled.div`
 
 export default function PropertyContact() {
   const { property } = useContext(ShowPropertyContext);
-  const { user } = useAuth();
-
-  console.log(property);
+  const role = sessionStorage.getItem("role");
 
   return (
     <ContainerPrimary>
-      {user.role_id == 1 ? <CardEdit /> : <CardUser />}
+      {role == 1 ? <CardEdit /> : <CardUser />}
     </ContainerPrimary>
   );
 }

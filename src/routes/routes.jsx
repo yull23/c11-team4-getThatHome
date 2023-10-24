@@ -62,8 +62,12 @@ const router = createBrowserRouter([
         path: "/new-property",
         element: <NewPropertyPage />,
       },
+      // {
+      //   path: "/profile",
+      //   element: <NewPropertyPage />,
+      // },
       {
-        path: "/profile",
+        // path: "/profile",
         element: <ProfilePropertiesPage />,
         children: [
           {
