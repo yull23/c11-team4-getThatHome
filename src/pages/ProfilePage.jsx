@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import InputRegular from "../ui/Inputs/InputRegular";
 import { useAuth } from "../context/useAuth";
+import { useLoaderData } from "react-router-dom";
 const ContainerProfile = styled.div`
   background: linear-gradient(to bottom, #f48fb122 50%, white 50%);
   padding-top: 7.25rem;
@@ -51,7 +52,7 @@ const ContainerProfile = styled.div`
     letter-spacing: 0.4px;
     padding: 0.5rem;
     border-bottom: solid;
-    border-bottom-color: #FFC1E3;
+    border-bottom-color: #ffc1e3;
   }
 `;
 const ContainerInputs = styled.div`
@@ -68,45 +69,29 @@ const ContainerLabel = styled.div`
 `;
 
 export const ProfilePage = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        phone: "",
-        email: "",
-    });
-    const { user } = useAuth();
-    console.log(user)
-    useEffect(() => {
-        if (user) {
-          setFormData({
-            name: user.name,
-            // email: user.email, User can't change their email
-            phone: user.email,
-            phone: user.phone,
-          });
-        }
-    }, [user]);
-
-    return (
-        <ContainerProfile>
-              <div className='container-profile'> 
-                <ContainerInputs>
-                    <ContainerLabel>
-                        <label htmlFor="">NAME</label>
-                        <p>{user.name}</p>
-                        {/* <p>{user.name}</p>    */}
-                    </ContainerLabel>
-                    <ContainerLabel>
-                        <label htmlFor="">PHONE</label>
-                        <p>{user.phone}</p> 
-                        {/* <p>{user.phone}</p>    */}
-                    </ContainerLabel>
-                    <ContainerLabel>
-                        <label htmlFor="">Email</label>
-                        <p>{user.email}</p>
-                        {/* <p>{user.email}</p>    */}
-                    </ContainerLabel>
-                </ContainerInputs>
-              </div>
-        </ContainerProfile>
-    )
-}
+  const user = useLoaderData();
+  console.log(user);
+  return (
+    <ContainerProfile>
+      <div className="container-profile">
+        <ContainerInputs>
+          <ContainerLabel>
+            <label htmlFor="">NAME</label>
+            <p>{user.name}</p>
+            {/* <p>{user.name}</p>    */}
+          </ContainerLabel>
+          <ContainerLabel>
+            <label htmlFor="">PHONE</label>
+            <p>{user.phone}</p>
+            {/* <p>{user.phone}</p>    */}
+          </ContainerLabel>
+          <ContainerLabel>
+            <label htmlFor="">Email</label>
+            <p>{user.email}</p>
+            {/* <p>{user.email}</p>    */}
+          </ContainerLabel>
+        </ContainerInputs>
+      </div>
+    </ContainerProfile>
+  );
+};

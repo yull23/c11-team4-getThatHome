@@ -22,6 +22,7 @@ export function AuthProvider({ children }) {
         setUser(user);
         sessionStorage.setItem(tokenKey, user.token);
         localStorage.setItem("role", user.role_id);
+        localStorage.setItem("user_id", user.id);
       })
       .catch((error) => {
         console.log(error);
@@ -32,6 +33,7 @@ export function AuthProvider({ children }) {
     users.logout().then((response) => {
       sessionStorage.removeItem(tokenKey);
       localStorage.removeItem("role");
+      localStorage.removeItem("user_id");
 
       setUser(null);
     });
@@ -40,6 +42,7 @@ export function AuthProvider({ children }) {
     users.signup(credentials).then((user) => {
       sessionStorage.setItem(tokenKey, user.token);
       localStorage.setItem("role", user.role_id);
+      localStorage.setItem("user_id", user.id);
       setUser(user);
     });
   }
