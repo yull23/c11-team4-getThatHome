@@ -23,6 +23,9 @@ import {
   showProperty,
 } from "../services/properties-services";
 import { ProfilePage } from "../pages/ProfilePage";
+
+import NewPropertyRent from "../components/NewPropertyComponents/NewPropertyRent";
+import NewPropertySale from "../components/NewPropertyComponents/NewPropertySale";
 import { loaderProfile } from "./functions/loader-profile";
 
 const router = createBrowserRouter([
@@ -33,7 +36,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        // loader: loaderHome,
         loader: listBestPrice,
         element: <LandingPage />,
       },
@@ -49,7 +51,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        // action: actionLogin,
         element: <LoginPage />,
       },
       {
@@ -61,8 +62,18 @@ const router = createBrowserRouter([
         element: <SignupPage />,
       },
       {
-        path: "/new-property",
+        // path: "/new-property",
         element: <NewPropertyPage />,
+        children: [
+          {
+            path: "/new-property/rent",
+            element: <NewPropertyRent />,
+          },
+          {
+            path: "/new-property/sale",
+            element: <NewPropertySale />,
+          },
+        ],
       },
       {
         path: "/profile",

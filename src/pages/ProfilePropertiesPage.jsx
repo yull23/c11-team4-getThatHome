@@ -9,11 +9,11 @@ import { ContainerContent } from "../components/Containers/ContainersDiv";
 
 export default function ProfilePropertiesPage() {
   const { user } = useContext(UserContext);
-  const role = user ? user.role : null;
+  const role = localStorage.getItem("role");
 
   const ButtonProperty = () => {
-    return role == "tenant" ? (
-      <Link to="/">
+    return role == 1 ? (
+      <Link to="/new-property/rent">
         <Button type="primary" size="default">
           <PiPlusCircle style={{ fontSize: "1.5rem" }} />
           NEW PROPERTY

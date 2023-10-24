@@ -33,16 +33,26 @@ export default function InputRegular({
   placeholder,
   inputType,
   name,
+  children,
+  step,
   ...props
 }) {
   return (
     <Container {...props}>
-      <ContainerInput type={inputType} placeholder={placeholder} name={name} />
+      {children}
+      <ContainerInput
+        type={inputType}
+        placeholder={placeholder}
+        name={name}
+        step={step}
+      />
     </Container>
   );
 }
 
 InputRegular.propTypes = {
+  name: PropTypes.string,
   placeholder: PropTypes.string,
   inputType: PropTypes.string,
+  children: PropTypes.node,
 };
