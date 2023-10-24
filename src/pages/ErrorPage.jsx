@@ -2,6 +2,7 @@ import React from 'react';
 import UnderConstruction from 'react-under-construction';
 import 'react-under-construction/build/css/index.css';
 
+
 const App = () => (
   <UnderConstruction
     background={{

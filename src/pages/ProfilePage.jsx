@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from "@emotion/styled";
-import InputRegular from "../ui/Inputs/InputRegular";
 import { useAuth } from "../context/useAuth";
 const ContainerProfile = styled.div`
   background: linear-gradient(to bottom, #f48fb122 50%, white 50%);
