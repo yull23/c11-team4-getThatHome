@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Location from "./Location";
 
 export default function LocationProperty() {
-  const { data } = useContext(ShowPropertyContext);
+  const { property } = useContext(ShowPropertyContext);
 
   const Container = styled.div`
     display: flex;
@@ -36,7 +36,7 @@ export default function LocationProperty() {
   return (
     <Container>
       <p className="title">Location</p>
-      <p className="address">{data.address}</p>
+      <p className="address">{property.address}</p>
       <Location />
     </Container>
   );

@@ -1,13 +1,16 @@
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
+import { useContext } from "react";
 import { IconContext } from "react-icons";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+import { CardsContext } from "../CardPanel";
 
-export default function PaginatorCards({ pages, pageCurrent, setPageCurrent }) {
+export default function PaginatorCards() {
+  const { pages, pageCurrent, setPageCurrent } = useContext(CardsContext);
   const indexPages = Object.keys(pages);
 
   const ContainerButtons = styled.div`
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -66,9 +69,3 @@ export default function PaginatorCards({ pages, pageCurrent, setPageCurrent }) {
     </ContainerButtons>
   );
 }
-
-PaginatorCards.propTypes = {
-  pages: PropTypes.object.isRequired,
-  pageCurrent: PropTypes.string.isRequired,
-  setPageCurrent: PropTypes.func.isRequired,
-};

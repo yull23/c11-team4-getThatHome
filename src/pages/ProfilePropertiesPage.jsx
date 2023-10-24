@@ -4,7 +4,8 @@ import { UserContext } from "./Home";
 import { useContext } from "react";
 import Button from "../ui/Button";
 import { PiPlusCircle } from "react-icons/pi";
-import NavBarProperty from "../components/CardList/NavBarProperty";
+import NavBarProperty from "../components/CardPanel/CardList/NavBarProperty";
+import { ContainerContent } from "../components/Containers/ContainersDiv";
 
 export default function ProfilePropertiesPage() {
   const { user } = useContext(UserContext);
@@ -32,10 +33,12 @@ export default function ProfilePropertiesPage() {
   `;
 
   return (
-    <Container>
-      <ButtonProperty />
-      <NavBarProperty role={role} />
-      <Outlet />
-    </Container>
+    <ContainerContent>
+      <Container>
+        <ButtonProperty />
+        <NavBarProperty role={role} />
+        <Outlet />
+      </Container>
+    </ContainerContent>
   );
 }

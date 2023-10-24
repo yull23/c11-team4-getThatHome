@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Button from "../ui/Button";
+import Button from "../../ui/Button";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`

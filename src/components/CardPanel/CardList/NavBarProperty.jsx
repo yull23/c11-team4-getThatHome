@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../../pages/Home";
+import { useAuth } from "../../../context/useAuth";
 
 const Container = styled.nav`
   display: flex;
@@ -27,18 +26,19 @@ const Container = styled.nav`
 `;
 
 export default function NavBarProperty() {
-  const { user } = useContext(UserContext);
+  const role = localStorage.getItem("role");
+  const { user } = useAuth();
 
   const allActions = {
-    customer: ["favorites", "contacted"],
-    tenant: ["active", "closed"],
+    1: ["active", "closed"],
+    2: ["favorites", "contacted"],
   };
-  const actions = allActions[user.role];
+  const actions = allActions[role];
 
   return (
     <Container>
       {actions.map((action, index) => (
-        <NavLink to={`/profile/${action}`} key={index}>
+        <NavLink to={`/profile/${action}`} key={index} state={{ role: role }}>
           {({ isActive }) => {
             return <p className={isActive ? "" : "desactive"}>{action}</p>;
           }}

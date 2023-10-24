@@ -4,12 +4,25 @@ import PropertiesPage from "../pages/PropertiesPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import NewPropertyPage from "../pages/NewPropertyPage";
-import Draft from "../pages/Draft";
 import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
-import CardPanel from "../components/CardPanel/CardPanel";
 import SignupHomePage from "../pages/SignupHomePage";
+import {
+  PropertiesActive,
+  PropertiesClosed,
+  PropertiesContacted,
+  PropertiesFavorites,
+} from "../components/ProfileComponents/ProfileComponents";
+import {
+  favoriteProperties,
+  indexProperties,
+  listBestPrice,
+  myProperty,
+  propertiesContacted,
+  showProperty,
+} from "../services/properties-services";
+import { ProfilePage } from "../pages/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -19,18 +32,23 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        // loader: loaderHome,
+        loader: listBestPrice,
         element: <LandingPage />,
       },
       {
         path: "/properties",
+        loader: indexProperties,
         element: <PropertiesPage />,
       },
       {
         path: "/properties/:id",
+        loader: showProperty,
         element: <ShowPropertyPage />,
       },
       {
         path: "/login",
+        // action: actionLogin,
         element: <LoginPage />,
       },
       {
@@ -47,29 +65,33 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
+        //path: "/profile",
         element: <ProfilePropertiesPage />,
         children: [
           {
             path: "/profile/active",
-            element: <CardPanel fromUser={true} />,
+            loader: myProperty,
+            element: <PropertiesActive />,
           },
           {
             path: "/profile/closed",
-            element: <CardPanel fromUser={true} />,
+            loader: myProperty,
+            element: <PropertiesClosed />,
           },
           {
             path: "/profile/favorites",
-            element: <CardPanel fromUser={true} />,
+            loader: favoriteProperties,
+            element: <PropertiesFavorites />,
           },
           {
             path: "/profile/contacted",
-            element: <CardPanel fromUser={true} />,
+            loader: propertiesContacted,
+            element: <PropertiesContacted />,
           },
         ],
-      },
-      {
-        path: "/draft",
-        element: <Draft />,
       },
     ],
   },

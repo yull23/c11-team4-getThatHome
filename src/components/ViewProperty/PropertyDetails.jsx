@@ -19,7 +19,7 @@ export default function PropertyDetails() {
       <HeaderProperty />
       <EnviorementsProperty />
       <AboutProperty />
-      <LocationProperty />
+      {/* <LocationProperty /> */}
     </ContainerPrimary>
   );
 }

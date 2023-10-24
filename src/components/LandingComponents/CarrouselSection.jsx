@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Card } from "./Card/Card";
-import { useContext } from "react";
-import { UserContext } from "../pages/Home";
+import { Card } from "../Card/Card";
+import { ContainerContent } from "../Containers/ContainersDiv";
+import { useLoaderData } from "react-router-dom";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,20 +37,22 @@ const Header = styled.div`
 `;
 
 function CarrouselSection() {
-  const { bestProperties } = useContext(UserContext);
+  const bestProperties = useLoaderData();
   return (
-    <Container>
-      <Header>
-        <h2>Find an Apartment you Love</h2>
-        <h3>Homes for rent at the best prices</h3>
-      </Header>
+    <ContainerContent>
+      <Container>
+        <Header>
+          <h2>Find an Apartment you Love</h2>
+          <h3>Homes for rent at the best prices</h3>
+        </Header>
 
-      <CardContainer>
-        <Card data={bestProperties[0]} role="customer" />
-        <Card data={bestProperties[1]} role="customer" />
-        <Card data={bestProperties[2]} role="customer" />
-      </CardContainer>
-    </Container>
+        <CardContainer>
+          <Card data={bestProperties[0]} fromUser={true} />
+          <Card data={bestProperties[1]} fromUser={true} />
+          <Card data={bestProperties[2]} fromUser={true} />
+        </CardContainer>
+      </Container>
+    </ContainerContent>
   );
 }
 

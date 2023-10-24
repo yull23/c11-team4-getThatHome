@@ -1,15 +1,16 @@
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import CardList from "../CardList/CardList";
-// import { useLocation } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../../pages/Home";
+import { createContext, useState } from "react";
+import PaginatorCards from "./CardList/PaginatorCards";
+import CardList from "./CardList/CardList";
 
 const Container = styled.div`
   width: 100%;
+  min-height: 100%;
+
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 const TextRegular = styled.p`
@@ -22,20 +23,38 @@ const TextRegular = styled.p`
   letter-spacing: 0.15px;
 `;
 
-export default function CardPanel({ fromUser }) {
-  const { cardsUser, cards } = useContext(UserContext);
-  // const location = useLocation();
-  // const currentPath = location.pathname.split("/").slice(-1)[0];
-  const cardsRender = fromUser ? cardsUser : cards;
+export const CardsContext = createContext(null);
+
+export default function CardPanel({ fromUser, cards }) {
+  const [pageCurrent, setPageCurrent] = useState("1");
+  const n = 9;
+
+  const pages = {};
+  const numPages = Math.ceil(cards.length / n);
+
+  for (let i = 0; i < numPages; i++) {
+    pages[i + 1] = cards.slice(n * i, n * i + n);
+  }
 
   return (
-    <Container>
-      <TextRegular>{cardsRender.length} Properties found</TextRegular>
-      <CardList cards={cardsRender} />
-    </Container>
+    <CardsContext.Provider
+      value={{
+        fromUser,
+        pages,
+        pageCurrent,
+        setPageCurrent,
+      }}
+    >
+      <Container>
+        <TextRegular>{cards.length} Properties found</TextRegular>
+        <CardList />
+        <PaginatorCards />
+      </Container>
+    </CardsContext.Provider>
   );
 }
 
 CardPanel.propTypes = {
   fromUser: PropTypes.bool,
+  cards: PropTypes.array,
 };
