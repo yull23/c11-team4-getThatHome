@@ -9,7 +9,6 @@ export const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  // Getting the current user
   useEffect(() => {
     getUser()
       .then((user) => setUser(user))
@@ -20,10 +19,9 @@ export function AuthProvider({ children }) {
     users
       .login(credentials)
       .then((user) => {
-        console.log(user);
         setUser(user);
         sessionStorage.setItem(tokenKey, user.token);
-        console.log(user);
+        localStorage.setItem("role", user.role_id);
       })
       .catch((error) => {
         console.log(error);
@@ -32,15 +30,16 @@ export function AuthProvider({ children }) {
   }
   function logout() {
     users.logout().then((response) => {
-      console.log(response);
       sessionStorage.removeItem(tokenKey);
+      localStorage.removeItem("role");
+
       setUser(null);
     });
   }
   function signup(credentials) {
     users.signup(credentials).then((user) => {
-      console.log("Signup", user);
       sessionStorage.setItem(tokenKey, user.token);
+      localStorage.setItem("role", user.role_id);
       setUser(user);
     });
   }

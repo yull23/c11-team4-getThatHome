@@ -26,22 +26,19 @@ const Container = styled.nav`
 `;
 
 export default function NavBarProperty() {
+  const role = localStorage.getItem("role");
   const { user } = useAuth();
 
   const allActions = {
     1: ["active", "closed"],
     2: ["favorites", "contacted"],
   };
-  const actions = allActions[user.role_id];
+  const actions = allActions[role];
 
   return (
     <Container>
       {actions.map((action, index) => (
-        <NavLink
-          to={`/profile/${action}`}
-          key={index}
-          state={{ role: user.role_id }}
-        >
+        <NavLink to={`/profile/${action}`} key={index} state={{ role: role }}>
           {({ isActive }) => {
             return <p className={isActive ? "" : "desactive"}>{action}</p>;
           }}

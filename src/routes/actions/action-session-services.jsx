@@ -5,9 +5,7 @@ import apiFetch from "../../services/api-fetch/api-fetch";
 export async function actionLogin({ request }) {
   const formData = await request.formData();
   const credentials = Object.fromEntries(formData);
-  console.log(credentials);
   const response = await apiFetch("login", { body: credentials });
-  console.log(response);
   if (response.error) {
     // Muestra el mensaje de error en función del objeto de error
     // Por ejemplo:
