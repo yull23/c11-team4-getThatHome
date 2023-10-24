@@ -73,15 +73,12 @@ export default function SignupPage() {
   const { signup } = useAuth();
   const navigate = useNavigate();
 
-  console.log("role", state);
-
   function handleSignup(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const credentials = Object.fromEntries(formData);
     credentials.role_id = state.role;
     if (credentials.password_digest === credentials.password_confirmation) {
-      console.log(credentials);
       signup(credentials);
       navigate("/");
     } else {

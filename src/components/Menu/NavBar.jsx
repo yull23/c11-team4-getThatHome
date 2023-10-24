@@ -69,6 +69,7 @@ function ErrorFallback({ error }) {
 
 export default function NavBar() {
   const { user, logout } = useAuth();
+  const role = localStorage.getItem("role");
 
   const navigate = useNavigate();
 
@@ -123,7 +124,7 @@ export default function NavBar() {
                     LOGOUT
                   </button>
                 </Form>
-                {user.role_id == 1 ? (
+                {role == 1 ? (
                   <Link to="/profile/active" state={{ role: 1 }}>
                     <Button
                       type="primary"

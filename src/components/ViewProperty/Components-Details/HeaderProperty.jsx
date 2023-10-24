@@ -6,14 +6,16 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 export default function HeaderProperty() {
   const { property } = useContext(ShowPropertyContext);
-  // const address = property.address.split(", ");
+  const address = property.name.split(", ");
   return (
     <div className="property__header">
       <ContainerColumn>
-        <p className="property__direction">
-          {"Francisco de Paula Ugarriza 27"}
+        <p className="property__direction">{address[0]}</p>
+        <p className="property__place">
+          {address.slice(1, address.length)
+            ? address.slice(1, address.length).join(", ")
+            : ""}
         </p>
-        <p className="property__place">{"Miraflores, Lima"}</p>
       </ContainerColumn>
 
       <ContainerColumn className="property__price-container">

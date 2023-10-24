@@ -23,6 +23,7 @@ import {
   propertiesContacted,
   showProperty,
 } from "../services/properties-services";
+import { ProfilePage } from "../pages/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
+        //path: "/profile",
         element: <ProfilePropertiesPage />,
         children: [
           {

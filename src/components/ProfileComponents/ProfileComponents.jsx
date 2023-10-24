@@ -11,7 +11,6 @@ export function PropertiesContacted() {
 }
 export function PropertiesActive() {
   const cards = useLoaderData();
-  console.log(cards);
   const cardsActive = cards.filter((card) => card.active);
   return <CardPanel fromUser={false} cards={cardsActive} />;
 }

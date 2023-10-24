@@ -23,7 +23,7 @@ export default function CardList() {
   return (
     <ContainerPrimary>
       <ContainerCardList>
-        {pages[pageCurrent].map((card, id) => (
+        {pages[pageCurrent]?.map((card, id) => (
           <Card key={id} data={card} fromUser={fromUser} />
         ))}
       </ContainerCardList>
