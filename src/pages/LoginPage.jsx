@@ -79,7 +79,7 @@ export default function LoginPage() {
         await login(formData);
         navigate("/");
       } catch (error) {
-        // Maneja los errores de inicio de sesión, muestra un mensaje de error, etc.
+        
         console.error("Error de inicio de sesión:", error);
       }
     } else {
