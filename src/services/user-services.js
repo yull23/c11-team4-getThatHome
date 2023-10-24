@@ -1,5 +1,4 @@
 import apiFetch from "./api-fetch/api-fetch";
-import { tokenKey } from "./api-fetch/config";
 
 export function getUser() {
   return apiFetch("/profile").then((response) => {

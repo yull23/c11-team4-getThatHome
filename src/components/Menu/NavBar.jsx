@@ -8,8 +8,6 @@ import "./navbar.css";
 import { RiUserAddLine } from "react-icons/ri";
 import { AiFillHeart } from "react-icons/ai";
 import { TbHome2 } from "react-icons/tb";
-import { useContext } from "react";
-import { UserContext } from "../../pages/Home";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { ContainerContent } from "../Containers/ContainersDiv";
 import { useAuth } from "../../context/useAuth";
@@ -127,10 +125,12 @@ export default function NavBar() {
                     </Button>
                   </Link>
                 )}
-                <Button type="primary" size="default">
-                  <BiUser />
-                  PROFILE
-                </Button>
+                <Link to="/profile">
+                  <Button type="primary" size="default">
+                    <BiUser />
+                    PROFILE
+                  </Button>
+                </Link>
               </>
             )}
           </ContainerActions>
