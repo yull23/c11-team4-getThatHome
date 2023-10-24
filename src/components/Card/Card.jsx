@@ -65,6 +65,7 @@ export function Card({ data, fromUser }) {
       </div>
     );
   };
+  console.log(data);
 
   return (
     <div className="card">
