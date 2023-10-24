@@ -41,6 +41,10 @@ export default function NewPropertyPage() {
   );
 }
 
+// Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus neque debitis sit architecto corporis, similique laborum, deleniti cumque porro aut itaque eligendi non ratione eveniet perspiciatis ut dignissimos voluptatibus at.
+
+// egy5d694;
+
 // export default function ProfilePropertiesPage() {
 //   const { user } = useContext(UserContext);
 //   const role = localStorage.getItem("role");

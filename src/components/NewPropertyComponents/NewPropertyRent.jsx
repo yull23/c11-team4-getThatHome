@@ -5,6 +5,9 @@ import LabelContainer from "./Components/LabelContainer";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import CheckBoxProperty from "./Components/Checkbox";
 import RatioPropType from "./Components/RatioPropType";
+import AboutProperty from "./Components/AboutProperty";
+import SelectOption from "./Components/SelectOption";
+import { ContainerRow } from "../Containers/ContainersDiv";
 
 export default function NewPropertyRent() {
   function handleLogin(e) {
@@ -13,33 +16,64 @@ export default function NewPropertyRent() {
     const credentials = Object.fromEntries(formData);
     console.log(credentials);
   }
+
   return (
-    <Form onSubmit={handleLogin}>
-      <LabelContainer
-        maxWidth="37.5rem"
-        name="address"
-        content="address"
-        placeholder="Start typinh to autocomplete"
-        icon={<BiSearch size="1.25rem" color="#8E8E8E" />}
-      />
-      <LabelContainer
-        maxWidth="37.5rem"
-        name="price"
-        content="montly rent"
-        placeholder="2000"
-        icon={<RiMoneyDollarCircleLine size="1.25rem" color="#8E8E8E" />}
-      />
-      <LabelContainer
-        maxWidth="37.5rem"
-        name="maintenance"
-        content="Maintanance"
-        placeholder="100"
-        icon={<RiMoneyDollarCircleLine size="1.25rem" color="#8E8E8E" />}
-      />
-      <RatioPropType />
-      <CheckBoxProperty />
-      <button>Create </button>
-    </Form>
+    <>
+      <Form onSubmit={handleLogin}>
+        <LabelContainer
+          maxWidth="37.5rem"
+          name="address"
+          content="address"
+          placeholder="Start typinh to autocomplete"
+          icon={<BiSearch size="1.25rem" color="#8E8E8E" />}
+        />
+        <LabelContainer
+          maxWidth="37.5rem"
+          name="price"
+          content="montly rent"
+          placeholder="2000"
+          inputType="number"
+          icon={<RiMoneyDollarCircleLine size="1.25rem" color="#8E8E8E" />}
+        />
+        <LabelContainer
+          maxWidth="37.5rem"
+          name="maintenance"
+          content="Maintanance"
+          placeholder="100"
+          inputType="number"
+          icon={<RiMoneyDollarCircleLine size="1.25rem" color="#8E8E8E" />}
+        />
+        <RatioPropType />
+        <ContainerRow gap="1rem">
+          <LabelContainer
+            maxWidth="7.5rem"
+            name="bedrooms"
+            content="bedrooms"
+            placeholder="##"
+            inputType="number"
+          />
+          <LabelContainer
+            maxWidth="7.5rem"
+            name="bathrooms"
+            content="bathrooms"
+            placeholder="##"
+            inputType="number"
+          />
+          <LabelContainer
+            maxWidth="7.5rem"
+            name="area"
+            content="area in m2"
+            placeholder="##"
+            inputType="number"
+            step="0.01"
+          />
+        </ContainerRow>
+
+        <CheckBoxProperty />
+        <AboutProperty />
+        <button>Create </button>
+      </Form>
+    </>
   );
 }
 

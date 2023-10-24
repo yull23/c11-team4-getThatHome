@@ -1,15 +1,7 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 import imgCheck from "./checkbox.svg";
 
 export default function CheckBoxProperty() {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-  console.log(isChecked);
-
   const ContainerPrimary = styled.div`
     display: flex;
     flex-direction: column;
@@ -60,21 +52,12 @@ export default function CheckBoxProperty() {
       background-position-x: center;
       background-size: cover;
     }
-
-    input::before {
-    }
   `;
 
   return (
     <ContainerPrimary>
       <Container>
-        <input
-          type="checkbox"
-          id="singleOption"
-          name="pets_allowed"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-        />
+        <input type="checkbox" id="singleOption" name="pets_allowed" />
         <label htmlFor="singleOption">Pets Allowed</label>
       </Container>
       <p>

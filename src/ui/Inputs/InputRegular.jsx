@@ -34,12 +34,18 @@ export default function InputRegular({
   inputType,
   name,
   children,
+  step,
   ...props
 }) {
   return (
     <Container {...props}>
       {children}
-      <ContainerInput type={inputType} placeholder={placeholder} name={name} />
+      <ContainerInput
+        type={inputType}
+        placeholder={placeholder}
+        name={name}
+        step={step}
+      />
     </Container>
   );
 }

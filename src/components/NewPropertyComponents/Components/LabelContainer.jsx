@@ -9,6 +9,8 @@ export default function LabelContainer({
   icon,
   content,
   placeholder,
+  inputType,
+  step,
 }) {
   const ContainerLabel = styled.div`
     display: flex;
@@ -29,7 +31,13 @@ export default function LabelContainer({
   return (
     <ContainerLabel>
       <label htmlFor={name}>{content}</label>
-      <InputRegular placeholder={placeholder} maxWidth={maxWidth} name={name}>
+      <InputRegular
+        placeholder={placeholder}
+        maxWidth={maxWidth}
+        name={name}
+        inputType={inputType}
+        step={step}
+      >
         {icon}
       </InputRegular>
     </ContainerLabel>
@@ -42,4 +50,6 @@ LabelContainer.propTypes = {
   placeholder: PropTypes.string,
   content: PropTypes.string,
   icon: PropTypes.node,
+  inputType: PropTypes.string,
+  step: PropTypes.string,
 };
