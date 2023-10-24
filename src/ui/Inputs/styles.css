@@ -1,0 +1,66 @@
+.input-search-home__label {
+  color: var(--Gray, #616161);
+  padding-left: 0.5rem;
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem; /* 160% */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.input-search-home__select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 0.5rem;
+  background: url("../../assets/images/arrow-down.svg") no-repeat right center;
+
+  color: var(--DarkGray, #373737);
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  margin: 0;
+  border: none;
+  padding: 0;
+  width: 10rem;
+}
+
+.input-search-home__select::dropdown-list {
+  /* Agrega tus estilos personalizados aquí */
+  background-color: lightgray;
+  border-radius: none;
+  border: 1px solid gray;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.input-search-home__option {
+  color: var(--DarkGray, #373737);
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  margin: 0;
+  border: none;
+  padding: 0;
+  width: 10rem;
+}
+
+.input-search-home__input {
+  color: var(--DarkGray, #373737);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  border: none;
+}
