@@ -23,8 +23,10 @@ import {
   showProperty,
 } from "../services/properties-services";
 import { ProfilePage } from "../pages/ProfilePage";
+
 import NewPropertyRent from "../components/NewPropertyComponents/NewPropertyRent";
 import NewPropertySale from "../components/NewPropertyComponents/NewPropertySale";
+import { loaderProfile } from "./functions/loader-profile";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +77,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
+        loader: loaderProfile,
         element: <ProfilePage />,
       },
       {
