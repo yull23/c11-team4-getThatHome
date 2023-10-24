@@ -5,7 +5,8 @@ import 'react-under-construction/build/css/index.css';
 const App = () => (
   <UnderConstruction
     background={{
-      image: 'https://s3-us-west-2.amazonaws.com/joinnus.com/user/762082/act5c142179eb1d2.jpg',
+      image: 'https://stbonifacevets.co.uk/sites/stbonifacevets.co.uk/files/userfiles/website-construction-graphic-4.jpg',
+      // image: 'https://s3-us-west-2.amazonaws.com/joinnus.com/user/762082/act5c142179eb1d2.jpg',
       textColor: '#fff',
       overlay: {
         color: '#000',
