@@ -8,6 +8,7 @@ import ShowPropertyPage from "../pages/ShowPropertyPage";
 import Home from "../pages/Home";
 import ProfilePropertiesPage from "../pages/ProfilePropertiesPage";
 import SignupHomePage from "../pages/SignupHomePage";
+import ErrorPage from "../pages/ErrorPage";
 import {
   PropertiesActive,
   PropertiesClosed,
@@ -25,9 +26,9 @@ import {
 
 const router = createBrowserRouter([
   {
-    errorElement: <div>Error</div>,
+    errorElement: <ErrorPage/>,
     path: "/",
-    element: <Home />,
+    element: <Home/>,
     children: [
       {
         index: true,
@@ -79,7 +80,7 @@ const router = createBrowserRouter([
           {
             path: "/profile/favorites",
             loader: favoriteProperties,
-            element: <PropertiesFavorites />,
+            element: <ErrorPage/>,
           },
           {
             path: "/profile/contacted",

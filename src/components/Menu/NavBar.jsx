@@ -8,11 +8,10 @@ import "./navbar.css";
 import { RiUserAddLine } from "react-icons/ri";
 import { AiFillHeart } from "react-icons/ai";
 import { TbHome2 } from "react-icons/tb";
-import { useContext } from "react";
-import { UserContext } from "../../pages/Home";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { ContainerContent } from "../Containers/ContainersDiv";
 import { useAuth } from "../../context/useAuth";
+import { ErrorBoundary } from "react-error-boundary";
 
 const ContainerPrimary = styled.div`
   position: relative;
@@ -53,6 +52,21 @@ const ContainerActions = styled.div`
   padding: 0;
 `;
 
+function ErrorFallback({ error }) {
+  return (
+    <div className="px-4 py-2 m-4">
+      <h1 className="mt-2 font-bold text-lg mb-1">Página en construccion:</h1>
+      <p> {error.message} </p>
+      <button
+        className="px-4 py-2 rounded bg-blue-800 hover:bg-blue-700 active:outline text-sm"
+        onClick={() => (window.location.href = "/")}
+      >
+        Recargar la página{" "}
+      </button>
+    </div>
+  );
+}
+
 export default function NavBar() {
   const { user, logout } = useAuth();
 
@@ -65,12 +79,14 @@ export default function NavBar() {
 
   return (
     <ContainerPrimary>
+       <ErrorBoundary FallbackComponent={ErrorFallback}>
       <ContainerContent>
         <ContainerSecundary>
           <Link to="/">
             <img src={logoHome} alt="logo-home" className="navbar" />
           </Link>
           <ContainerActions>
+         
             <Link to="/properties">
               <button className="button-find__container">
                 <div className="button-find__container-button">
@@ -119,6 +135,7 @@ export default function NavBar() {
                     </Button>
                   </Link>
                 ) : (
+               
                   <Link to="/profile/favorites" state={{ role: 2 }}>
                     <Button type="primary" size="default">
                       <AiFillHeart />
@@ -135,6 +152,7 @@ export default function NavBar() {
           </ContainerActions>
         </ContainerSecundary>
       </ContainerContent>
+      </ErrorBoundary>
     </ContainerPrimary>
   );
 }

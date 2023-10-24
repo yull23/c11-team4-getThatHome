@@ -7,6 +7,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 import Button from "../../ui/Button";
 import abc from "./logo.svg";
 import styled from "@emotion/styled";
+import { ErrorBoundary } from "react-error-boundary";
 const Container = styled.div`
   padding: 16px 32px;
   display: flex;
@@ -69,10 +70,12 @@ export function Menu() {
           <BiLogOutCircle />
           LOGOUT
         </Button>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Button type="primary" size="small">
           <AiFillHeart />
           SAVED PROPERTIES
         </Button>
+        </ErrorBoundary>
         <Button type="primary" size="small">
           <BiUser />
           PROFILE
